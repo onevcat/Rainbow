@@ -65,7 +65,11 @@ struct Rainbow {
     }
     
     static func generateStringWithCodes(codes: [ModeCode], text: String) -> String {
-        return "\(ControlCode.CSI)\(codes.map{String($0.value)}.joinWithSeparator(";"))m\(text)\(ControlCode.CSI)0m"
+        if codes.isEmpty {
+            return text
+        } else {
+            return "\(ControlCode.CSI)\(codes.map{String($0.value)}.joinWithSeparator(";"))m\(text)\(ControlCode.CSI)0m"
+        }
     }
 }
 
