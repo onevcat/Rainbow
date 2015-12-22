@@ -15,6 +15,8 @@
 		4BC821811C29254C00F68E70 /* Rainbow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC821761C29254C00F68E70 /* Rainbow.framework */; };
 		4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8219F1C29276C00F68E70 /* RainbowTests.swift */; };
 		4BC821AB1C2928CF00F68E70 /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1A98FAF1C299D64000DDF20 /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
+		D1A98FB11C299DF0000DDF20 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FB01C299DF0000DDF20 /* StringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		4BC8219E1C29276C00F68E70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		4BC8219F1C29276C00F68E70 /* RainbowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RainbowTests.swift; path = Tests/RainbowTests.swift; sourceTree = SOURCE_ROOT; };
 		4BC821AA1C2928CF00F68E70 /* Rainbow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rainbow.h; sourceTree = "<group>"; };
+		D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Rainbow.swift"; sourceTree = "<group>"; };
+		D1A98FB01C299DF0000DDF20 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringTests.swift; path = Tests/StringTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 			children = (
 				4BC8219E1C29276C00F68E70 /* Info.plist */,
 				4BC8219F1C29276C00F68E70 /* RainbowTests.swift */,
+				D1A98FB01C299DF0000DDF20 /* StringTests.swift */,
 			);
 			name = Tests;
 			path = RainbowTests;
@@ -106,6 +111,7 @@
 				4BC026EE1C292F70009FD2FD /* Style.swift */,
 				4BC026EA1C292B25009FD2FD /* ControlCode.swift */,
 				4BC821AA1C2928CF00F68E70 /* Rainbow.h */,
+				D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -221,6 +227,7 @@
 				4BC026EB1C292B25009FD2FD /* ControlCode.swift in Sources */,
 				4BC026ED1C292F5C009FD2FD /* BackgroundColor.swift in Sources */,
 				4BC026E91C2929E7009FD2FD /* Color.swift in Sources */,
+				D1A98FAF1C299D64000DDF20 /* String+Rainbow.swift in Sources */,
 				4BA75FAA1C2939EC00B1037A /* Rainbow.swift in Sources */,
 				4BC026EF1C292F70009FD2FD /* Style.swift in Sources */,
 			);
@@ -230,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1A98FB11C299DF0000DDF20 /* StringTests.swift in Sources */,
 				4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

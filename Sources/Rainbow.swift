@@ -27,7 +27,7 @@ struct Rainbow {
             let startIndex = index.successor()
             let endIndex = string.endIndex.advancedBy(-"\(token)0m".characters.count)
             let text = String(string.characters[startIndex ..< endIndex])
-            
+
             return (codes, text)
         } else {
             return ([], string)
@@ -71,103 +71,4 @@ struct Rainbow {
             return "\(ControlCode.CSI)\(codes.map{String($0.value)}.joinWithSeparator(";"))m\(text)\(ControlCode.CSI)0m"
         }
     }
-}
-
-extension String {
-    public func stringByApplyingColor(color: Color) -> String {
-        return stringByApplying(color)
-    }
-    
-    public func stringByRemovingColor() -> String {
-        guard let _ = Rainbow.extractModesForString(self).color else {
-            return self
-        }
-        return stringByApplyingColor(.Default)
-    }
-    
-    public func stringByApplyingBackgroundColor(color: BackgroundColor) -> String {
-        return stringByApplying(color)
-    }
-    
-    public func stringByRemovingBackgroundColor(color: BackgroundColor) -> String {
-        guard let _ = Rainbow.extractModesForString(self).backgroundColor else {
-            return self
-        }
-        return stringByApplyingBackgroundColor(.Default)
-    }
-    
-    public func stringByApplyingStyle(style: Style) -> String {
-        return stringByApplying(style)
-    }
-    
-    public func stringByRemovingStyle(style: Style) -> String {
-        let current = Rainbow.extractModesForString(self)
-        if let styles = current.styles {
-            var s = styles
-            var index = s.indexOf(style)
-            while index != nil {
-                s.removeAtIndex(index!)
-                index = s.indexOf(style)
-            }
-            
-            var codes = [ModeCode]()
-            
-            if let color = current.color {
-                codes.append(color)
-            }
-            if let backgroundColor = current.backgroundColor {
-                codes.append(backgroundColor)
-            }
-            codes += s.map{$0 as ModeCode}
-            
-            return Rainbow.generateStringWithCodes(codes, text: current.text)
-        } else {
-            return self
-        }
-    }
-    
-    public func stringByApplying(codes: ModeCode...) -> String {
-        
-        let current = Rainbow.extractModesForString(self)
-        let input = Rainbow.formatModeCodes( codes.map{ $0.value } )
-        
-        var codes = [ModeCode]()
-        
-        if let color = input.color {
-            codes.append(color)
-        } else if let color = current.color {
-            codes.append(color)
-        }
-        
-        if let backgroundColor = input.backgroundColor {
-            codes.append(backgroundColor)
-        } else if let backgroundColor = current.backgroundColor {
-            codes.append(backgroundColor)
-        }
-        
-        if let styles = current.styles {
-            codes += styles.map{$0 as ModeCode}
-        }
-        
-        if let styles = input.styles {
-            codes += styles.map{$0 as ModeCode}
-        }
-        
-        if codes.isEmpty {
-            return self
-        } else {
-            return Rainbow.generateStringWithCodes(codes, text: current.text)
-        }
-    }
-}
-
-extension String {
-    public var black: String {
-        return stringByApplyingColor(.Black)
-    }
-    
-    public var red: String {
-        return stringByApplyingColor(.Red)
-    }
-    
 }
