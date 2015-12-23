@@ -21,34 +21,6 @@ class RainbowTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExtractModeCodesNotMatch() {
-        let result1 = Rainbow.extractModeCodesForString("abc")
-        XCTAssertEqual(result1.codes, [])
-        XCTAssertEqual(result1.text, "abc")
-        
-        let result2 = Rainbow.extractModeCodesForString("\u{001B}[0mHello\u{001B}")
-        XCTAssertEqual(result2.codes, [])
-        XCTAssertEqual(result2.text, "\u{001B}[0mHello\u{001B}")
-    }
-    
-    func testExtractModeCodes() {
-        let result1 = Rainbow.extractModeCodesForString("\u{001B}[0m\u{001B}[0m")
-        XCTAssertEqual(result1.codes, [0])
-        XCTAssertEqual(result1.text, "")
-        
-        let result2 = Rainbow.extractModeCodesForString("\u{001B}[31mHello World\u{001B}[0m")
-        XCTAssertEqual(result2.codes, [31])
-        XCTAssertEqual(result2.text, "Hello World")
-        
-        let result3 = Rainbow.extractModeCodesForString("\u{001B}[4;31;93mHello World\u{001B}[0m")
-        XCTAssertEqual(result3.codes, [4,31,93])
-        XCTAssertEqual(result3.text, "Hello World")
-        
-        let result4 = Rainbow.extractModeCodesForString("\u{001B}[31m\u{001B}[4;31;93mHello World\u{001B}[0m\u{001B}[0m")
-        XCTAssertEqual(result4.codes, [31])
-        XCTAssertEqual(result4.text, "\u{001B}[4;31;93mHello World\u{001B}[0m")
-    }
-    
     func testExtractModesNotMatch() {
         let result1 = Rainbow.extractModesForString("abc")
         XCTAssertNil(result1.color)

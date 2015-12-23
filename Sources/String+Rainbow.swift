@@ -62,7 +62,7 @@ extension String {
     public func stringByApplying(codes: ModeCode...) -> String {
         
         let current = Rainbow.extractModesForString(self)
-        let input = Rainbow.formatModeCodes( codes.map{ $0.value } )
+        let input = ConsoleCodesParser().parseModeCodes( codes.map{ $0.value } )
         
         let color = input.color ?? current.color
         let backgroundColor = input.backgroundColor ?? current.backgroundColor
