@@ -33,23 +33,26 @@ struct ConsoleStringGenerator: StringGenerator {
 
 struct XcodeColorsStringGenerator: StringGenerator {
     func generateStringColor(color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String {
-        let hasAttributes = color != nil || backgroundColor != nil
-        if hasAttributes {
-            var result = ""
-            if let color = color where color != .Default {
-                result += "\(ControlCode.CSI)\(color.xcodeColorsDescription);"
-            }
-            
-            if let backgroundColor = backgroundColor where backgroundColor != .Default {
-                result += "\(ControlCode.CSI)\(backgroundColor.xcodeColorsDescription);"
-            }
-            
-            result += text
-            result += "\(ControlCode.CSI);"
-            
-            return result
-        } else {
-            return text
+        
+        var result = ""
+        var added = false
+        
+        if let color = color where color != .Default {
+            result += "\(ControlCode.CSI)\(color.xcodeColorsDescription);"
+            added = true
         }
+        
+        if let backgroundColor = backgroundColor where backgroundColor != .Default {
+            result += "\(ControlCode.CSI)\(backgroundColor.xcodeColorsDescription);"
+            added = true
+        }
+        
+        result += text
+        
+        if added {
+            result += "\(ControlCode.CSI);"
+        }
+
+        return result
     }
 }

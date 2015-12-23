@@ -22,6 +22,7 @@
 		D1C5D8DC1C2ACA1D001CB619 /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
 		D1C5D8DE1C2ACA7A001CB619 /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
 		D1C5D8E01C2AD38A001CB619 /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
+		D1C5D8E21C2ADFA7001CB619 /* XcodeColorsStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8E11C2ADFA7001CB619 /* XcodeColorsStringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesParser.swift; sourceTree = "<group>"; };
 		D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModesExtractor.swift; sourceTree = "<group>"; };
 		D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringGenerator.swift; sourceTree = "<group>"; };
+		D1C5D8E11C2ADFA7001CB619 /* XcodeColorsStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XcodeColorsStringTests.swift; path = Tests/XcodeColorsStringTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				4BC8219E1C29276C00F68E70 /* Info.plist */,
 				4BC8219F1C29276C00F68E70 /* RainbowTests.swift */,
 				D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */,
+				D1C5D8E11C2ADFA7001CB619 /* XcodeColorsStringTests.swift */,
 			);
 			name = Tests;
 			path = RainbowTests;
@@ -259,6 +262,7 @@
 			files = (
 				D1A98FB11C299DF0000DDF20 /* ConsoleStringTests.swift in Sources */,
 				4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */,
+				D1C5D8E21C2ADFA7001CB619 /* XcodeColorsStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
