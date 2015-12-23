@@ -15,6 +15,7 @@
 		4BC821811C29254C00F68E70 /* Rainbow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC821761C29254C00F68E70 /* Rainbow.framework */; };
 		4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8219F1C29276C00F68E70 /* RainbowTests.swift */; };
 		4BC821AB1C2928CF00F68E70 /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D11AECD31C2A796E00014175 /* XcodeColorsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */; };
 		D16B37C41C2A2F76001A5D35 /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
 		D1A98FAF1C299D64000DDF20 /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
 		D1A98FB11C299DF0000DDF20 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FB01C299DF0000DDF20 /* StringTests.swift */; };
@@ -42,6 +43,7 @@
 		4BC8219E1C29276C00F68E70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		4BC8219F1C29276C00F68E70 /* RainbowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RainbowTests.swift; path = Tests/RainbowTests.swift; sourceTree = SOURCE_ROOT; };
 		4BC821AA1C2928CF00F68E70 /* Rainbow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rainbow.h; sourceTree = "<group>"; };
+		D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsSupport.swift; sourceTree = "<group>"; };
 		D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputTarget.swift; sourceTree = "<group>"; };
 		D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Rainbow.swift"; sourceTree = "<group>"; };
 		D1A98FB01C299DF0000DDF20 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringTests.swift; path = Tests/StringTests.swift; sourceTree = SOURCE_ROOT; };
@@ -115,6 +117,7 @@
 				4BC821AA1C2928CF00F68E70 /* Rainbow.h */,
 				D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */,
 				D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */,
+				D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				4BC026E91C2929E7009FD2FD /* Color.swift in Sources */,
 				D1A98FAF1C299D64000DDF20 /* String+Rainbow.swift in Sources */,
 				D16B37C41C2A2F76001A5D35 /* OutputTarget.swift in Sources */,
+				D11AECD31C2A796E00014175 /* XcodeColorsSupport.swift in Sources */,
 				4BA75FAA1C2939EC00B1037A /* Rainbow.swift in Sources */,
 				4BC026EF1C292F70009FD2FD /* Style.swift in Sources */,
 			);

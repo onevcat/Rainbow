@@ -27,6 +27,7 @@ extension String {
         guard let _ = Rainbow.extractModesForString(self).backgroundColor else {
             return self
         }
+
         return stringByApplyingBackgroundColor(.Default)
     }
     
@@ -43,17 +44,9 @@ extension String {
                 s.removeAtIndex(index!)
                 index = s.indexOf(style)
             }
-            
-            var codes = [ModeCode]()
-            if let color = current.color {
-                codes.append(color)
-            }
-            if let backgroundColor = current.backgroundColor {
-                codes.append(backgroundColor)
-            }
-            codes += s.map{$0 as ModeCode}
-            
-            return Rainbow.generateConsoleStringWithCodes(codes, text: current.text)
+            return Rainbow.generateStringForTarget(Rainbow.outputTarget,
+                color: current.color, backgroundColor: current.backgroundColor,
+                styles: s, text: current.text)
         } else {
             return self
         }
@@ -61,18 +54,9 @@ extension String {
     
     public func stringByRemovingAllStyles() -> String {
         let current = Rainbow.extractModesForString(self)
-        if let _ = current.styles {
-            var codes = [ModeCode]()
-            if let color = current.color {
-                codes.append(color)
-            }
-            if let backgroundColor = current.backgroundColor {
-                codes.append(backgroundColor)
-            }
-            return Rainbow.generateConsoleStringWithCodes(codes, text: current.text)
-        } else {
-            return self
-        }
+        return Rainbow.generateStringForTarget(Rainbow.outputTarget,
+            color: current.color, backgroundColor: current.backgroundColor,
+            styles: nil, text: current.text)
     }
     
     public func stringByApplying(codes: ModeCode...) -> String {
@@ -80,32 +64,24 @@ extension String {
         let current = Rainbow.extractModesForString(self)
         let input = Rainbow.formatModeCodes( codes.map{ $0.value } )
         
-        var codes = [ModeCode]()
+        let color = input.color ?? current.color
+        let backgroundColor = input.backgroundColor ?? current.backgroundColor
+        var styles = [Style]()
         
-        if let color = input.color {
-            codes.append(color)
-        } else if let color = current.color {
-            codes.append(color)
+        if let s = current.styles {
+            styles += s
         }
         
-        if let backgroundColor = input.backgroundColor {
-            codes.append(backgroundColor)
-        } else if let backgroundColor = current.backgroundColor {
-            codes.append(backgroundColor)
-        }
-        
-        if let styles = current.styles {
-            codes += styles.map{$0 as ModeCode}
-        }
-        
-        if let styles = input.styles {
-            codes += styles.map{$0 as ModeCode}
+        if let s = input.styles {
+            styles += s
         }
         
         if codes.isEmpty {
             return self
         } else {
-            return Rainbow.generateConsoleStringWithCodes(codes, text: current.text)
+            return Rainbow.generateStringForTarget(Rainbow.outputTarget,
+                color: color, backgroundColor: backgroundColor,
+                styles: styles.isEmpty ? nil : styles, text: current.text)
         }
     }
 }

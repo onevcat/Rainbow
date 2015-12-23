@@ -7,12 +7,14 @@
 //
 
 import XCTest
+import Rainbow
 
 class StringTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        Rainbow.outputTarget = .Console
     }
     
     override func tearDown() {
