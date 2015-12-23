@@ -21,6 +21,7 @@
 		D1A98FB11C299DF0000DDF20 /* ConsoleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */; };
 		D1C5D8DC1C2ACA1D001CB619 /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
 		D1C5D8DE1C2ACA7A001CB619 /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
+		D1C5D8E01C2AD38A001CB619 /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleStringTests.swift; path = Tests/ConsoleStringTests.swift; sourceTree = SOURCE_ROOT; };
 		D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesParser.swift; sourceTree = "<group>"; };
 		D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModesExtractor.swift; sourceTree = "<group>"; };
+		D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +115,10 @@
 		4BC821A91C2928CF00F68E70 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4BA75FA91C2939EC00B1037A /* Rainbow.swift */,
 				D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */,
 				D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */,
+				D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */,
+				4BA75FA91C2939EC00B1037A /* Rainbow.swift */,
 				4BC026E81C2929E7009FD2FD /* Color.swift */,
 				4BC026EC1C292F5C009FD2FD /* BackgroundColor.swift */,
 				4BC026EE1C292F70009FD2FD /* Style.swift */,
@@ -240,6 +243,7 @@
 				4BC026ED1C292F5C009FD2FD /* BackgroundColor.swift in Sources */,
 				4BC026E91C2929E7009FD2FD /* Color.swift in Sources */,
 				D1A98FAF1C299D64000DDF20 /* String+Rainbow.swift in Sources */,
+				D1C5D8E01C2AD38A001CB619 /* StringGenerator.swift in Sources */,
 				D16B37C41C2A2F76001A5D35 /* OutputTarget.swift in Sources */,
 				D1C5D8DC1C2ACA1D001CB619 /* CodesParser.swift in Sources */,
 				D11AECD31C2A796E00014175 /* XcodeColorsSupport.swift in Sources */,

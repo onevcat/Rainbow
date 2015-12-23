@@ -14,6 +14,7 @@ class RainbowTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        Rainbow.outputTarget = .Console
     }
     
     override func tearDown() {
@@ -62,13 +63,13 @@ class RainbowTests: XCTestCase {
     }
     
     func testGenerateStringWithCodes() {
-        let result1 = Rainbow.generateStringForTarget(.Console, color: nil, backgroundColor: nil, styles: nil, text: "Hello")
+        let result1 = Rainbow.generateStringForColor(nil, backgroundColor: nil, styles: nil, text: "Hello")
         XCTAssertEqual(result1, "Hello")
         
-        let result2 = Rainbow.generateStringForTarget(.Console, color: .Red, backgroundColor: nil, styles: nil, text: "Hello")
+        let result2 = Rainbow.generateStringForColor(.Red, backgroundColor: nil, styles: nil, text: "Hello")
         XCTAssertEqual(result2, "\u{001B}[31mHello\u{001B}[0m")
         
-        let result3 = Rainbow.generateStringForTarget(.Console, color: .LightYellow, backgroundColor: .Magenta, styles: [.Bold, .Blink], text: "Hello")
+        let result3 = Rainbow.generateStringForColor(.LightYellow, backgroundColor: .Magenta, styles: [.Bold, .Blink], text: "Hello")
         XCTAssertEqual(result3, "\u{001B}[93;45;1;5mHello\u{001B}[0m")
     }
 }

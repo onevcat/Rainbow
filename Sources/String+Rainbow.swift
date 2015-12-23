@@ -44,9 +44,12 @@ extension String {
                 s.removeAtIndex(index!)
                 index = s.indexOf(style)
             }
-            return Rainbow.generateStringForTarget(Rainbow.outputTarget,
-                color: current.color, backgroundColor: current.backgroundColor,
-                styles: s, text: current.text)
+            return Rainbow.generateStringForColor(
+                current.color,
+                backgroundColor: current.backgroundColor,
+                styles: s,
+                text: current.text
+            )
         } else {
             return self
         }
@@ -54,9 +57,12 @@ extension String {
     
     public func stringByRemovingAllStyles() -> String {
         let current = Rainbow.extractModesForString(self)
-        return Rainbow.generateStringForTarget(Rainbow.outputTarget,
-            color: current.color, backgroundColor: current.backgroundColor,
-            styles: nil, text: current.text)
+        return Rainbow.generateStringForColor(
+            current.color,
+            backgroundColor: current.backgroundColor,
+            styles: nil,
+            text: current.text
+        )
     }
     
     public func stringByApplying(codes: ModeCode...) -> String {
@@ -79,9 +85,12 @@ extension String {
         if codes.isEmpty {
             return self
         } else {
-            return Rainbow.generateStringForTarget(Rainbow.outputTarget,
-                color: color, backgroundColor: backgroundColor,
-                styles: styles.isEmpty ? nil : styles, text: current.text)
+            return Rainbow.generateStringForColor(
+                color,
+                backgroundColor: backgroundColor,
+                styles: styles.isEmpty ? nil : styles,
+                text: current.text
+            )
         }
     }
 }
