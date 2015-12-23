@@ -84,6 +84,5 @@ class StringTests: XCTestCase {
         XCTAssertEqual(string.red.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.bold.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.bold.italic.clearStyles, "Hello Rainbow")
-
     }
 }

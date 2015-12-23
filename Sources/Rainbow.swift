@@ -10,7 +10,9 @@ public protocol ModeCode {
     var value: UInt8 { get }
 }
 
-struct Rainbow {
+public struct Rainbow {
+    
+    public static var outputTarget = OutputTarget.currentOutputTarget
     
     static func extractModeCodesForString(string: String) -> (codes: [UInt8], text: String) {
         let token = ControlCode.CSI
@@ -64,11 +66,15 @@ struct Rainbow {
         return (color, backgroundColor, styles)
     }
     
-    static func generateStringWithCodes(codes: [ModeCode], text: String) -> String {
+    static func generateConsoleStringWithCodes(codes: [ModeCode], text: String) -> String {
         if codes.isEmpty {
             return text
         } else {
             return "\(ControlCode.CSI)\(codes.map{String($0.value)}.joinWithSeparator(";"))m\(text)\(ControlCode.CSI)0m"
         }
+    }
+    
+    static func generateXcodeColorStringWithColor(color: Color?, backgroundColor: BackgroundColor?, text: String) -> String {
+        return ""
     }
 }

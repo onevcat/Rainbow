@@ -45,7 +45,6 @@ extension String {
             }
             
             var codes = [ModeCode]()
-            
             if let color = current.color {
                 codes.append(color)
             }
@@ -54,7 +53,7 @@ extension String {
             }
             codes += s.map{$0 as ModeCode}
             
-            return Rainbow.generateStringWithCodes(codes, text: current.text)
+            return Rainbow.generateConsoleStringWithCodes(codes, text: current.text)
         } else {
             return self
         }
@@ -70,7 +69,7 @@ extension String {
             if let backgroundColor = current.backgroundColor {
                 codes.append(backgroundColor)
             }
-            return Rainbow.generateStringWithCodes(codes, text: current.text)
+            return Rainbow.generateConsoleStringWithCodes(codes, text: current.text)
         } else {
             return self
         }
@@ -106,7 +105,7 @@ extension String {
         if codes.isEmpty {
             return self
         } else {
-            return Rainbow.generateStringWithCodes(codes, text: current.text)
+            return Rainbow.generateConsoleStringWithCodes(codes, text: current.text)
         }
     }
 }

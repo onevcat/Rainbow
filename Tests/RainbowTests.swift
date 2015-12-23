@@ -90,13 +90,13 @@ class RainbowTests: XCTestCase {
     }
     
     func testGenerateStringWithCodes() {
-        let result1 = Rainbow.generateStringWithCodes([], text: "Hello")
+        let result1 = Rainbow.generateConsoleStringWithCodes([], text: "Hello")
         XCTAssertEqual(result1, "Hello")
         
-        let result2 = Rainbow.generateStringWithCodes([Color.Red], text: "Hello")
+        let result2 = Rainbow.generateConsoleStringWithCodes([Color.Red], text: "Hello")
         XCTAssertEqual(result2, "\u{001B}[31mHello\u{001B}[0m")
         
-        let result3 = Rainbow.generateStringWithCodes([Color.Red, BackgroundColor.Magenta, Style.Bold, Color.LightYellow, Style.Blink], text: "Hello")
+        let result3 = Rainbow.generateConsoleStringWithCodes([Color.Red, BackgroundColor.Magenta, Style.Bold, Color.LightYellow, Style.Blink], text: "Hello")
         XCTAssertEqual(result3, "\u{001B}[31;45;1;93;5mHello\u{001B}[0m")
     }
 }
