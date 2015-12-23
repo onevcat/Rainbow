@@ -1,5 +1,5 @@
 //
-//  StringTests.swift
+//  ConsoleStringTests.swift
 //  Rainbow
 //
 //  Created by Wei Wang on 15/12/23.
@@ -9,7 +9,7 @@
 import XCTest
 import Rainbow
 
-class StringTests: XCTestCase {
+class ConsoleStringTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
