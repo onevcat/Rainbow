@@ -51,10 +51,11 @@ struct XcodeColorsModesExtractor: ModesExtractor {
             }
             
             codes.append(codesString)
+            index = index.successor()
             outer = String(string.characters[index])
         }
         
-        let startIndex = index.successor()
+        let startIndex = index
         let endIndex = string.endIndex.advancedBy(-"\(token);".characters.count)
         let text = String(string.characters[startIndex ..< endIndex])
         
