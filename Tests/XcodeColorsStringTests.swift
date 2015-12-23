@@ -15,6 +15,7 @@ class XcodeColorsStringTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         Rainbow.outputTarget = .XcodeColors
+        Rainbow.enabled = true
     }
     
     override func tearDown() {

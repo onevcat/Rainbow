@@ -36,6 +36,11 @@ extension String {
     }
     
     public func stringByRemovingStyle(style: Style) -> String {
+        
+        guard Rainbow.enabled else {
+            return self
+        }
+        
         let current = Rainbow.extractModesForString(self)
         if let styles = current.styles {
             var s = styles
@@ -56,6 +61,11 @@ extension String {
     }
     
     public func stringByRemovingAllStyles() -> String {
+        
+        guard Rainbow.enabled else {
+            return self
+        }
+        
         let current = Rainbow.extractModesForString(self)
         return Rainbow.generateStringForColor(
             current.color,
@@ -66,6 +76,10 @@ extension String {
     }
     
     public func stringByApplying(codes: ModeCode...) -> String {
+        
+        guard Rainbow.enabled else {
+            return self
+        }
         
         let current = Rainbow.extractModesForString(self)
         let input = ConsoleCodesParser().parseModeCodes( codes.map{ $0.value } )

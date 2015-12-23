@@ -13,6 +13,7 @@ public protocol ModeCode {
 public struct Rainbow {
     
     public static var outputTarget = OutputTarget.currentOutputTarget
+    public static var enabled = true
     
     static func extractModesForString(string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
@@ -35,6 +36,10 @@ public struct Rainbow {
                                       styles: [Style]?,
                                         text: String) -> String
     {
+        guard enabled else {
+            return text
+        }
+        
         switch outputTarget {
         case .XcodeColors:
             return XcodeColorsStringGenerator().generateStringColor(color, backgroundColor: backgroundColor, styles: styles, text: text)

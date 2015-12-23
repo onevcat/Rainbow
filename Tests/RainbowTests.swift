@@ -119,4 +119,18 @@ class RainbowTests: XCTestCase {
         let result3 = Rainbow.generateStringForColor(.LightYellow, backgroundColor: .Magenta, styles: [.Bold, .Blink], text: "Hello")
         XCTAssertEqual(result3, "Hello")
     }
+    
+    func testRainbowEnabled() {
+        Rainbow.outputTarget = .Console
+        
+        let result1 = "Hello".red
+        XCTAssertEqual(result1, "\u{001B}[31mHello\u{001B}[0m")
+        
+        Rainbow.enabled = false
+        
+        let result2 = "Hello".red
+        XCTAssertEqual(result2, "Hello")
+
+        Rainbow.enabled = true
+    }
 }
