@@ -16,8 +16,6 @@
 
 <a href="http://cocoadocs.org/docsets/RainbowSwift"><img src="https://img.shields.io/badge/platform-ios%7Cosx%7Cwatchos%7Ctvos%7Clinux-lightgrey.svg"></a>
 
-<img src="https://img.shields.io/badge/made%20with-%3C3-ff0d02.svg">
-
 </p>
 
 `Rainbow` adds text color, background color and style for console and command 
