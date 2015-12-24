@@ -7,6 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B1929151C2BBBE1005B79AB /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B1929191C2BBC98005B79AB /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
+		4B19291A1C2BBC98005B79AB /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
+		4B19291B1C2BBC98005B79AB /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
+		4B19291C1C2BBC98005B79AB /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA75FA91C2939EC00B1037A /* Rainbow.swift */; };
+		4B19291D1C2BBC98005B79AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026E81C2929E7009FD2FD /* Color.swift */; };
+		4B19291E1C2BBC98005B79AB /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EC1C292F5C009FD2FD /* BackgroundColor.swift */; };
+		4B19291F1C2BBC98005B79AB /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EE1C292F70009FD2FD /* Style.swift */; };
+		4B1929201C2BBC98005B79AB /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
+		4B1929211C2BBC98005B79AB /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
+		4B1929221C2BBC98005B79AB /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
+		4B1929231C2BBC98005B79AB /* XcodeColorsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */; };
+		4B1929311C2BBE06005B79AB /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
+		4B1929321C2BBE06005B79AB /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
+		4B1929331C2BBE06005B79AB /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
+		4B1929341C2BBE06005B79AB /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA75FA91C2939EC00B1037A /* Rainbow.swift */; };
+		4B1929351C2BBE06005B79AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026E81C2929E7009FD2FD /* Color.swift */; };
+		4B1929361C2BBE06005B79AB /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EC1C292F5C009FD2FD /* BackgroundColor.swift */; };
+		4B1929371C2BBE06005B79AB /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EE1C292F70009FD2FD /* Style.swift */; };
+		4B1929381C2BBE06005B79AB /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
+		4B1929391C2BBE06005B79AB /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
+		4B19293A1C2BBE06005B79AB /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
+		4B19293B1C2BBE06005B79AB /* XcodeColorsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */; };
+		4B1929581C2BBEED005B79AB /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B1929591C2BBEF5005B79AB /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B19295A1C2BBEFE005B79AB /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
+		4B19295B1C2BBEFE005B79AB /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
+		4B19295C1C2BBEFE005B79AB /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
+		4B19295D1C2BBEFE005B79AB /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA75FA91C2939EC00B1037A /* Rainbow.swift */; };
+		4B19295E1C2BBEFE005B79AB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026E81C2929E7009FD2FD /* Color.swift */; };
+		4B19295F1C2BBEFE005B79AB /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EC1C292F5C009FD2FD /* BackgroundColor.swift */; };
+		4B1929601C2BBEFE005B79AB /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EE1C292F70009FD2FD /* Style.swift */; };
+		4B1929611C2BBEFE005B79AB /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
+		4B1929621C2BBEFE005B79AB /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
+		4B1929631C2BBEFE005B79AB /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
+		4B1929641C2BBEFE005B79AB /* XcodeColorsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */; };
 		4BA75FAA1C2939EC00B1037A /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA75FA91C2939EC00B1037A /* Rainbow.swift */; };
 		4BC026E91C2929E7009FD2FD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026E81C2929E7009FD2FD /* Color.swift */; };
 		4BC026EB1C292B25009FD2FD /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
@@ -36,6 +72,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B1928FE1C2BBB02005B79AB /* Rainbow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rainbow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B1929291C2BBD8D005B79AB /* Rainbow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rainbow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B1929411C2BBEC7005B79AB /* Rainbow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rainbow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA75FA91C2939EC00B1037A /* Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rainbow.swift; sourceTree = "<group>"; };
 		4BC026E81C2929E7009FD2FD /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4BC026EA1C292B25009FD2FD /* ControlCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCode.swift; sourceTree = "<group>"; };
@@ -58,6 +97,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4B1928FA1C2BBB02005B79AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B1929251C2BBD8D005B79AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B19293D1C2BBEC7005B79AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BC821721C29254C00F68E70 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,6 +151,9 @@
 			children = (
 				4BC821761C29254C00F68E70 /* Rainbow.framework */,
 				4BC821801C29254C00F68E70 /* RainbowTests.xctest */,
+				4B1928FE1C2BBB02005B79AB /* Rainbow.framework */,
+				4B1929291C2BBD8D005B79AB /* Rainbow.framework */,
+				4B1929411C2BBEC7005B79AB /* Rainbow.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +200,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		4B1928FB1C2BBB02005B79AB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B1929151C2BBBE1005B79AB /* Rainbow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B1929261C2BBD8D005B79AB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B1929581C2BBEED005B79AB /* Rainbow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B19293E1C2BBEC7005B79AB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B1929591C2BBEF5005B79AB /* Rainbow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BC821731C29254C00F68E70 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,9 +235,63 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4BC821751C29254C00F68E70 /* Rainbow */ = {
+		4B1928FD1C2BBB02005B79AB /* Rainbow(iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4BC8218A1C29254C00F68E70 /* Build configuration list for PBXNativeTarget "Rainbow" */;
+			buildConfigurationList = 4B1929131C2BBB02005B79AB /* Build configuration list for PBXNativeTarget "Rainbow(iOS)" */;
+			buildPhases = (
+				4B1928F91C2BBB02005B79AB /* Sources */,
+				4B1928FA1C2BBB02005B79AB /* Frameworks */,
+				4B1928FB1C2BBB02005B79AB /* Headers */,
+				4B1928FC1C2BBB02005B79AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rainbow(iOS)";
+			productName = RainbowiOS;
+			productReference = 4B1928FE1C2BBB02005B79AB /* Rainbow.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4B1929281C2BBD8D005B79AB /* Rainbow(watchOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B19292E1C2BBD8D005B79AB /* Build configuration list for PBXNativeTarget "Rainbow(watchOS)" */;
+			buildPhases = (
+				4B1929241C2BBD8D005B79AB /* Sources */,
+				4B1929251C2BBD8D005B79AB /* Frameworks */,
+				4B1929261C2BBD8D005B79AB /* Headers */,
+				4B1929271C2BBD8D005B79AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rainbow(watchOS)";
+			productName = "Rainbow(watchOS)";
+			productReference = 4B1929291C2BBD8D005B79AB /* Rainbow.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4B1929401C2BBEC7005B79AB /* Rainbow(tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B1929521C2BBEC8005B79AB /* Build configuration list for PBXNativeTarget "Rainbow(tvOS)" */;
+			buildPhases = (
+				4B19293C1C2BBEC7005B79AB /* Sources */,
+				4B19293D1C2BBEC7005B79AB /* Frameworks */,
+				4B19293E1C2BBEC7005B79AB /* Headers */,
+				4B19293F1C2BBEC7005B79AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rainbow(tvOS)";
+			productName = "Rainbow(tvOS)";
+			productReference = 4B1929411C2BBEC7005B79AB /* Rainbow.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4BC821751C29254C00F68E70 /* Rainbow(OSX) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BC8218A1C29254C00F68E70 /* Build configuration list for PBXNativeTarget "Rainbow(OSX)" */;
 			buildPhases = (
 				4BC821711C29254C00F68E70 /* Sources */,
 				4BC821721C29254C00F68E70 /* Frameworks */,
@@ -161,7 +302,7 @@
 			);
 			dependencies = (
 			);
-			name = Rainbow;
+			name = "Rainbow(OSX)";
 			productName = Rainbow;
 			productReference = 4BC821761C29254C00F68E70 /* Rainbow.framework */;
 			productType = "com.apple.product-type.framework";
@@ -194,6 +335,15 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "OneV's Den";
 				TargetAttributes = {
+					4B1928FD1C2BBB02005B79AB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					4B1929281C2BBD8D005B79AB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					4B1929401C2BBEC7005B79AB = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					4BC821751C29254C00F68E70 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -214,13 +364,37 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4BC821751C29254C00F68E70 /* Rainbow */,
+				4BC821751C29254C00F68E70 /* Rainbow(OSX) */,
+				4B1928FD1C2BBB02005B79AB /* Rainbow(iOS) */,
+				4B1929281C2BBD8D005B79AB /* Rainbow(watchOS) */,
+				4B1929401C2BBEC7005B79AB /* Rainbow(tvOS) */,
 				4BC8217F1C29254C00F68E70 /* RainbowTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4B1928FC1C2BBB02005B79AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B1929271C2BBD8D005B79AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B19293F1C2BBEC7005B79AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BC821741C29254C00F68E70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +412,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4B1928F91C2BBB02005B79AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B1929191C2BBC98005B79AB /* CodesParser.swift in Sources */,
+				4B19291A1C2BBC98005B79AB /* ModesExtractor.swift in Sources */,
+				4B19291B1C2BBC98005B79AB /* StringGenerator.swift in Sources */,
+				4B19291C1C2BBC98005B79AB /* Rainbow.swift in Sources */,
+				4B19291D1C2BBC98005B79AB /* Color.swift in Sources */,
+				4B19291E1C2BBC98005B79AB /* BackgroundColor.swift in Sources */,
+				4B19291F1C2BBC98005B79AB /* Style.swift in Sources */,
+				4B1929201C2BBC98005B79AB /* ControlCode.swift in Sources */,
+				4B1929211C2BBC98005B79AB /* String+Rainbow.swift in Sources */,
+				4B1929221C2BBC98005B79AB /* OutputTarget.swift in Sources */,
+				4B1929231C2BBC98005B79AB /* XcodeColorsSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B1929241C2BBD8D005B79AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B1929311C2BBE06005B79AB /* CodesParser.swift in Sources */,
+				4B1929321C2BBE06005B79AB /* ModesExtractor.swift in Sources */,
+				4B1929331C2BBE06005B79AB /* StringGenerator.swift in Sources */,
+				4B1929341C2BBE06005B79AB /* Rainbow.swift in Sources */,
+				4B1929351C2BBE06005B79AB /* Color.swift in Sources */,
+				4B1929361C2BBE06005B79AB /* BackgroundColor.swift in Sources */,
+				4B1929371C2BBE06005B79AB /* Style.swift in Sources */,
+				4B1929381C2BBE06005B79AB /* ControlCode.swift in Sources */,
+				4B1929391C2BBE06005B79AB /* String+Rainbow.swift in Sources */,
+				4B19293A1C2BBE06005B79AB /* OutputTarget.swift in Sources */,
+				4B19293B1C2BBE06005B79AB /* XcodeColorsSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B19293C1C2BBEC7005B79AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B19295A1C2BBEFE005B79AB /* CodesParser.swift in Sources */,
+				4B19295B1C2BBEFE005B79AB /* ModesExtractor.swift in Sources */,
+				4B19295C1C2BBEFE005B79AB /* StringGenerator.swift in Sources */,
+				4B19295D1C2BBEFE005B79AB /* Rainbow.swift in Sources */,
+				4B19295E1C2BBEFE005B79AB /* Color.swift in Sources */,
+				4B19295F1C2BBEFE005B79AB /* BackgroundColor.swift in Sources */,
+				4B1929601C2BBEFE005B79AB /* Style.swift in Sources */,
+				4B1929611C2BBEFE005B79AB /* ControlCode.swift in Sources */,
+				4B1929621C2BBEFE005B79AB /* String+Rainbow.swift in Sources */,
+				4B1929631C2BBEFE005B79AB /* OutputTarget.swift in Sources */,
+				4B1929641C2BBEFE005B79AB /* XcodeColorsSupport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BC821711C29254C00F68E70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,12 +499,133 @@
 /* Begin PBXTargetDependency section */
 		4BC821831C29254C00F68E70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4BC821751C29254C00F68E70 /* Rainbow */;
+			target = 4BC821751C29254C00F68E70 /* Rainbow(OSX) */;
 			targetProxy = 4BC821821C29254C00F68E70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		4B19290F1C2BBB02005B79AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.RainbowiOS;
+				PRODUCT_NAME = Rainbow;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B1929101C2BBB02005B79AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.RainbowiOS;
+				PRODUCT_NAME = Rainbow;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B19292F1C2BBD8D005B79AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow.watchOS;
+				PRODUCT_NAME = Rainbow;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		4B1929301C2BBD8D005B79AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow.watchOS;
+				PRODUCT_NAME = Rainbow;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		4B1929531C2BBEC8005B79AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Rainbow(tvOS)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onevcat.Rainbow-tvOS-";
+				PRODUCT_NAME = Rainbow;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		4B1929541C2BBEC8005B79AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Rainbow(tvOS)/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onevcat.Rainbow-tvOS-";
+				PRODUCT_NAME = Rainbow;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		4BC821881C29254C00F68E70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,8 +725,9 @@
 				INFOPLIST_FILE = Support/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Rainbow;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -396,8 +746,9 @@
 				INFOPLIST_FILE = Support/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Rainbow;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -430,6 +781,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4B1929131C2BBB02005B79AB /* Build configuration list for PBXNativeTarget "Rainbow(iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B19290F1C2BBB02005B79AB /* Debug */,
+				4B1929101C2BBB02005B79AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4B19292E1C2BBD8D005B79AB /* Build configuration list for PBXNativeTarget "Rainbow(watchOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B19292F1C2BBD8D005B79AB /* Debug */,
+				4B1929301C2BBD8D005B79AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4B1929521C2BBEC8005B79AB /* Build configuration list for PBXNativeTarget "Rainbow(tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B1929531C2BBEC8005B79AB /* Debug */,
+				4B1929541C2BBEC8005B79AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4BC821701C29254C00F68E70 /* Build configuration list for PBXProject "Rainbow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -439,7 +814,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4BC8218A1C29254C00F68E70 /* Build configuration list for PBXNativeTarget "Rainbow" */ = {
+		4BC8218A1C29254C00F68E70 /* Build configuration list for PBXNativeTarget "Rainbow(OSX)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4BC8218B1C29254C00F68E70 /* Debug */,
