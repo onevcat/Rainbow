@@ -6,7 +6,8 @@
 console and command line output, for both Apple's platforms and Linux. It is 
 born for cross platform software logging in terminals. Meanwhile, it is also 
 compatible with [XcodeColors](https://github.com/robbiehanson/XcodeColors), 
-which lets you use it in Xcode to colorize the debugger output as well.
+which lets you use it in Xcode to colorize the debugger output as well when 
+developing an app.
 
 ## Usage
 
