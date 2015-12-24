@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RainbowSwift"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "Rainbow adds methods to set text color, background color and style for Swift console and command line output."
 
   s.description  = <<-DESC
