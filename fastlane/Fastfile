@@ -1,0 +1,38 @@
+fastlane_version "1.48.0"
+
+default_platform :osx
+
+
+platform :osx do
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+    
+  desc "Release new version"
+  lane :release do |options|
+      target_version = options[:version]
+      raise "The version is missed. Use `fastlane release version:{version_number}`.`" if target_version.nil?
+      
+      ensure_git_branch
+      ensure_git_status_clean
+      scan
+      
+      build_number = number_of_commits
+      increment_build_number(build_number: build_number)
+      
+      increment_version_number(version_number: target_version)
+      version_bump_podspec(path: "RainbowSwift.podspec", version_number: target_version)
+      
+    #   git_commit_all(message: "Bump version to #{target_version}")
+    #   add_git_tag tag: target_version
+      
+    #   push_to_git_remote
+    #   pod_push
+  end
+
+  lane :podpush do
+    pod_push
+  end
+  
+end
