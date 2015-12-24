@@ -6,6 +6,12 @@
 //  Copyright © 2015年 OneV's Den. All rights reserved.
 //
 
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
+
 private func getEnvValue(key: String) -> String? {
     let value = getenv(key)
     return value != nil ? String.fromCString(value) : nil

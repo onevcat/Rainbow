@@ -6,6 +6,8 @@
 //  Copyright © 2015年 OneV's Den. All rights reserved.
 //
 
+import Foundation
+
 public protocol ModeCode {
     var value: UInt8 { get }
 }
