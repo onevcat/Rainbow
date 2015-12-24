@@ -517,7 +517,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.RainbowiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow.iOS;
 				PRODUCT_NAME = Rainbow;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -537,7 +537,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.RainbowiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow.iOS;
 				PRODUCT_NAME = Rainbow;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -597,7 +597,7 @@
 				INFOPLIST_FILE = "Rainbow(tvOS)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onevcat.Rainbow-tvOS-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow.tvOS;
 				PRODUCT_NAME = Rainbow;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -616,7 +616,7 @@
 				INFOPLIST_FILE = "Rainbow(tvOS)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.onevcat.Rainbow-tvOS-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow.tvOS;
 				PRODUCT_NAME = Rainbow;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -726,7 +726,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow.osx;
 				PRODUCT_NAME = Rainbow;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -747,7 +747,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onevcat.Rainbow.osx;
 				PRODUCT_NAME = Rainbow;
 				SKIP_INSTALL = YES;
 			};
@@ -757,6 +757,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -770,6 +771,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -788,6 +790,7 @@
 				4B1929101C2BBB02005B79AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B19292E1C2BBD8D005B79AB /* Build configuration list for PBXNativeTarget "Rainbow(watchOS)" */ = {
 			isa = XCConfigurationList;
@@ -796,6 +799,7 @@
 				4B1929301C2BBD8D005B79AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B1929521C2BBEC8005B79AB /* Build configuration list for PBXNativeTarget "Rainbow(tvOS)" */ = {
 			isa = XCConfigurationList;
@@ -804,6 +808,7 @@
 				4B1929541C2BBEC8005B79AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BC821701C29254C00F68E70 /* Build configuration list for PBXProject "Rainbow" */ = {
 			isa = XCConfigurationList;

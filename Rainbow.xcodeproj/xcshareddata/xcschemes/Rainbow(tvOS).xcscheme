@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B1929401C2BBEC7005B79AB"
-               BuildableName = "Rainbow(tvOS).framework"
+               BuildableName = "Rainbow.framework"
                BlueprintName = "Rainbow(tvOS)"
                ReferencedContainer = "container:Rainbow.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B1929401C2BBEC7005B79AB"
-            BuildableName = "Rainbow(tvOS).framework"
+            BuildableName = "Rainbow.framework"
             BlueprintName = "Rainbow(tvOS)"
             ReferencedContainer = "container:Rainbow.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B1929401C2BBEC7005B79AB"
-            BuildableName = "Rainbow(tvOS).framework"
+            BuildableName = "Rainbow.framework"
             BlueprintName = "Rainbow(tvOS)"
             ReferencedContainer = "container:Rainbow.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B1929401C2BBEC7005B79AB"
-            BuildableName = "Rainbow(tvOS).framework"
+            BuildableName = "Rainbow.framework"
             BlueprintName = "Rainbow(tvOS)"
             ReferencedContainer = "container:Rainbow.xcodeproj">
          </BuildableReference>
