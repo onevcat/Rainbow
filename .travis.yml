@@ -1,0 +1,7 @@
+language: objective-c
+os: osx
+osx_image: xcode7.2
+
+script: set -o pipefail && xcodebuild -scheme 'Rainbow(OSX)' clean test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
