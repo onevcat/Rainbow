@@ -24,6 +24,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+/// Valid background colors to use in `Rainbow`.
 public enum BackgroundColor: UInt8, ModeCode {
     case Black = 40
     case Red

@@ -26,13 +26,24 @@
 
 import Foundation
 
+/**
+ A Mode code represnet a component for colorizing the string.
+ It could be a `Color`, a `BackgroundColor` or a `Style`
+ */
 public protocol ModeCode {
     var value: UInt8 { get }
 }
 
+/**
+ Setting for `Rainbow`.
+ */
 public struct Rainbow {
     
+    /// Output target for `Rainbow`. `Rainbow` should detect correct target itself, so you rarely need to set it. 
+    /// However, if you want the colorized string to be different, or the detection is not correct, you can set it manually.
     public static var outputTarget = OutputTarget.currentOutputTarget
+    
+    /// Enable `Rainbow` to colorize string or not. Default is `true`.
     public static var enabled = true
     
     static func extractModesForString(string: String)

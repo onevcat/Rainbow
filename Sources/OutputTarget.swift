@@ -35,11 +35,21 @@ private func getEnvValue(key: String) -> String? {
     return value != nil ? String.fromCString(value) : nil
 }
 
+
+///
+/**
+Output target of Rainbow.
+
+- Unknown: Unknown target.
+- Console: A valid console is detected connected.
+- XcodeColors: Used in Xcode with XcodeColors enabled.
+*/
 public enum OutputTarget {
     case Unknown
     case Console
     case XcodeColors
     
+    /// Detected output target by current envrionment.
     static var currentOutputTarget: OutputTarget = {
         // Check if Xcode Colors is installed and enabled.
         let xcodeColorsEnabled = (getEnvValue("XcodeColors") == "YES")

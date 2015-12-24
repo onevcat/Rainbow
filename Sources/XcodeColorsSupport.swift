@@ -29,6 +29,8 @@ protocol XcodeColorsConvertible {
     init?(xcodeColorsDescription string: String)
 }
 
+// MARK: - XcodeColorsConvertible
+// Supports XcodeColors format of mode string.
 extension Color: XcodeColorsConvertible {
     var xcodeColorsDescription: String {
         switch self {

@@ -24,6 +24,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+/// Valid styles to use in `Rainbow`.
 public enum Style: UInt8, ModeCode {
     case Default = 0
     case Bold = 1
