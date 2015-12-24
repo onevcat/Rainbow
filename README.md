@@ -1,5 +1,25 @@
 ![Rainbow](https://raw.githubusercontent.com/onevcat/Rainbow/assets/rainbow.png)
 
+<p align="center">
+
+<a href="https://travis-ci.org/onevcat/Rainbow"><img src="https://img.shields.io/travis/onevcat/Rainbow/master.svg"></a>
+
+<a href="https://swift.org/package-manager/"><img src="https://img.shields.io/badge/SPM-ready-orange.svg"></a>
+
+<a href="https://github.com/Carthage/Carthage/"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
+
+<a href="https://codecov.io/github/onevcat/Rainbow?branch=master"><img src="https://img.shields.io/codecov/c/github/onevcat/Rainbow.svg"></a>
+
+<a href="http://cocoadocs.org/docsets/RainbowSwift"><img src="https://img.shields.io/cocoapods/v/RainbowSwift.svg?style=flat"></a>
+
+<a href="https://raw.githubusercontent.com/onevcat/Rainbow/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/RainbowSwift.svg?style=flat"></a>
+
+<a href="http://cocoadocs.org/docsets/RainbowSwift"><img src="https://img.shields.io/badge/platform-ios%7Cosx%7Cwatchos%7Ctvos%7Clinux-lightgrey.svg"></a>
+
+<img src="https://img.shields.io/badge/made%20with-%3C3-ff0d02.svg">
+
+</p>
+
 `Rainbow` adds text color, background color and style for console and command 
 line output in Swift. It is born for cross platform software logging 
 in terminals, working in both Apple's platforms and Linux. Meanwhile, it is also 
