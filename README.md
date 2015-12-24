@@ -78,7 +78,23 @@ You could know more information on how to use Swift Package Manager
 
 ### CocoaPods
 
-Not supported yet.
+Add the `RainbowSwift` pod to your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+pod 'RainbowSwift', '~> 1.0'
+```
+
+And you need to import `RainbowSwift` instead of `Rainbow` if you install it from CocoaPods.
+
+```swift
+// import Rainbow
+import RainbowSwift
+
+print("Hello CocoaPods".red)
+```
 
 ### Carthage
 
@@ -94,6 +110,13 @@ github "onevcat/Rainbow" ~> 1.0
 Run `carthage update` to build the framework and drag the built 
 `Rainbow.framework` into your Xcode project (as well as embed it in your target 
     if necessary).
+
+## Questions
+
+If you are using it with `XcodeColors` for developing mobile/tv apps, sometimes 
+the environment variables are not passed to the device, which cause the logs not 
+colorized. To solve it, you need to specify the `["XcodeColors": "YES"]` to the 
+scheme setting. See [here](https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/XcodeColors.md#xcodecolors-and-ios) for more.
 
 ## Contact
 

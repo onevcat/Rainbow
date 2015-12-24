@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
 
-  s.name         = "Rainbow"
+  s.name         = "RainbowSwift"
   s.version      = "0.0.1"
-  s.summary      = "Rainbow adds methods to set text color, background color and style for Swift console and command line output, for both Apple's platforms and Linux."
+  s.summary      = "Rainbow adds methods to set text color, background color and style for Swift console and command line output."
 
   s.description  = <<-DESC
                     Rainbow adds methods to set text color, background color and style for Swift console and command line output, for both Apple's platforms and Linux. It is born for cross platform software logging in terminals. Meanwhile, it is also compatible with XcodeColors, which lets you use it in Xcode to colorize the debugger output as well.
