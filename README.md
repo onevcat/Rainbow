@@ -1,15 +1,14 @@
 ![Rainbow](https://raw.githubusercontent.com/onevcat/Rainbow/assets/rainbow.png)
 
-`Rainbow` adds methods to set text color, background color and style for Swift 
-console and command line output, for both Apple's platforms and Linux. It is 
-born for cross platform software logging in terminals. Meanwhile, it is also 
+`Rainbow` adds text color, background color and style for console and command 
+line output in Swift. It is born for cross platform software logging 
+in terminals, working in both Apple's platforms and Linux. Meanwhile, it is also 
 compatible with [XcodeColors](https://github.com/robbiehanson/XcodeColors), 
-which lets you use it in Xcode to colorize the debugger output as well when 
-developing an app.
+which lets you colorize the Xcode debugger output as well when developing an app.
 
 ## Usage
 
-Nifty way, using the `String` extension:
+Nifty way, using the `String` extension, and print the colorized string:
 
 ```swift
 import Rainbow
@@ -24,7 +23,7 @@ print("Cyan with bold and blinking".cyan.bold.blink)
 print("Plain text".red.onYellow.bold.clearColor.clearBackgroundColor.clearStyles)
 ```
 
-You can also use the more verbose way if you need:
+You can also use the more verbose way if you want:
 
 ```swift
 import Rainbow
@@ -36,18 +35,20 @@ print(output) // Red text on yellow, bold of course :)
 ## Motivation and Compatibility
 
 Thanks to the open source of Swift, developers now could write cross platform 
-programs with the same language. And I believe the command line tool would be 
-the next great platform for Swift. Colorful and well organized output helps us 
-to understand what happens and it could be a necessary utility to create 
+programs with the same language. And I believe the command line software would be 
+the next great platform for Swift. Colorful and well organized output always 
+helps us to understand what happens. It is really a necessary utility to create 
 wonderful software. 
 
-`Rainbow` should work well in both OS X and Linux terminals. It will also check 
-whether the output is a valid text terminal or not, to decide which to log. 
-It could be useful when you want to log to a file instead to terminals.
+`Rainbow` should work well in both OS X and Linux terminals. It is smart enough 
+to check whether the output is connected to a valid text terminal or not, to 
+decide the log should be modified or not. This could be useful when you want to
+ send your log to a file instead to console.
 
 Although `Rainbow` is first designed for console output in terminals, you could 
 use it in Xcode with [XcodeColors](https://github.com/robbiehanson/XcodeColors) 
-plugin installed too. It will enable color output for better debugging experience.
+plugin installed too. It will enable color output for better debugging 
+experience in Xcode.
 
 ## Install
 
