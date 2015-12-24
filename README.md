@@ -3,9 +3,10 @@
 **`Rainbow` is a framework under developing, It is not released now. Do not use it yet.**
 
 `Rainbow` adds methods to set text color, background color and style for Swift 
-console and command line output, for both OS X and Linux. It is also compatible 
-with [XcodeColors](https://github.com/robbiehanson/XcodeColors), so you could 
-use it in your Xcode to colorize the debugger output as well.
+console and command line output, for both Apple's platforms and Linux. It is 
+born for cross platform software logging in terminals. Meanwhile, it is also 
+compatible with [XcodeColors](https://github.com/robbiehanson/XcodeColors), 
+which lets you use it in Xcode to colorize the debugger output as well.
 
 ## Usage
 
