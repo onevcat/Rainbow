@@ -31,7 +31,7 @@ You can also use the more verbose way if you need:
 ```swift
 import Rainbow
 let output = "The quick brown fox jumps over the lazy dog"
-                .stringByApplying([Color.Red, BackgroundColor.Yellow, Style.Bold])
+                .stringByApplying(Color.Red, BackgroundColor.Yellow, Style.Bold)
 print(output) // Red text on yellow, bold of course :)
 ```
 
@@ -114,10 +114,11 @@ Run `carthage update` to build the framework and drag the built
 
 ## Questions
 
-If you are using it with `XcodeColors` for developing mobile/tv apps, sometimes 
-the environment variables are not passed to the device, which cause the logs not 
-colorized. To solve it, you need to specify the `["XcodeColors": "YES"]` to the 
-scheme setting. See [here](https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/XcodeColors.md#xcodecolors-and-ios) for more.
+If you are using `Rainbow` with `XcodeColors` and developing iOS/watch/tv apps, sometimes 
+the environment variables are not passed to the device, which causes the logs not 
+colorized correctly in Xcode console. To solve it, you need to specify the 
+`["XcodeColors": "YES"]` to the scheme setting. 
+See [here](https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/XcodeColors.md#xcodecolors-and-ios) for more.
 
 ## Contact
 
