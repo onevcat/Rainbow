@@ -25,7 +25,7 @@
 //  THE SOFTWARE.
 
 protocol CodesParser {
-    typealias SourceType
+    associatedtype SourceType
     func parseModeCodes(codes: [SourceType]) ->
         (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?)
 }

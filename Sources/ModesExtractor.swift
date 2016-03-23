@@ -25,7 +25,7 @@
 //  THE SOFTWARE.
 
 protocol ModesExtractor {
-    typealias ResultType
+    associatedtype ResultType
     func extractModeCodes(string: String) -> (codes: [ResultType], text: String)
 }
 
