@@ -31,8 +31,10 @@ import Darwin.C
 #endif
 
 private func getEnvValue(key: String) -> String? {
-    let value = getenv(key)
-    return value != nil ? String(cString: value!) : nil
+    guard let value = getenv(key) else {
+        return nil
+    }
+    return String(cString: value)
 }
 
 
