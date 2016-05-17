@@ -44,7 +44,11 @@ struct ConsoleStringGenerator: StringGenerator {
         if codes.isEmpty {
             return text
         } else {
-            return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\(text)\(ControlCode.CSI)0m"
+            #if swift(>=3.0)
+                return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\(text)\(ControlCode.CSI)0m"
+            #else
+                return "\(ControlCode.CSI)\(codes.map{String($0)}.joinWithSeparator(";"))m\(text)\(ControlCode.CSI)0m"
+            #endif
         }
     }
 }

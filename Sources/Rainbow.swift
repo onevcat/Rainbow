@@ -50,12 +50,22 @@ public struct Rainbow {
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
         if string.isConsoleStyle {
-            let result = ConsoleModesExtractor().extractModeCodes(string: string)
-            let (color, backgroundColor, styles) = ConsoleCodesParser().parseModeCodes(codes: result.codes)
+            #if swift(>=3.0)
+                let result = ConsoleModesExtractor().extractModeCodes(string: string)
+                let (color, backgroundColor, styles) = ConsoleCodesParser().parseModeCodes(codes: result.codes)
+            #else
+                let result = ConsoleModesExtractor().extractModeCodes(string)
+                let (color, backgroundColor, styles) = ConsoleCodesParser().parseModeCodes(result.codes)
+            #endif
             return (color, backgroundColor, styles, result.text)
         } else if string.isXcodeColorsStyle {
-            let result = XcodeColorsModesExtractor().extractModeCodes(string: string)
-            let (color, backgroundColor, _) = XcodeColorsCodesParser().parseModeCodes(codes: result.codes)
+            #if swift(>=3.0)
+                let result = XcodeColorsModesExtractor().extractModeCodes(string: string)
+                let (color, backgroundColor, _) = XcodeColorsCodesParser().parseModeCodes(codes: result.codes)
+            #else
+                let result = XcodeColorsModesExtractor().extractModeCodes(string)
+                let (color, backgroundColor, _) = XcodeColorsCodesParser().parseModeCodes(result.codes)
+            #endif
             return (color, backgroundColor, nil, result.text)
         } else {
             return (nil, nil, nil, string)
@@ -70,7 +80,7 @@ public struct Rainbow {
         guard enabled else {
             return text
         }
-        
+        #if swift(>=3.0)
         switch outputTarget {
         case .XcodeColors:
             return XcodeColorsStringGenerator().generateStringColor(color: color, backgroundColor: backgroundColor, styles: styles, text: text)
@@ -78,7 +88,17 @@ public struct Rainbow {
             return ConsoleStringGenerator().generateStringColor(color: color, backgroundColor: backgroundColor, styles: styles, text: text)
         case .Unknown:
             return text
-        }
+            }
+        #else
+        switch outputTarget {
+        case .XcodeColors:
+            return XcodeColorsStringGenerator().generateStringColor(color, backgroundColor: backgroundColor, styles: styles, text: text)
+        case .Console:
+            return ConsoleStringGenerator().generateStringColor(color, backgroundColor: backgroundColor, styles: styles, text: text)
+        case .Unknown:
+            return text
+            }
+        #endif
     }
     
 }
