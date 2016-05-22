@@ -34,7 +34,7 @@ extension String {
      - returns: The colorized string based on current content.
      */
     public func stringByApplyingColor(color: Color) -> String {
-        return stringByApplying(color)
+        return stringByApplying(codes: color)
     }
     
     /**
@@ -46,10 +46,10 @@ extension String {
      - returns: A string without color.
      */
     public func stringByRemovingColor() -> String {
-        guard let _ = Rainbow.extractModesForString(self).color else {
+        guard let _ = Rainbow.extractModesForString(string: self).color else {
             return self
         }
-        return stringByApplyingColor(.Default)
+        return stringByApplyingColor(color: .Default)
     }
     
     /**
@@ -60,7 +60,7 @@ extension String {
      - returns: The background colorized string based on current content.
      */
     public func stringByApplyingBackgroundColor(color: BackgroundColor) -> String {
-        return stringByApplying(color)
+        return stringByApplying(codes: color)
     }
     
     /**
@@ -72,11 +72,11 @@ extension String {
      - returns: A string without color.
      */
     public func stringByRemovingBackgroundColor() -> String {
-        guard let _ = Rainbow.extractModesForString(self).backgroundColor else {
+        guard let _ = Rainbow.extractModesForString(string: self).backgroundColor else {
             return self
         }
 
-        return stringByApplyingBackgroundColor(.Default)
+        return stringByApplyingBackgroundColor(color: .Default)
     }
     
     /**
@@ -87,7 +87,7 @@ extension String {
      - returns: A string with specified style applied.
      */
     public func stringByApplyingStyle(style: Style) -> String {
-        return stringByApplying(style)
+        return stringByApplying(codes: style)
     }
     
     /**
@@ -103,16 +103,16 @@ extension String {
             return self
         }
         
-        let current = Rainbow.extractModesForString(self)
+        let current = Rainbow.extractModesForString(string: self)
         if let styles = current.styles {
             var s = styles
-            var index = s.indexOf(style)
+            var index = s.index(of: style)
             while index != nil {
-                s.removeAtIndex(index!)
-                index = s.indexOf(style)
+                s.remove(at: index!)
+                index = s.index(of: style)
             }
             return Rainbow.generateStringForColor(
-                current.color,
+                color: current.color,
                 backgroundColor: current.backgroundColor,
                 styles: s,
                 text: current.text
@@ -136,9 +136,9 @@ extension String {
             return self
         }
         
-        let current = Rainbow.extractModesForString(self)
+        let current = Rainbow.extractModesForString(string: self)
         return Rainbow.generateStringForColor(
-            current.color,
+            color: current.color,
             backgroundColor: current.backgroundColor,
             styles: nil,
             text: current.text
@@ -158,8 +158,8 @@ extension String {
             return self
         }
         
-        let current = Rainbow.extractModesForString(self)
-        let input = ConsoleCodesParser().parseModeCodes( codes.map{ $0.value } )
+        let current = Rainbow.extractModesForString(string: self)
+        let input = ConsoleCodesParser().parseModeCodes( codes: codes.map{ $0.value } )
         
         let color = input.color ?? current.color
         let backgroundColor = input.backgroundColor ?? current.backgroundColor
@@ -177,7 +177,7 @@ extension String {
             return self
         } else {
             return Rainbow.generateStringForColor(
-                color,
+                color: color,
                 backgroundColor: backgroundColor,
                 styles: styles.isEmpty ? nil : styles,
                 text: current.text
@@ -189,73 +189,73 @@ extension String {
 // MARK: - Colors Shorthand
 extension String {
     /// String with black text.
-    public var black: String { return stringByApplyingColor(.Black) }
+    public var black: String { return stringByApplyingColor(color: .Black) }
     /// String with red text.
-    public var red: String { return stringByApplyingColor(.Red)   }
+    public var red: String { return stringByApplyingColor(color: .Red)   }
     /// String with green text.
-    public var green: String { return stringByApplyingColor(.Green) }
+    public var green: String { return stringByApplyingColor(color: .Green) }
     /// String with yellow text.
-    public var yellow: String { return stringByApplyingColor(.Yellow) }
+    public var yellow: String { return stringByApplyingColor(color: .Yellow) }
     /// String with blue text.
-    public var blue: String { return stringByApplyingColor(.Blue) }
+    public var blue: String { return stringByApplyingColor(color: .Blue) }
     /// String with magenta text.
-    public var magenta: String { return stringByApplyingColor(.Magenta) }
+    public var magenta: String { return stringByApplyingColor(color: .Magenta) }
     /// String with cyan text.
-    public var cyan: String { return stringByApplyingColor(.Cyan) }
+    public var cyan: String { return stringByApplyingColor(color: .Cyan) }
     /// String with white text.
-    public var white: String { return stringByApplyingColor(.White) }
+    public var white: String { return stringByApplyingColor(color: .White) }
     /// String with light black text. Generally speaking, it means dark grey in some consoles.
-    public var lightBlack: String { return stringByApplyingColor(.LightBlack) }
+    public var lightBlack: String { return stringByApplyingColor(color: .LightBlack) }
     /// String with light red text.
-    public var lightRed: String { return stringByApplyingColor(.LightRed) }
+    public var lightRed: String { return stringByApplyingColor(color: .LightRed) }
     /// String with light green text.
-    public var lightGreen: String { return stringByApplyingColor(.LightGreen) }
+    public var lightGreen: String { return stringByApplyingColor(color: .LightGreen) }
     /// String with light yellow text.
-    public var lightYellow: String { return stringByApplyingColor(.LightYellow) }
+    public var lightYellow: String { return stringByApplyingColor(color: .LightYellow) }
     /// String with light blue text.
-    public var lightBlue: String { return stringByApplyingColor(.LightBlue) }
+    public var lightBlue: String { return stringByApplyingColor(color: .LightBlue) }
     /// String with light magenta text.
-    public var lightMagenta: String { return stringByApplyingColor(.LightMagenta) }
+    public var lightMagenta: String { return stringByApplyingColor(color: .LightMagenta) }
     /// String with light cyan text.
-    public var lightCyan: String { return stringByApplyingColor(.LightCyan) }
+    public var lightCyan: String { return stringByApplyingColor(color: .LightCyan) }
     /// String with light white text. Generally speaking, it means light grey in some consoles.
-    public var lightWhite: String { return stringByApplyingColor(.LightWhite) }
+    public var lightWhite: String { return stringByApplyingColor(color: .LightWhite) }
 }
 
 // MARK: - Background Colors Shorthand
 extension String {
     /// String with black background.
-    public var onBlack: String { return stringByApplyingBackgroundColor(.Black) }
+    public var onBlack: String { return stringByApplyingBackgroundColor(color: .Black) }
     /// String with red background.
-    public var onRed: String { return stringByApplyingBackgroundColor(.Red)   }
+    public var onRed: String { return stringByApplyingBackgroundColor(color: .Red)   }
     /// String with green background.
-    public var onGreen: String { return stringByApplyingBackgroundColor(.Green) }
+    public var onGreen: String { return stringByApplyingBackgroundColor(color: .Green) }
     /// String with yellow background.
-    public var onYellow: String { return stringByApplyingBackgroundColor(.Yellow) }
+    public var onYellow: String { return stringByApplyingBackgroundColor(color: .Yellow) }
     /// String with blue background.
-    public var onBlue: String { return stringByApplyingBackgroundColor(.Blue) }
+    public var onBlue: String { return stringByApplyingBackgroundColor(color: .Blue) }
     /// String with magenta background.
-    public var onMagenta: String { return stringByApplyingBackgroundColor(.Magenta) }
+    public var onMagenta: String { return stringByApplyingBackgroundColor(color: .Magenta) }
     /// String with cyan background.
-    public var onCyan: String { return stringByApplyingBackgroundColor(.Cyan) }
+    public var onCyan: String { return stringByApplyingBackgroundColor(color: .Cyan) }
     /// String with white background.
-    public var onWhite: String { return stringByApplyingBackgroundColor(.White) }
+    public var onWhite: String { return stringByApplyingBackgroundColor(color: .White) }
 }
 
 // MARK: - Styles Shorthand
 extension String {
     /// String with bold style.
-    public var bold: String { return stringByApplyingStyle(.Bold) }
+    public var bold: String { return stringByApplyingStyle(style: .Bold) }
     /// String with dim style. This is not widely supported in all terminals. Use it carefully.
-    public var dim: String { return stringByApplyingStyle(.Dim) }
+    public var dim: String { return stringByApplyingStyle(style: .Dim) }
     /// String with italic style. This depends on whether a italic existing for the font family of terminals.
-    public var italic: String { return stringByApplyingStyle(.Italic) }
+    public var italic: String { return stringByApplyingStyle(style: .Italic) }
     /// String with underline style.
-    public var underline: String { return stringByApplyingStyle(.Underline) }
+    public var underline: String { return stringByApplyingStyle(style: .Underline) }
     /// String with blink style. This is not widely supported in all terminals, or need additional setting. Use it carefully.
-    public var blink: String { return stringByApplyingStyle(.Blink) }
+    public var blink: String { return stringByApplyingStyle(style: .Blink) }
     /// String with text color and background color swapped.
-    public var swap: String { return stringByApplyingStyle(.Swap) }
+    public var swap: String { return stringByApplyingStyle(style: .Swap) }
 }
 
 // MARK: - Clear Modes Shorthand
