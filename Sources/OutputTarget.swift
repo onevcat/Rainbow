@@ -30,7 +30,7 @@ import Glibc
 import Darwin.C
 #endif
 
-private func getEnvValue(key: String) -> String? {
+private func getEnvValue(_ key: String) -> String? {
     guard let value = getenv(key) else {
         return nil
     }
@@ -47,24 +47,24 @@ Output target of Rainbow.
 - XcodeColors: Used in Xcode with XcodeColors enabled.
 */
 public enum OutputTarget {
-    case Unknown
-    case Console
-    case XcodeColors
+    case unknown
+    case console
+    case xcodeColors
     
     /// Detected output target by current envrionment.
     static var currentOutputTarget: OutputTarget = {
         // Check if Xcode Colors is installed and enabled.
-        let xcodeColorsEnabled = (getEnvValue(key: "XcodeColors") == "YES")
+        let xcodeColorsEnabled = (getEnvValue("XcodeColors") == "YES")
         if xcodeColorsEnabled {
-            return .XcodeColors
+            return .xcodeColors
         }
         
         // Check if we are in any term env and the output is a tty.
-        let termType = getEnvValue(key: "TERM")
+        let termType = getEnvValue("TERM")
         if let t = termType where t.lowercased() != "dumb" && isatty(fileno(stdout)) != 0 {
-            return .Console
+            return .console
         }
         
-        return .Unknown
+        return .unknown
     }()
 }

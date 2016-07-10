@@ -46,23 +46,23 @@ public struct Rainbow {
     /// Enable `Rainbow` to colorize string or not. Default is `true`.
     public static var enabled = true
     
-    static func extractModesForString(string: String)
+    static func extractModesForString(_ string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
         if string.isConsoleStyle {
-            let result = ConsoleModesExtractor().extractModeCodes(string: string)
-            let (color, backgroundColor, styles) = ConsoleCodesParser().parseModeCodes(codes: result.codes)
+            let result = ConsoleModesExtractor().extractModeCodes(string)
+            let (color, backgroundColor, styles) = ConsoleCodesParser().parseModeCodes(result.codes)
             return (color, backgroundColor, styles, result.text)
         } else if string.isXcodeColorsStyle {
-            let result = XcodeColorsModesExtractor().extractModeCodes(string: string)
-            let (color, backgroundColor, _) = XcodeColorsCodesParser().parseModeCodes(codes: result.codes)
+            let result = XcodeColorsModesExtractor().extractModeCodes(string)
+            let (color, backgroundColor, _) = XcodeColorsCodesParser().parseModeCodes(result.codes)
             return (color, backgroundColor, nil, result.text)
         } else {
             return (nil, nil, nil, string)
         }
     }
 
-    static func generateStringForColor(color: Color?,
+    static func generateStringForColor(_ color: Color?,
                              backgroundColor: BackgroundColor?,
                                       styles: [Style]?,
                                         text: String) -> String
@@ -72,11 +72,11 @@ public struct Rainbow {
         }
         
         switch outputTarget {
-        case .XcodeColors:
-            return XcodeColorsStringGenerator().generateStringColor(color: color, backgroundColor: backgroundColor, styles: styles, text: text)
-        case .Console:
-            return ConsoleStringGenerator().generateStringColor(color: color, backgroundColor: backgroundColor, styles: styles, text: text)
-        case .Unknown:
+        case .xcodeColors:
+            return XcodeColorsStringGenerator().generateStringColor(color, backgroundColor: backgroundColor, styles: styles, text: text)
+        case .console:
+            return ConsoleStringGenerator().generateStringColor(color, backgroundColor: backgroundColor, styles: styles, text: text)
+        case .unknown:
             return text
         }
     }

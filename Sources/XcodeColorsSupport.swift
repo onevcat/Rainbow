@@ -34,44 +34,44 @@ protocol XcodeColorsConvertible {
 extension Color: XcodeColorsConvertible {
     var xcodeColorsDescription: String {
         switch self {
-        case .Black: return "fg0,0,0"
-        case .Red: return "fg255,0,0"
-        case .Green: return "fg0,204,0"
-        case .Yellow: return "fg255,255,0"
-        case .Blue: return "fg0,0,255"
-        case .Magenta: return "fg255,0,255"
-        case .Cyan: return "fg0,255,255"
-        case .White: return "fg204,204,204"
-        case .Default: return ""
-        case .LightBlack: return "fg128,128,128"
-        case .LightRed: return "fg255,102,102"
-        case .LightGreen: return "fg102,255,102"
-        case .LightYellow: return "fg255,255,102"
-        case .LightBlue: return "fg102,102,255"
-        case .LightMagenta: return "fg255,102,255"
-        case .LightCyan: return "fg102,255,255"
-        case .LightWhite: return "fg255,255,255"
+        case .black: return "fg0,0,0"
+        case .red: return "fg255,0,0"
+        case .green: return "fg0,204,0"
+        case .yellow: return "fg255,255,0"
+        case .blue: return "fg0,0,255"
+        case .magenta: return "fg255,0,255"
+        case .cyan: return "fg0,255,255"
+        case .white: return "fg204,204,204"
+        case .default: return ""
+        case .lightBlack: return "fg128,128,128"
+        case .lightRed: return "fg255,102,102"
+        case .lightGreen: return "fg102,255,102"
+        case .lightYellow: return "fg255,255,102"
+        case .lightBlue: return "fg102,102,255"
+        case .lightMagenta: return "fg255,102,255"
+        case .lightCyan: return "fg102,255,255"
+        case .lightWhite: return "fg255,255,255"
         }
     }
     
     init?(xcodeColorsDescription string: String) {
         switch string {
-        case Color.Black.xcodeColorsDescription: self = .Black
-        case Color.Red.xcodeColorsDescription: self = .Red
-        case Color.Green.xcodeColorsDescription: self = .Green
-        case Color.Yellow.xcodeColorsDescription: self = .Yellow
-        case Color.Blue.xcodeColorsDescription: self = .Blue
-        case Color.Magenta.xcodeColorsDescription: self = .Magenta
-        case Color.Cyan.xcodeColorsDescription: self = .Cyan
-        case Color.White.xcodeColorsDescription: self = .White
-        case Color.LightBlack.xcodeColorsDescription: self = .LightBlack
-        case Color.LightRed.xcodeColorsDescription: self = .LightRed
-        case Color.LightGreen.xcodeColorsDescription: self = .LightGreen
-        case Color.LightYellow.xcodeColorsDescription: self = .LightYellow
-        case Color.LightBlue.xcodeColorsDescription: self = .LightBlue
-        case Color.LightMagenta.xcodeColorsDescription: self = .LightMagenta
-        case Color.LightCyan.xcodeColorsDescription: self = .LightCyan
-        case Color.LightWhite.xcodeColorsDescription: self = .LightWhite
+        case Color.black.xcodeColorsDescription: self = .black
+        case Color.red.xcodeColorsDescription: self = .red
+        case Color.green.xcodeColorsDescription: self = .green
+        case Color.yellow.xcodeColorsDescription: self = .yellow
+        case Color.blue.xcodeColorsDescription: self = .blue
+        case Color.magenta.xcodeColorsDescription: self = .magenta
+        case Color.cyan.xcodeColorsDescription: self = .cyan
+        case Color.white.xcodeColorsDescription: self = .white
+        case Color.lightBlack.xcodeColorsDescription: self = .lightBlack
+        case Color.lightRed.xcodeColorsDescription: self = .lightRed
+        case Color.lightGreen.xcodeColorsDescription: self = .lightGreen
+        case Color.lightYellow.xcodeColorsDescription: self = .lightYellow
+        case Color.lightBlue.xcodeColorsDescription: self = .lightBlue
+        case Color.lightMagenta.xcodeColorsDescription: self = .lightMagenta
+        case Color.lightCyan.xcodeColorsDescription: self = .lightCyan
+        case Color.lightWhite.xcodeColorsDescription: self = .lightWhite
         default: return nil
         }
     }
@@ -80,28 +80,28 @@ extension Color: XcodeColorsConvertible {
 extension BackgroundColor: XcodeColorsConvertible {
     var xcodeColorsDescription: String {
         switch self {
-        case .Black: return "bg0,0,0"
-        case .Red: return "bg255,0,0"
-        case .Green: return "bg0,204,0"
-        case .Yellow: return "bg255,255,0"
-        case .Blue: return "bg0,0,255"
-        case .Magenta: return "bg255,0,255"
-        case .Cyan: return "bg0,255,255"
-        case .White: return "bg204,204,204"
-        case .Default: return ""
+        case .black: return "bg0,0,0"
+        case .red: return "bg255,0,0"
+        case .green: return "bg0,204,0"
+        case .yellow: return "bg255,255,0"
+        case .blue: return "bg0,0,255"
+        case .magenta: return "bg255,0,255"
+        case .cyan: return "bg0,255,255"
+        case .white: return "bg204,204,204"
+        case .default: return ""
         }
     }
     
     init?(xcodeColorsDescription string: String) {
         switch string {
-        case BackgroundColor.Black.xcodeColorsDescription: self = .Black
-        case BackgroundColor.Red.xcodeColorsDescription: self = .Red
-        case BackgroundColor.Green.xcodeColorsDescription: self = .Green
-        case BackgroundColor.Yellow.xcodeColorsDescription: self = .Yellow
-        case BackgroundColor.Blue.xcodeColorsDescription: self = .Blue
-        case BackgroundColor.Magenta.xcodeColorsDescription: self = .Magenta
-        case BackgroundColor.Cyan.xcodeColorsDescription: self = .Cyan
-        case BackgroundColor.White.xcodeColorsDescription: self = .White
+        case BackgroundColor.black.xcodeColorsDescription: self = .black
+        case BackgroundColor.red.xcodeColorsDescription: self = .red
+        case BackgroundColor.green.xcodeColorsDescription: self = .green
+        case BackgroundColor.yellow.xcodeColorsDescription: self = .yellow
+        case BackgroundColor.blue.xcodeColorsDescription: self = .blue
+        case BackgroundColor.magenta.xcodeColorsDescription: self = .magenta
+        case BackgroundColor.cyan.xcodeColorsDescription: self = .cyan
+        case BackgroundColor.white.xcodeColorsDescription: self = .white
         default: return nil
         }
     }

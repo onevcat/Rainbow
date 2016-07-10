@@ -25,11 +25,11 @@
 //  THE SOFTWARE.
 
 protocol StringGenerator {
-    func generateStringColor(color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String
+    func generateStringColor(_ color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String
 }
 
 struct ConsoleStringGenerator: StringGenerator {
-    func generateStringColor(color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String {
+    func generateStringColor(_ color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String {
         var codes: [UInt8] = []
         if let color = color {
             codes.append(color.value)
@@ -50,17 +50,17 @@ struct ConsoleStringGenerator: StringGenerator {
 }
 
 struct XcodeColorsStringGenerator: StringGenerator {
-    func generateStringColor(color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String {
+    func generateStringColor(_ color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String {
         
         var result = ""
         var added = false
         
-        if let color = color where color != .Default {
+        if let color = color where color != .default {
             result += "\(ControlCode.CSI)\(color.xcodeColorsDescription);"
             added = true
         }
         
-        if let backgroundColor = backgroundColor where backgroundColor != .Default {
+        if let backgroundColor = backgroundColor where backgroundColor != .default {
             result += "\(ControlCode.CSI)\(backgroundColor.xcodeColorsDescription);"
             added = true
         }

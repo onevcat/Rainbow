@@ -26,13 +26,13 @@
 
 /// Valid styles to use in `Rainbow`.
 public enum Style: UInt8, ModeCode {
-    case Default = 0
-    case Bold = 1
-    case Dim = 2
-    case Italic = 3
-    case Underline = 4
-    case Blink = 5
-    case Swap = 7
+    case `default` = 0
+    case bold = 1
+    case dim = 2
+    case italic = 3
+    case underline = 4
+    case blink = 5
+    case swap = 7
     
     public var value: UInt8 {
         return rawValue

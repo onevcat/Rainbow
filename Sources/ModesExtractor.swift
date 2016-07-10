@@ -26,13 +26,14 @@
 
 protocol ModesExtractor {
     associatedtype ResultType
-    func extractModeCodes(string: String) -> (codes: [ResultType], text: String)
+    func extractModeCodes(_ string: String) -> (codes: [ResultType], text: String)
 }
 
 struct ConsoleModesExtractor: ModesExtractor {
     typealias ResultType = UInt8
-    func extractModeCodes(string: String) -> (codes: [UInt8], text: String) {
+    func extractModeCodes(_ string: String) -> (codes: [UInt8], text: String) {
         let token = ControlCode.CSI
+        
         var index = string.index(string.startIndex, offsetBy: token.characters.count)
         var codesString = ""
         while string.characters[index] != "m" {
@@ -51,7 +52,7 @@ struct ConsoleModesExtractor: ModesExtractor {
 
 struct XcodeColorsModesExtractor: ModesExtractor {
     typealias ResultType = String
-    func extractModeCodes(string: String) -> (codes: [String], text: String) {
+    func extractModeCodes(_ string: String) -> (codes: [String], text: String) {
         let token = ControlCode.CSI
         var index = string.startIndex
         
