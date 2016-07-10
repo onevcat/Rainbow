@@ -52,7 +52,7 @@ public enum OutputTarget {
     case xcodeColors
     
     /// Detected output target by current envrionment.
-    static var currentOutputTarget: OutputTarget = {
+    static var current: OutputTarget = {
         // Check if Xcode Colors is installed and enabled.
         let xcodeColorsEnabled = (getEnvValue("XcodeColors") == "YES")
         if xcodeColorsEnabled {
