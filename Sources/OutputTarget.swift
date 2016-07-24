@@ -61,7 +61,7 @@ public enum OutputTarget {
         
         // Check if we are in any term env and the output is a tty.
         let termType = getEnvValue("TERM")
-        if let t = termType where t.lowercased() != "dumb" && isatty(fileno(stdout)) != 0 {
+        if let t = termType, t.lowercased() != "dumb" && isatty(fileno(stdout)) != 0 {
             return .console
         }
         

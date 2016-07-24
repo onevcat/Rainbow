@@ -50,11 +50,11 @@ public struct Rainbow {
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
         if string.isConsoleStyle {
-            let result = ConsoleModesExtractor().extract(string: string)
+            let result = ConsoleModesExtractor().extract(string)
             let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
             return (color, backgroundColor, styles, result.text)
         } else if string.isXcodeColorsStyle {
-            let result = XcodeColorsModesExtractor().extract(string: string)
+            let result = XcodeColorsModesExtractor().extract(string)
             let (color, backgroundColor, _) = XcodeColorsCodesParser().parse(modeCodes: result.codes)
             return (color, backgroundColor, nil, result.text)
         } else {
