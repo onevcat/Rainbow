@@ -46,7 +46,7 @@ public struct Rainbow {
     /// Enable `Rainbow` to colorize string or not. Default is `true`.
     public static var enabled = true
     
-    static func extractModes(forString string: String)
+    static func extractModes(for string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
         if string.isConsoleStyle {
