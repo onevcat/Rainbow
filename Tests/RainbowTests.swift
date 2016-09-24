@@ -40,19 +40,19 @@ class RainbowTests: XCTestCase {
     }
     
     func testExtractModesNotMatch() {
-        let result1 = Rainbow.extractModesForString("abc")
+        let result1 = Rainbow.extractModes(for: "abc")
         XCTAssertNil(result1.color)
         XCTAssertNil(result1.backgroundColor)
         XCTAssertNil(result1.styles)
         XCTAssertEqual(result1.text, "abc")
         
-        let result2 = Rainbow.extractModesForString("\u{001B}[0mHello\u{001B}")
+        let result2 = Rainbow.extractModes(for: "\u{001B}[0mHello\u{001B}")
         XCTAssertNil(result2.color)
         XCTAssertNil(result2.backgroundColor)
         XCTAssertNil(result2.styles)
         XCTAssertEqual(result2.text, "\u{001B}[0mHello\u{001B}")
         
-        let result3 = Rainbow.extractModesForString("\u{001B}[fg0,0,0;Hello\u{001B}")
+        let result3 = Rainbow.extractModes(for: "\u{001B}[fg0,0,0;Hello\u{001B}")
         XCTAssertNil(result3.color)
         XCTAssertNil(result3.backgroundColor)
         XCTAssertNil(result3.styles)
@@ -60,86 +60,86 @@ class RainbowTests: XCTestCase {
     }
     
     func testExtractModes() {
-        let result1 = Rainbow.extractModesForString("\u{001B}[0m\u{001B}[0m")
+        let result1 = Rainbow.extractModes(for: "\u{001B}[0m\u{001B}[0m")
         XCTAssertNil(result1.color)
         XCTAssertNil(result1.backgroundColor)
-        XCTAssertEqual(result1.styles!, [.Default])
+        XCTAssertEqual(result1.styles!, [.default])
         XCTAssertEqual(result1.text, "")
         
-        let result2 = Rainbow.extractModesForString("\u{001B}[31mHello World\u{001B}[0m")
-        XCTAssertEqual(result2.color!, Color.Red)
+        let result2 = Rainbow.extractModes(for: "\u{001B}[31mHello World\u{001B}[0m")
+        XCTAssertEqual(result2.color!, Color.red)
         XCTAssertNil(result2.backgroundColor)
         XCTAssertNil(result2.styles)
         XCTAssertEqual(result2.text, "Hello World")
         
-        let result3 = Rainbow.extractModesForString("\u{001B}[4;31;42;93;5mHello World\u{001B}[0m")
-        XCTAssertEqual(result3.color!, Color.LightYellow)
-        XCTAssertEqual(result3.backgroundColor, BackgroundColor.Green)
-        XCTAssertEqual(result3.styles!, [.Underline, .Blink])
+        let result3 = Rainbow.extractModes(for: "\u{001B}[4;31;42;93;5mHello World\u{001B}[0m")
+        XCTAssertEqual(result3.color!, Color.lightYellow)
+        XCTAssertEqual(result3.backgroundColor, BackgroundColor.green)
+        XCTAssertEqual(result3.styles!, [.underline, .blink])
         XCTAssertEqual(result3.text, "Hello World")
         
-        let result4 = Rainbow.extractModesForString("\u{001B}[31m\u{001B}[4;31;93mHello World\u{001B}[0m\u{001B}[0m")
-        XCTAssertEqual(result4.color!, Color.Red)
+        let result4 = Rainbow.extractModes(for: "\u{001B}[31m\u{001B}[4;31;93mHello World\u{001B}[0m\u{001B}[0m")
+        XCTAssertEqual(result4.color!, Color.red)
         XCTAssertNil(result4.backgroundColor)
         XCTAssertNil(result4.styles)
         XCTAssertEqual(result4.text, "\u{001B}[4;31;93mHello World\u{001B}[0m")
         
-        let result5 = Rainbow.extractModesForString("\u{001B}[fg0,0,0;Hello\u{001B}[;")
-        XCTAssertEqual(result5.color!, Color.Black)
+        let result5 = Rainbow.extractModes(for: "\u{001B}[fg0,0,0;Hello\u{001B}[;")
+        XCTAssertEqual(result5.color!, Color.black)
         XCTAssertNil(result5.backgroundColor)
         XCTAssertNil(result5.styles)
         XCTAssertEqual(result5.text, "Hello")
         
-        let result6 = Rainbow.extractModesForString("\u{001B}[fg0,0,0;\u{001B}[bg255,0,0;Hello\u{001B}[;")
-        XCTAssertEqual(result6.color!, Color.Black)
-        XCTAssertEqual(result6.backgroundColor, BackgroundColor.Red)
+        let result6 = Rainbow.extractModes(for: "\u{001B}[fg0,0,0;\u{001B}[bg255,0,0;Hello\u{001B}[;")
+        XCTAssertEqual(result6.color!, Color.black)
+        XCTAssertEqual(result6.backgroundColor, BackgroundColor.red)
         XCTAssertNil(result6.styles)
         XCTAssertEqual(result6.text, "Hello")
     }
     
     func testGenerateConsoleStringWithCodes() {
         
-        Rainbow.outputTarget = .Console
+        Rainbow.outputTarget = .console
         
-        let result1 = Rainbow.generateStringForColor(nil, backgroundColor: nil, styles: nil, text: "Hello")
+        let result1 = Rainbow.generateString(forColor: nil, backgroundColor: nil, styles: nil, text: "Hello")
         XCTAssertEqual(result1, "Hello")
         
-        let result2 = Rainbow.generateStringForColor(.Red, backgroundColor: nil, styles: nil, text: "Hello")
+        let result2 = Rainbow.generateString(forColor: .red, backgroundColor: nil, styles: nil, text: "Hello")
         XCTAssertEqual(result2, "\u{001B}[31mHello\u{001B}[0m")
         
-        let result3 = Rainbow.generateStringForColor(.LightYellow, backgroundColor: .Magenta, styles: [.Bold, .Blink], text: "Hello")
+        let result3 = Rainbow.generateString(forColor: .lightYellow, backgroundColor: .magenta, styles: [.bold, .blink], text: "Hello")
         XCTAssertEqual(result3, "\u{001B}[93;45;1;5mHello\u{001B}[0m")
     }
     
     func testGenerateXcodeColorsStringWithCodes() {
         
-        Rainbow.outputTarget = .XcodeColors
+        Rainbow.outputTarget = .xcodeColors
         
-        let result1 = Rainbow.generateStringForColor(nil, backgroundColor: nil, styles: nil, text: "Hello")
+        let result1 = Rainbow.generateString(forColor: nil, backgroundColor: nil, styles: nil, text: "Hello")
         XCTAssertEqual(result1, "Hello")
         
-        let result2 = Rainbow.generateStringForColor(.Red, backgroundColor: nil, styles: nil, text: "Hello")
+        let result2 = Rainbow.generateString(forColor: .red, backgroundColor: nil, styles: nil, text: "Hello")
         XCTAssertEqual(result2, "\u{001B}[fg255,0,0;Hello\u{001B}[;")
         
-        let result3 = Rainbow.generateStringForColor(.LightYellow, backgroundColor: .Magenta, styles: [.Bold, .Blink], text: "Hello")
+        let result3 = Rainbow.generateString(forColor: .lightYellow, backgroundColor: .magenta, styles: [.bold, .blink], text: "Hello")
         XCTAssertEqual(result3, "\u{001B}[fg255,255,102;\u{001B}[bg255,0,255;Hello\u{001B}[;")
     }
     
     func testGenerateUnknownStringWithCodes() {
-        Rainbow.outputTarget = .Unknown
+        Rainbow.outputTarget = .unknown
         
-        let result1 = Rainbow.generateStringForColor(nil, backgroundColor: nil, styles: nil, text: "Hello")
+        let result1 = Rainbow.generateString(forColor: nil, backgroundColor: nil, styles: nil, text: "Hello")
         XCTAssertEqual(result1, "Hello")
         
-        let result2 = Rainbow.generateStringForColor(.Red, backgroundColor: nil, styles: nil, text: "Hello")
+        let result2 = Rainbow.generateString(forColor: .red, backgroundColor: nil, styles: nil, text: "Hello")
         XCTAssertEqual(result2, "Hello")
         
-        let result3 = Rainbow.generateStringForColor(.LightYellow, backgroundColor: .Magenta, styles: [.Bold, .Blink], text: "Hello")
+        let result3 = Rainbow.generateString(forColor: .lightYellow, backgroundColor: .magenta, styles: [.bold, .blink], text: "Hello")
         XCTAssertEqual(result3, "Hello")
     }
     
     func testRainbowEnabled() {
-        Rainbow.outputTarget = .Console
+        Rainbow.outputTarget = .console
         
         let result1 = "Hello".red
         XCTAssertEqual(result1, "\u{001B}[31mHello\u{001B}[0m")

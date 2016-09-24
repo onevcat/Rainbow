@@ -41,28 +41,28 @@ public struct Rainbow {
     
     /// Output target for `Rainbow`. `Rainbow` should detect correct target itself, so you rarely need to set it. 
     /// However, if you want the colorized string to be different, or the detection is not correct, you can set it manually.
-    public static var outputTarget = OutputTarget.currentOutputTarget
+    public static var outputTarget = OutputTarget.current
     
     /// Enable `Rainbow` to colorize string or not. Default is `true`.
     public static var enabled = true
     
-    static func extractModesForString(string: String)
+    static func extractModes(for string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
         if string.isConsoleStyle {
-            let result = ConsoleModesExtractor().extractModeCodes(string)
-            let (color, backgroundColor, styles) = ConsoleCodesParser().parseModeCodes(result.codes)
+            let result = ConsoleModesExtractor().extract(string)
+            let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
             return (color, backgroundColor, styles, result.text)
         } else if string.isXcodeColorsStyle {
-            let result = XcodeColorsModesExtractor().extractModeCodes(string)
-            let (color, backgroundColor, _) = XcodeColorsCodesParser().parseModeCodes(result.codes)
+            let result = XcodeColorsModesExtractor().extract(string)
+            let (color, backgroundColor, _) = XcodeColorsCodesParser().parse(modeCodes: result.codes)
             return (color, backgroundColor, nil, result.text)
         } else {
             return (nil, nil, nil, string)
         }
     }
 
-    static func generateStringForColor(color: Color?,
+    static func generateString(forColor color: Color?,
                              backgroundColor: BackgroundColor?,
                                       styles: [Style]?,
                                         text: String) -> String
@@ -72,11 +72,11 @@ public struct Rainbow {
         }
         
         switch outputTarget {
-        case .XcodeColors:
-            return XcodeColorsStringGenerator().generateStringColor(color, backgroundColor: backgroundColor, styles: styles, text: text)
-        case .Console:
-            return ConsoleStringGenerator().generateStringColor(color, backgroundColor: backgroundColor, styles: styles, text: text)
-        case .Unknown:
+        case .xcodeColors:
+            return XcodeColorsStringGenerator().generate(withStringColor: color, backgroundColor: backgroundColor, styles: styles, text: text)
+        case .console:
+            return ConsoleStringGenerator().generate(withStringColor: color, backgroundColor: backgroundColor, styles: styles, text: text)
+        case .unknown:
             return text
         }
     }

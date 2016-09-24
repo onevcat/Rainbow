@@ -25,13 +25,13 @@
 //  THE SOFTWARE.
 
 protocol StringGenerator {
-    func generateStringColor(color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String
+    func generate(withStringColor stringColor: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String
 }
 
 struct ConsoleStringGenerator: StringGenerator {
-    func generateStringColor(color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String {
+    func generate(withStringColor stringColor: Color? = nil, backgroundColor: BackgroundColor? = nil, styles: [Style]? = nil, text: String) -> String {
         var codes: [UInt8] = []
-        if let color = color {
+        if let color = stringColor {
             codes.append(color.value)
         }
         if let backgroundColor = backgroundColor {
@@ -44,23 +44,23 @@ struct ConsoleStringGenerator: StringGenerator {
         if codes.isEmpty {
             return text
         } else {
-            return "\(ControlCode.CSI)\(codes.map{String($0)}.joinWithSeparator(";"))m\(text)\(ControlCode.CSI)0m"
+            return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\(text)\(ControlCode.CSI)0m"
         }
     }
 }
 
 struct XcodeColorsStringGenerator: StringGenerator {
-    func generateStringColor(color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String {
+    func generate(withStringColor stringColor: Color? = nil, backgroundColor: BackgroundColor? = nil, styles: [Style]? = nil, text: String) -> String {
         
         var result = ""
         var added = false
         
-        if let color = color where color != .Default {
+        if let color = stringColor, color != .default {
             result += "\(ControlCode.CSI)\(color.xcodeColorsDescription);"
             added = true
         }
         
-        if let backgroundColor = backgroundColor where backgroundColor != .Default {
+        if let backgroundColor = backgroundColor, backgroundColor != .default {
             result += "\(ControlCode.CSI)\(backgroundColor.xcodeColorsDescription);"
             added = true
         }

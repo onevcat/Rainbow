@@ -26,13 +26,13 @@
 
 protocol CodesParser {
     associatedtype SourceType
-    func parseModeCodes(codes: [SourceType]) ->
+    func parse(modeCodes codes: [SourceType]) ->
         (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?)
 }
 
 struct ConsoleCodesParser: CodesParser {
     typealias SourceType = UInt8
-    func parseModeCodes(codes: [UInt8]) -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?) {
+    func parse(modeCodes codes: [UInt8]) -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?) {
         var color: Color? = nil
         var backgroundColor: BackgroundColor? = nil
         var styles: [Style]? = nil
@@ -56,7 +56,7 @@ struct ConsoleCodesParser: CodesParser {
 
 struct XcodeColorsCodesParser: CodesParser {
     typealias SourceType = String
-    func parseModeCodes(codes: [String]) -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?) {
+    func parse(modeCodes codes: [String]) -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?) {
         var color: Color? = nil
         var backgroundColor: BackgroundColor? = nil
         
