@@ -84,16 +84,16 @@
 		4BC821801C29254C00F68E70 /* RainbowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainbowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BC8219C1C29276100F68E70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Support/Info.plist; sourceTree = SOURCE_ROOT; };
 		4BC8219E1C29276C00F68E70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
-		4BC8219F1C29276C00F68E70 /* RainbowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RainbowTests.swift; path = Tests/RainbowTests.swift; sourceTree = SOURCE_ROOT; };
+		4BC8219F1C29276C00F68E70 /* RainbowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RainbowTests.swift; path = Tests/RainbowTests/RainbowTests.swift; sourceTree = SOURCE_ROOT; };
 		4BC821AA1C2928CF00F68E70 /* Rainbow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rainbow.h; sourceTree = "<group>"; };
 		D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsSupport.swift; sourceTree = "<group>"; };
 		D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputTarget.swift; sourceTree = "<group>"; };
 		D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Rainbow.swift"; sourceTree = "<group>"; };
-		D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleStringTests.swift; path = Tests/ConsoleStringTests.swift; sourceTree = SOURCE_ROOT; };
+		D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleStringTests.swift; path = Tests/RainbowTests/ConsoleStringTests.swift; sourceTree = SOURCE_ROOT; };
 		D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesParser.swift; sourceTree = "<group>"; };
 		D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModesExtractor.swift; sourceTree = "<group>"; };
 		D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringGenerator.swift; sourceTree = "<group>"; };
-		D1C5D8E11C2ADFA7001CB619 /* XcodeColorsStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XcodeColorsStringTests.swift; path = Tests/XcodeColorsStringTests.swift; sourceTree = SOURCE_ROOT; };
+		D1C5D8E11C2ADFA7001CB619 /* XcodeColorsStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XcodeColorsStringTests.swift; path = Tests/RainbowTests/XcodeColorsStringTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
