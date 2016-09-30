@@ -83,7 +83,7 @@ import PackageDescription
 let package = Package(
     name: "YourAwesomeSoftware",
     dependencies: [
-        .Package(url: "https://github.com/onevcat/Rainbow", Version(2,0,1)),
+        .Package(url: "https://github.com/onevcat/Rainbow", majorVersion: 2)
     ]
 )
 ```
