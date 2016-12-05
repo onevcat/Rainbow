@@ -101,7 +101,7 @@ Add the `RainbowSwift` pod to your `Podfile`:
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'RainbowSwift', '~> 1.1'
+pod 'RainbowSwift', '~> 2.0'
 ```
 
 And you need to import `RainbowSwift` instead of `Rainbow` if you install it from CocoaPods.
@@ -121,7 +121,7 @@ manager for Cocoa application.
 To integrate `Rainbow` with Carthage, add this to your `Cartfile`:
 
 ```ruby
-github "onevcat/Rainbow" ~> 1.1
+github "onevcat/Rainbow" ~> 2.0
 ```
 
 Run `carthage update` to build the framework and drag the built 
