@@ -120,14 +120,6 @@ Run `carthage update` to build the framework and drag the built
 `Rainbow.framework` into your Xcode project (as well as embed it in your target 
     if necessary).
 
-## Questions
-
-If you are using `Rainbow` with `XcodeColors` and developing iOS/watch/tv apps, sometimes 
-the environment variables are not passed to the device, which causes the logs not 
-colorized correctly in Xcode console. To solve it, you need to specify the 
-`["XcodeColors": "YES"]` to the scheme setting. 
-See [here](https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Documentation/XcodeColors.md#xcodecolors-and-ios) for more.
-
 ## Contact
 
 Follow and contact me on [Twitter](http://twitter.com/onevcat) or 
