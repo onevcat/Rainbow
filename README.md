@@ -22,7 +22,7 @@ Nifty way, using the `String` extension, and print the colorized string:
 import Rainbow
 
 print("Red text".red)
-print("Yellow background".onYellow)
+print("Blue background".onBlue)
 print("Light green text on white background".lightGreen.onWhite)
 
 print("Underline".underline)
@@ -30,6 +30,10 @@ print("Cyan with bold and blinking".cyan.bold.blink)
 
 print("Plain text".red.onYellow.bold.clearColor.clearBackgroundColor.clearStyles)
 ```
+
+It will give you something like this:
+
+![](http://i.imgur.com/BUSJxPv.png)
 
 You can also use the more verbose way if you want:
 
