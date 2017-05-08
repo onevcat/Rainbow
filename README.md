@@ -12,9 +12,7 @@
 
 `Rainbow` adds text color, background color and style for console and command 
 line output in Swift. It is born for cross platform software logging 
-in terminals, working in both Apple's platforms and Linux. Meanwhile, it is also 
-compatible with [XcodeColors](https://github.com/robbiehanson/XcodeColors), 
-which lets you colorize the Xcode debugger output as well when developing an app.
+in terminals, working in both Apple's platforms and Linux.
 
 ## Usage
 
