@@ -268,3 +268,9 @@ extension String {
     public var clearStyles: String { return removingAllStyles() }
 }
 
+extension String {
+    /// Get the raw string of current Rainbow styled string. O(n)
+    public var raw: String {
+        return Rainbow.extractModes(for: self).text
+    }
+}

@@ -151,4 +151,15 @@ class RainbowTests: XCTestCase {
 
         Rainbow.enabled = true
     }
+    
+    func testRainbowRawString() {
+        let red = "\u{001B}[31mHello\u{001B}[0m"
+        XCTAssertEqual(red.raw, "Hello")
+        
+        let complex = "\u{001B}[fg255,255,102;\u{001B}[bg255,0,255;Hello\u{001B}[;"
+        XCTAssertEqual(complex.raw, "Hello")
+        
+        let plain = "Hello"
+        XCTAssertEqual(plain, "Hello")
+    }
 }

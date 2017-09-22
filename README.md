@@ -64,6 +64,8 @@ experience in Xcode.
 
 ## Install
 
+Rainbow 3.x supports from Swift 4. If you need to use Rainbow in Swift 3, use Rainbow 2.1 instead.
+
 ### Swift Package Manager
 
 If you are developing a cross platform software in Swift, 
@@ -77,7 +79,7 @@ import PackageDescription
 let package = Package(
     name: "YourAwesomeSoftware",
     dependencies: [
-        .Package(url: "https://github.com/onevcat/Rainbow", majorVersion: 2)
+        .Package(url: "https://github.com/onevcat/Rainbow", majorVersion: 3)
     ]
 )
 ```
@@ -95,7 +97,7 @@ Add the `RainbowSwift` pod to your `Podfile`:
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'RainbowSwift', '~> 2.0'
+pod 'RainbowSwift', '~> 3.0'
 ```
 
 And you need to import `RainbowSwift` instead of `Rainbow` if you install it from CocoaPods.
@@ -115,7 +117,7 @@ manager for Cocoa application.
 To integrate `Rainbow` with Carthage, add this to your `Cartfile`:
 
 ```ruby
-github "onevcat/Rainbow" ~> 2.0
+github "onevcat/Rainbow" ~> 3.0
 ```
 
 Run `carthage update` to build the framework and drag the built 
