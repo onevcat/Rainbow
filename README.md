@@ -74,12 +74,13 @@ be your choice for package management. Just add the url of this repo to your
 `Package.swift` file as a dependency:
 
 ```swift
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
     name: "YourAwesomeSoftware",
     dependencies: [
-        .Package(url: "https://github.com/onevcat/Rainbow", majorVersion: 3)
+        .package(url: "https://github.com/onevcat/Rainbow", from: "3.0.0")
     ]
 )
 ```
