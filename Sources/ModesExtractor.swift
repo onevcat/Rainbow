@@ -34,17 +34,17 @@ struct ConsoleModesExtractor: ModesExtractor {
     func extract(_ string: String) -> (codes: [UInt8], text: String) {
         let token = ControlCode.CSI
         
-        var index = string.index(string.startIndex, offsetBy: token.characters.count)
+        var index = string.index(string.startIndex, offsetBy: token.count)
         var codesString = ""
-        while string.characters[index] != "m" {
-            codesString.append(string.characters[index])
+        while string[index] != "m" {
+            codesString.append(string[index])
             index = string.index(after: index)
         }
         
-        let codes = codesString.characters.split(separator: ";", maxSplits: Int.max, omittingEmptySubsequences: false).flatMap { UInt8(String($0)) }
+        let codes = codesString.split(separator: ";", maxSplits: Int.max, omittingEmptySubsequences: false).flatMap { UInt8(String($0)) }
         let startIndex = string.index(after: index)
-        let endIndex = string.index(string.endIndex, offsetBy: -"\(token)0m".characters.count)
-        let text = String(string.characters[startIndex ..< endIndex])
+        let endIndex = string.index(string.endIndex, offsetBy: -"\(token)0m".count)
+        let text = String(string[startIndex ..< endIndex])
         
         return (codes, text)
     }
@@ -58,24 +58,24 @@ struct XcodeColorsModesExtractor: ModesExtractor {
         
         var codes = [String]()
         
-        var outer = String(string.characters[index]) //Start index should be the ESC control code
+        var outer = String(string[index]) //Start index should be the ESC control code
         while outer == ControlCode.ESC {
             var codesString = ""
-            index = string.index(index, offsetBy: token.characters.count)
+            index = string.index(index, offsetBy: token.count)
             
-            while string.characters[index] != ";" {
-                codesString.append(string.characters[index])
+            while string[index] != ";" {
+                codesString.append(string[index])
                 index = string.index(after: index)
             }
             
             codes.append(codesString)
             index = string.index(after: index)
-            outer = String(string.characters[index])
+            outer = String(string[index])
         }
         
         let startIndex = index
-        let endIndex = string.index(string.endIndex, offsetBy: -"\(token);".characters.count)
-        let text = String(string.characters[startIndex ..< endIndex])
+        let endIndex = string.index(string.endIndex, offsetBy: -"\(token);".count)
+        let text = String(string[startIndex ..< endIndex])
         
         return (codes, text)
     }
