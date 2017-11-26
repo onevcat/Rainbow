@@ -44,7 +44,7 @@ struct ConsoleModesExtractor: ModesExtractor {
         let codes = codesString.split(separator: ";", maxSplits: Int.max, omittingEmptySubsequences: false).flatMap { UInt8(String($0)) }
         let startIndex = string.index(after: index)
         let endIndex = string.index(string.endIndex, offsetBy: -"\(token)0m".count)
-        let text = String(string[startIndex ..< endIndex])
+        let text = String(string[startIndex ..< endIndex] as Substring)
         
         return (codes, text)
     }
@@ -75,7 +75,7 @@ struct XcodeColorsModesExtractor: ModesExtractor {
         
         let startIndex = index
         let endIndex = string.index(string.endIndex, offsetBy: -"\(token);".count)
-        let text = String(string[startIndex ..< endIndex])
+        let text = String(string[startIndex ..< endIndex] as Substring)
         
         return (codes, text)
     }
