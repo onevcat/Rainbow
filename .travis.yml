@@ -1,7 +1,12 @@
-language: objective-c
+language: swift
 os: osx
 osx_image: xcode9
 
-script: set -o pipefail && xcodebuild -scheme 'Rainbow(OSX)' clean test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
+install:
+- eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
+
+script:
+- set -o pipefail && xcodebuild -scheme 'Rainbow(OSX)' clean test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
+
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
