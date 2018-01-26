@@ -73,9 +73,17 @@ public struct Rainbow {
         
         switch outputTarget {
         case .xcodeColors:
-            return XcodeColorsStringGenerator().generate(withStringColor: color, backgroundColor: backgroundColor, styles: styles, text: text)
+            return XcodeColorsStringGenerator()
+                .generate(withStringColor: color,
+                          backgroundColor: backgroundColor,
+                          styles: styles,
+                          text: text)
         case .console:
-            return ConsoleStringGenerator().generate(withStringColor: color, backgroundColor: backgroundColor, styles: styles, text: text)
+            return ConsoleStringGenerator()
+                .generate(withStringColor: color,
+                          backgroundColor: backgroundColor,
+                          styles: styles,
+                          text: text)
         case .unknown:
             return text
         }

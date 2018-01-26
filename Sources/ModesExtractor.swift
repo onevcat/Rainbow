@@ -30,7 +30,6 @@ protocol ModesExtractor {
 }
 
 struct ConsoleModesExtractor: ModesExtractor {
-    typealias ResultType = UInt8
     func extract(_ string: String) -> (codes: [UInt8], text: String) {
         let token = ControlCode.CSI
         
@@ -40,8 +39,8 @@ struct ConsoleModesExtractor: ModesExtractor {
             codesString.append(string[index])
             index = string.index(after: index)
         }
-        
-        let codes = codesString.split(separator: ";", maxSplits: Int.max, omittingEmptySubsequences: false).flatMap { UInt8(String($0)) }
+        let codes = codesString.split(separator: ";", omittingEmptySubsequences: false)
+                               .flatMap { UInt8($0) }
         let startIndex = string.index(after: index)
         let endIndex = string.index(string.endIndex, offsetBy: -"\(token)0m".count)
         let text = String(string[startIndex ..< endIndex])
@@ -51,7 +50,6 @@ struct ConsoleModesExtractor: ModesExtractor {
 }
 
 struct XcodeColorsModesExtractor: ModesExtractor {
-    typealias ResultType = String
     func extract(_ string: String) -> (codes: [String], text: String) {
         let token = ControlCode.CSI
         var index = string.startIndex

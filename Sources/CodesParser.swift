@@ -24,15 +24,15 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+typealias ParseResult = (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?)
+
 protocol CodesParser {
     associatedtype SourceType
-    func parse(modeCodes codes: [SourceType]) ->
-        (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?)
+    func parse(modeCodes codes: [SourceType]) -> ParseResult
 }
 
 struct ConsoleCodesParser: CodesParser {
-    typealias SourceType = UInt8
-    func parse(modeCodes codes: [UInt8]) -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?) {
+    func parse(modeCodes codes: [UInt8]) -> ParseResult {
         var color: Color? = nil
         var backgroundColor: BackgroundColor? = nil
         var styles: [Style]? = nil
@@ -55,8 +55,8 @@ struct ConsoleCodesParser: CodesParser {
 }
 
 struct XcodeColorsCodesParser: CodesParser {
-    typealias SourceType = String
-    func parse(modeCodes codes: [String]) -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?) {
+
+    func parse(modeCodes codes: [String]) -> ParseResult {
         var color: Color? = nil
         var backgroundColor: BackgroundColor? = nil
         
