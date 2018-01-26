@@ -29,4 +29,6 @@ Pod::Spec.new do |s|
   s.source_files  = "Sources/"
   s.public_header_files = "Sources/Rainbow.h"
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
+  s.swift_version = '4.0'
+  s.static_framework = true
 end
