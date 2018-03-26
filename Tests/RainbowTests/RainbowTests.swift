@@ -27,17 +27,17 @@
 import XCTest
 @testable import Rainbow
 
-class RainbowTests: XCTestCase {
+final class RainbowTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    static var allTests = [
+        ("testExtractModesNotMatch", testExtractModesNotMatch),
+        ("testExtractModes", testExtractModes),
+        ("testGenerateConsoleStringWithCodes", testGenerateConsoleStringWithCodes),
+        ("testGenerateXcodeColorsStringWithCodes", testGenerateXcodeColorsStringWithCodes),
+        ("testGenerateUnknownStringWithCodes", testGenerateUnknownStringWithCodes),
+        ("testRainbowEnabled", testRainbowEnabled),
+        ("testRainbowRawString", testRainbowRawString)
+    ]
     
     func testExtractModesNotMatch() {
         let result1 = Rainbow.extractModes(for: "abc")
