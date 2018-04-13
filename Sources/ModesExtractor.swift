@@ -39,8 +39,13 @@ struct ConsoleModesExtractor: ModesExtractor {
             codesString.append(string[index])
             index = string.index(after: index)
         }
+        #if swift(>=4.1)
         let codes = codesString.split(separator: ";", omittingEmptySubsequences: false)
-                               .flatMap { UInt8($0) }
+            .compactMap { UInt8($0) }
+        #else
+        let codes = codesString.split(separator: ";", omittingEmptySubsequences: false)
+            .flatMap { UInt8($0) }
+        #endif
         let startIndex = string.index(after: index)
         let endIndex = string.index(string.endIndex, offsetBy: -"\(token)0m".count)
         let text = String(string[startIndex ..< endIndex])

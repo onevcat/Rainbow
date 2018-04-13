@@ -40,7 +40,7 @@ You can also use the more verbose way if you want:
 ```swift
 import Rainbow
 let output = "The quick brown fox jumps over the lazy dog"
-                .stringByApplying(Color.Red, BackgroundColor.Yellow, Style.Bold)
+                .applyingCodes(Color.red, BackgroundColor.yellow, Style.bold)
 print(output) // Red text on yellow, bold of course :)
 ```
 
@@ -61,6 +61,9 @@ Although `Rainbow` is first designed for console output in terminals, you could
 use it in Xcode with [XcodeColors](https://github.com/robbiehanson/XcodeColors) 
 plugin installed too. It will enable color output for better debugging 
 experience in Xcode.
+
+> Please notice, after Xcode 8, third party plugins in bundle (like XcodeColors) is not 
+supported anymore. [See this](https://github.com/alcatraz/Alcatraz/issues/475).
 
 ## Install
 
