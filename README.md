@@ -138,3 +138,4 @@ requests are warmly welcome as well.
 ## License
 
 Rainbow is released under the MIT license. See LICENSE for details.
+Happy coding...!
