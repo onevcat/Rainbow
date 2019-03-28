@@ -105,7 +105,11 @@ extension String {
         
         let current = Rainbow.extractModes(for: self)
         if var styles = current.styles {
+            #if swift(>=4.2)
             styles.removeAll { $0 == style }
+            #else
+            styles = styles.filter { $0 != style }
+            #endif
             return Rainbow.generateString(
                 forColor: current.color,
                 backgroundColor: current.backgroundColor,
