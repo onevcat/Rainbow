@@ -1,12 +1,11 @@
-language: swift
-os: osx
-osx_image: xcode9
 
-install:
-- eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
-
+os:
+  - linux
+  - osx
+language: generic
+sudo: required
+dist: trusty
+osx_image: xcode10.3
 script:
-- set -o pipefail && xcodebuild -scheme 'Rainbow(OSX)' clean test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
-
-after_success:
-- bash <(curl -s https://codecov.io/bash)
+  - eval "$(curl -sL https://raw.githubusercontent.com/onevcat/Swift-CI/master/ci)"
+  - eval "$(curl -sL https://raw.githubusercontent.com/onevcat/Swift-CI/master/codecov)"
