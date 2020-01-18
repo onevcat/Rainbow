@@ -44,7 +44,7 @@ public struct Rainbow {
     public static var outputTarget = OutputTarget.current
     
     /// Enable `Rainbow` to colorize string or not. Default is `true`.
-    public static var enabled = true
+    public static var enabled = ProcessInfo.processInfo.environment["NO_COLOR"] == nil
     
     public static func extractModes(for string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
