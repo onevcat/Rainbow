@@ -43,8 +43,8 @@ public struct Rainbow {
     /// However, if you want the colorized string to be different, or the detection is not correct, you can set it manually.
     public static var outputTarget = OutputTarget.current
     
-    /// Enable `Rainbow` to colorize string or not. Default is `true`.
-    public static var enabled = true
+    /// Enable `Rainbow` to colorize string or not. Default is `true`, unless the `NO_COLOR` environment variable is set.
+    public static var enabled = ProcessInfo.processInfo.environment["NO_COLOR"] == nil
     
     public static func extractModes(for string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
