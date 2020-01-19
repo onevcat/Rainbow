@@ -24,7 +24,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-struct ControlCode {
+enum ControlCode {
     static let ESC = "\u{001B}"
     static let CSI = "\(ESC)["
 }

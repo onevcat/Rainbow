@@ -37,7 +37,7 @@ public protocol ModeCode {
 /**
  Setting for `Rainbow`.
  */
-public struct Rainbow {
+public enum Rainbow {
     
     /// Output target for `Rainbow`. `Rainbow` should detect correct target itself, so you rarely need to set it. 
     /// However, if you want the colorized string to be different, or the detection is not correct, you can set it manually.
