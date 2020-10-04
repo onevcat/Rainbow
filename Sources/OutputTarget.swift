@@ -24,17 +24,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#if os(Linux) || CYGWIN
-import Glibc
-#else
-import Darwin.C
-#endif
+import Foundation
 
 private func getEnvValue(_ key: String) -> String? {
-    guard let value = getenv(key) else {
-        return nil
-    }
-    return String(cString: value)
+    return ProcessInfo.processInfo.environment[key]
 }
 
 
