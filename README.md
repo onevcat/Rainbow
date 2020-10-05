@@ -6,7 +6,7 @@
 <a href="https://swift.org/package-manager/"><img src="https://img.shields.io/badge/SPM-ready-orange.svg"></a>
 <a href="http://cocoadocs.org/docsets/RainbowSwift"><img src="https://img.shields.io/cocoapods/v/RainbowSwift.svg?style=flat"></a>
 <a href="https://github.com/Carthage/Carthage/"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
-<a href="http://cocoadocs.org/docsets/RainbowSwift"><img src="https://img.shields.io/badge/platform-ios%7Cosx%7Cwatchos%7Ctvos%7Clinux-lightgrey.svg"></a>
+<a href="http://cocoadocs.org/docsets/RainbowSwift"><img src="https://img.shields.io/badge/platform-osx%7Clinux%7Cwindows-lightgrey.svg"></a>
 <a href="https://raw.githubusercontent.com/onevcat/Rainbow/master/LICENSE"><img src="https://img.shields.io/cocoapods/l/RainbowSwift.svg?style=flat"></a>
 </p>
 
