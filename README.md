@@ -57,14 +57,6 @@ to check whether the output is connected to a valid text terminal or not, to
 decide the log should be modified or not. This could be useful when you want to
  send your log to a file instead to console.
 
-Although `Rainbow` is first designed for console output in terminals, you could 
-use it in Xcode with [XcodeColors](https://github.com/robbiehanson/XcodeColors) 
-plugin installed too. It will enable color output for better debugging 
-experience in Xcode.
-
-> Please notice, after Xcode 8, third party plugins in bundle (like XcodeColors) is not 
-supported anymore. [See this](https://github.com/alcatraz/Alcatraz/issues/475).
-
 ## Install
 
 Rainbow 3.x supports from Swift 4. If you need to use Rainbow in Swift 3, use Rainbow 2.1 instead.
