@@ -53,10 +53,6 @@ public enum Rainbow {
             let result = ConsoleModesExtractor().extract(string)
             let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
             return (color, backgroundColor, styles, result.text)
-        } else if string.isXcodeColorsStyle {
-            let result = XcodeColorsModesExtractor().extract(string)
-            let (color, backgroundColor, _) = XcodeColorsCodesParser().parse(modeCodes: result.codes)
-            return (color, backgroundColor, nil, result.text)
         } else {
             return (nil, nil, nil, string)
         }
@@ -72,12 +68,6 @@ public enum Rainbow {
         }
         
         switch outputTarget {
-        case .xcodeColors:
-            return XcodeColorsStringGenerator()
-                .generate(withStringColor: color,
-                          backgroundColor: backgroundColor,
-                          styles: styles,
-                          text: text)
         case .console:
             return ConsoleStringGenerator()
                 .generate(withStringColor: color,
