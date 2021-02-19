@@ -37,7 +37,6 @@ Output target of Rainbow.
 
 - Unknown: Unknown target.
 - Console: A valid console is detected connected.
-- XcodeColors: Used in Xcode with XcodeColors enabled.
 */
 public enum OutputTarget {
     case unknown

@@ -86,9 +86,4 @@ private extension String {
         let token = ControlCode.CSI
         return hasPrefix(token) && hasSuffix("\(token)0m")
     }
-    
-    var isXcodeColorsStyle: Bool {
-        let token = ControlCode.CSI
-        return hasPrefix(token) && hasSuffix("\(token);")
-    }
 }

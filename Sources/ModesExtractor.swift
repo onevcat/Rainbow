@@ -53,33 +53,3 @@ struct ConsoleModesExtractor: ModesExtractor {
         return (codes, text)
     }
 }
-
-struct XcodeColorsModesExtractor: ModesExtractor {
-    func extract(_ string: String) -> (codes: [String], text: String) {
-        let token = ControlCode.CSI
-        var index = string.startIndex
-        
-        var codes = [String]()
-        
-        var outer = String(string[index]) //Start index should be the ESC control code
-        while outer == ControlCode.ESC {
-            var codesString = ""
-            index = string.index(index, offsetBy: token.count)
-            
-            while string[index] != ";" {
-                codesString.append(string[index])
-                index = string.index(after: index)
-            }
-            
-            codes.append(codesString)
-            index = string.index(after: index)
-            outer = String(string[index])
-        }
-        
-        let startIndex = index
-        let endIndex = string.index(string.endIndex, offsetBy: -"\(token);".count)
-        let text = String(string[startIndex ..< endIndex])
-        
-        return (codes, text)
-    }
-}
