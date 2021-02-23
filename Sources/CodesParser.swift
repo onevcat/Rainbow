@@ -53,21 +53,3 @@ struct ConsoleCodesParser: CodesParser {
         return (color, backgroundColor, styles)
     }
 }
-
-struct XcodeColorsCodesParser: CodesParser {
-
-    func parse(modeCodes codes: [String]) -> ParseResult {
-        var color: Color? = nil
-        var backgroundColor: BackgroundColor? = nil
-        
-        for code in codes {
-            if let c = Color(xcodeColorsDescription: code) {
-                color = c
-            } else if let bg = BackgroundColor(xcodeColorsDescription: code) {
-                backgroundColor = bg
-            }
-        }
-        
-        return (color, backgroundColor, nil)
-    }
-}

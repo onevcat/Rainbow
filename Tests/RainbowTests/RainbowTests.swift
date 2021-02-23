@@ -83,18 +83,6 @@ class RainbowTests: XCTestCase {
         XCTAssertNil(result4.backgroundColor)
         XCTAssertNil(result4.styles)
         XCTAssertEqual(result4.text, "\u{001B}[4;31;93mHello World\u{001B}[0m")
-        
-        let result5 = Rainbow.extractModes(for: "\u{001B}[fg0,0,0;Hello\u{001B}[;")
-        XCTAssertEqual(result5.color!, Color.black)
-        XCTAssertNil(result5.backgroundColor)
-        XCTAssertNil(result5.styles)
-        XCTAssertEqual(result5.text, "Hello")
-        
-        let result6 = Rainbow.extractModes(for: "\u{001B}[fg0,0,0;\u{001B}[bg255,0,0;Hello\u{001B}[;")
-        XCTAssertEqual(result6.color!, Color.black)
-        XCTAssertEqual(result6.backgroundColor, BackgroundColor.red)
-        XCTAssertNil(result6.styles)
-        XCTAssertEqual(result6.text, "Hello")
     }
     
     func testGenerateConsoleStringWithCodes() {
@@ -109,20 +97,6 @@ class RainbowTests: XCTestCase {
         
         let result3 = Rainbow.generateString(forColor: .lightYellow, backgroundColor: .magenta, styles: [.bold, .blink], text: "Hello")
         XCTAssertEqual(result3, "\u{001B}[93;45;1;5mHello\u{001B}[0m")
-    }
-    
-    func testGenerateXcodeColorsStringWithCodes() {
-        
-        Rainbow.outputTarget = .xcodeColors
-        
-        let result1 = Rainbow.generateString(forColor: nil, backgroundColor: nil, styles: nil, text: "Hello")
-        XCTAssertEqual(result1, "Hello")
-        
-        let result2 = Rainbow.generateString(forColor: .red, backgroundColor: nil, styles: nil, text: "Hello")
-        XCTAssertEqual(result2, "\u{001B}[fg255,0,0;Hello\u{001B}[;")
-        
-        let result3 = Rainbow.generateString(forColor: .lightYellow, backgroundColor: .magenta, styles: [.bold, .blink], text: "Hello")
-        XCTAssertEqual(result3, "\u{001B}[fg255,255,102;\u{001B}[bg255,0,255;Hello\u{001B}[;")
     }
     
     func testGenerateUnknownStringWithCodes() {
@@ -155,9 +129,6 @@ class RainbowTests: XCTestCase {
     func testRainbowRawString() {
         let red = "\u{001B}[31mHello\u{001B}[0m"
         XCTAssertEqual(red.raw, "Hello")
-        
-        let complex = "\u{001B}[fg255,255,102;\u{001B}[bg255,0,255;Hello\u{001B}[;"
-        XCTAssertEqual(complex.raw, "Hello")
         
         let plain = "Hello"
         XCTAssertEqual(plain, "Hello")

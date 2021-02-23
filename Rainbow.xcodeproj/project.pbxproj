@@ -18,7 +18,6 @@
 		4B1929201C2BBC98005B79AB /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
 		4B1929211C2BBC98005B79AB /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
 		4B1929221C2BBC98005B79AB /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
-		4B1929231C2BBC98005B79AB /* XcodeColorsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */; };
 		4B1929311C2BBE06005B79AB /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
 		4B1929321C2BBE06005B79AB /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
 		4B1929331C2BBE06005B79AB /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
@@ -29,7 +28,6 @@
 		4B1929381C2BBE06005B79AB /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
 		4B1929391C2BBE06005B79AB /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
 		4B19293A1C2BBE06005B79AB /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
-		4B19293B1C2BBE06005B79AB /* XcodeColorsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */; };
 		4B1929581C2BBEED005B79AB /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B1929591C2BBEF5005B79AB /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B19295A1C2BBEFE005B79AB /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
@@ -42,7 +40,6 @@
 		4B1929611C2BBEFE005B79AB /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
 		4B1929621C2BBEFE005B79AB /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
 		4B1929631C2BBEFE005B79AB /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
-		4B1929641C2BBEFE005B79AB /* XcodeColorsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */; };
 		4BA75FAA1C2939EC00B1037A /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA75FA91C2939EC00B1037A /* Rainbow.swift */; };
 		4BC026E91C2929E7009FD2FD /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026E81C2929E7009FD2FD /* Color.swift */; };
 		4BC026EB1C292B25009FD2FD /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
@@ -51,14 +48,12 @@
 		4BC821811C29254C00F68E70 /* Rainbow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC821761C29254C00F68E70 /* Rainbow.framework */; };
 		4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8219F1C29276C00F68E70 /* RainbowTests.swift */; };
 		4BC821AB1C2928CF00F68E70 /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D11AECD31C2A796E00014175 /* XcodeColorsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */; };
 		D16B37C41C2A2F76001A5D35 /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
 		D1A98FAF1C299D64000DDF20 /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
 		D1A98FB11C299DF0000DDF20 /* ConsoleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */; };
 		D1C5D8DC1C2ACA1D001CB619 /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
 		D1C5D8DE1C2ACA7A001CB619 /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
 		D1C5D8E01C2AD38A001CB619 /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
-		D1C5D8E21C2ADFA7001CB619 /* XcodeColorsStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8E11C2ADFA7001CB619 /* XcodeColorsStringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,14 +81,12 @@
 		4BC8219E1C29276C00F68E70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		4BC8219F1C29276C00F68E70 /* RainbowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RainbowTests.swift; path = Tests/RainbowTests/RainbowTests.swift; sourceTree = SOURCE_ROOT; };
 		4BC821AA1C2928CF00F68E70 /* Rainbow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rainbow.h; sourceTree = "<group>"; };
-		D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsSupport.swift; sourceTree = "<group>"; };
 		D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputTarget.swift; sourceTree = "<group>"; };
 		D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Rainbow.swift"; sourceTree = "<group>"; };
 		D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleStringTests.swift; path = Tests/RainbowTests/ConsoleStringTests.swift; sourceTree = SOURCE_ROOT; };
 		D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesParser.swift; sourceTree = "<group>"; };
 		D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModesExtractor.swift; sourceTree = "<group>"; };
 		D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringGenerator.swift; sourceTree = "<group>"; };
-		D1C5D8E11C2ADFA7001CB619 /* XcodeColorsStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XcodeColorsStringTests.swift; path = Tests/RainbowTests/XcodeColorsStringTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +157,6 @@
 				4BC8219E1C29276C00F68E70 /* Info.plist */,
 				4BC8219F1C29276C00F68E70 /* RainbowTests.swift */,
 				D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */,
-				D1C5D8E11C2ADFA7001CB619 /* XcodeColorsStringTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -191,7 +183,6 @@
 				4BC821AA1C2928CF00F68E70 /* Rainbow.h */,
 				D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */,
 				D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */,
-				D11AECD21C2A796E00014175 /* XcodeColorsSupport.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -361,6 +352,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 4BC8216C1C29254C00F68E70;
@@ -430,7 +422,6 @@
 				4B1929201C2BBC98005B79AB /* ControlCode.swift in Sources */,
 				4B1929211C2BBC98005B79AB /* String+Rainbow.swift in Sources */,
 				4B1929221C2BBC98005B79AB /* OutputTarget.swift in Sources */,
-				4B1929231C2BBC98005B79AB /* XcodeColorsSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +439,6 @@
 				4B1929381C2BBE06005B79AB /* ControlCode.swift in Sources */,
 				4B1929391C2BBE06005B79AB /* String+Rainbow.swift in Sources */,
 				4B19293A1C2BBE06005B79AB /* OutputTarget.swift in Sources */,
-				4B19293B1C2BBE06005B79AB /* XcodeColorsSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +456,6 @@
 				4B1929611C2BBEFE005B79AB /* ControlCode.swift in Sources */,
 				4B1929621C2BBEFE005B79AB /* String+Rainbow.swift in Sources */,
 				4B1929631C2BBEFE005B79AB /* OutputTarget.swift in Sources */,
-				4B1929641C2BBEFE005B79AB /* XcodeColorsSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +470,6 @@
 				D1C5D8E01C2AD38A001CB619 /* StringGenerator.swift in Sources */,
 				D16B37C41C2A2F76001A5D35 /* OutputTarget.swift in Sources */,
 				D1C5D8DC1C2ACA1D001CB619 /* CodesParser.swift in Sources */,
-				D11AECD31C2A796E00014175 /* XcodeColorsSupport.swift in Sources */,
 				D1C5D8DE1C2ACA7A001CB619 /* ModesExtractor.swift in Sources */,
 				4BA75FAA1C2939EC00B1037A /* Rainbow.swift in Sources */,
 				4BC026EF1C292F70009FD2FD /* Style.swift in Sources */,
@@ -494,7 +482,6 @@
 			files = (
 				D1A98FB11C299DF0000DDF20 /* ConsoleStringTests.swift in Sources */,
 				4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */,
-				D1C5D8E21C2ADFA7001CB619 /* XcodeColorsStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
