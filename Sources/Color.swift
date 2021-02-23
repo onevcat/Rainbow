@@ -24,8 +24,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+public typealias Color = NamedColor
+
 /// Valid named text colors to use in `Rainbow`.
-public enum Color: UInt8, ModeCode {
+public enum NamedColor: UInt8, ModeCode {
     case black = 30
     case red
     case green

@@ -85,11 +85,11 @@ class RainbowTests: XCTestCase {
         XCTAssertEqual(result4.text, "\u{001B}[4;31;93mHello World\u{001B}[0m")
     }
 
-//    func testExtract256BitModes() {
-//        let result = Rainbow.extractEntry(for: "\u{001B}[38;5;31mHello World\u{001B}[0m")
-//        XCTAssertEqual(result.color, .bit8(31))
-//        XCTAssertEqual(result.text, "Hello World")
-//    }
+    func testExtract256BitModes() {
+        let result = Rainbow.extractEntry(for: "\u{001B}[38;5;31mHello World\u{001B}[0m")
+        XCTAssertEqual(result.color, .bit8(31))
+        XCTAssertEqual(result.text, "Hello World")
+    }
     
     func testGenerateConsoleStringWithCodes() {
         

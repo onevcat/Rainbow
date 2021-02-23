@@ -24,8 +24,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+public typealias BackgroundColor = NamedBackgroundColor
+
 /// Valid background colors to use in `Rainbow`.
-public enum BackgroundColor: UInt8, ModeCode {
+public enum NamedBackgroundColor: UInt8, ModeCode {
     case black = 40
     case red
     case green
