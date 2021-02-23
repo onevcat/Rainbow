@@ -39,4 +39,9 @@ public enum BackgroundColor: UInt8, ModeCode {
     public var value: UInt8 {
         return rawValue
     }
+
+    #warning("Temp impl. Remove later.")
+    var typedColor: BackgroundColorType {
+        return .named(self)
+    }
 }

@@ -24,7 +24,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-typealias ParseResult = (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?)
+typealias ParseResult = (color: ColorType?, backgroundColor: BackgroundColorType?, styles: [Style]?)
 
 protocol CodesParser {
     associatedtype SourceType
@@ -50,6 +50,6 @@ struct ConsoleCodesParser: CodesParser {
             }
         }
         
-        return (color, backgroundColor, styles)
+        return (color?.typedColor, backgroundColor?.typedColor, styles)
     }
 }

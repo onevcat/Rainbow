@@ -47,6 +47,11 @@ public enum Color: UInt8, ModeCode {
     public var value: UInt8 {
         return rawValue
     }
+
+    #warning("Temp impl. Remove later.")
+    var typedColor: ColorType {
+        return .named(self)
+    }
 }
 
 public typealias RGB = (UInt8, UInt8, UInt8)
@@ -65,6 +70,17 @@ public enum ColorType {
     }
 }
 
+extension ColorType: Equatable {
+    public static func == (lhs: ColorType, rhs: ColorType) -> Bool {
+        switch (lhs, rhs) {
+        case (.named(let color1), .named(let color2)): return color1 == color2
+        case (.bit8(let color1), .bit8(let color2)): return color1 == color2
+        case (.bit24(let color1), .bit24(let color2)): return color1 == color2
+        default: return false
+        }
+    }
+}
+
 public enum BackgroundColorType {
     case named(BackgroundColor)
     case bit8(UInt8)
@@ -75,6 +91,17 @@ public enum BackgroundColorType {
         switch self {
         case .named(let color): return color
         default: return nil
+        }
+    }
+}
+
+extension BackgroundColorType: Equatable {
+    public static func == (lhs: BackgroundColorType, rhs: BackgroundColorType) -> Bool {
+        switch (lhs, rhs) {
+        case (.named(let color1), .named(let color2)): return color1 == color2
+        case (.bit8(let color1), .bit8(let color2)): return color1 == color2
+        case (.bit24(let color1), .bit24(let color2)): return color1 == color2
+        default: return false
         }
     }
 }

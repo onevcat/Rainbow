@@ -27,4 +27,9 @@
 enum ControlCode {
     static let ESC = "\u{001B}"
     static let CSI = "\(ESC)["
+
+    static let setColor8Bit: [UInt8] = [38, 5]
+    static let setBackgroundColor8Bit: [UInt8] = [48, 5]
+    static let setColor24Bit: [UInt8] = [38, 2]
+    static let setBackgroundColor24Bit: [UInt8] = [48, 2]
 }

@@ -57,8 +57,8 @@ public enum Rainbow {
             if string.isConsoleStyle {
                 let result = ConsoleModesExtractor().extract(string)
                 let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
-                self.color = color.map(ColorType.named)
-                self.backgroundColor = backgroundColor.map(BackgroundColorType.named)
+                self.color = color
+                self.backgroundColor = backgroundColor
                 self.styles = styles
                 self.text = result.text
             } else {

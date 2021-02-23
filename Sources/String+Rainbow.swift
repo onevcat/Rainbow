@@ -153,11 +153,11 @@ extension String {
         let input = ConsoleCodesParser().parse(modeCodes: codes.map{ $0.value } )
 
         if let inputColor = input.color {
-            current.color = .named(inputColor)
+            current.color = inputColor
         }
 
         if let inputBackgroundColor = input.backgroundColor {
-            current.backgroundColor = .named(inputBackgroundColor)
+            current.backgroundColor = inputBackgroundColor
         }
 
         var styles = [Style]()
