@@ -24,7 +24,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-/// Valid text colors to use in `Rainbow`.
+/// Valid named text colors to use in `Rainbow`.
 public enum Color: UInt8, ModeCode {
     case black = 30
     case red
@@ -46,5 +46,35 @@ public enum Color: UInt8, ModeCode {
     
     public var value: UInt8 {
         return rawValue
+    }
+}
+
+public typealias RGB = (UInt8, UInt8, UInt8)
+
+public enum ColorType {
+    case named(Color)
+    case bit8(UInt8)
+    case bit24(RGB)
+
+    #warning("Temp impl. Remove later.")
+    var namedColor: Color? {
+        switch self {
+        case .named(let color): return color
+        default: return nil
+        }
+    }
+}
+
+public enum BackgroundColorType {
+    case named(BackgroundColor)
+    case bit8(UInt8)
+    case bit24(RGB)
+
+    #warning("Temp impl. Remove later.")
+    var namedColor: BackgroundColor? {
+        switch self {
+        case .named(let color): return color
+        default: return nil
+        }
     }
 }

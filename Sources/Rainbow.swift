@@ -38,6 +38,34 @@ public protocol ModeCode {
  Setting for `Rainbow`.
  */
 public enum Rainbow {
+
+    public struct Entry {
+        
+        init(color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil, text: String) {
+            self.color = color
+            self.backgroundColor = backgroundColor
+            self.styles = styles
+            self.text = text
+        }
+
+        public var color: ColorType?
+        public var backgroundColor: BackgroundColorType?
+        public var styles: [Style]?
+        public var text: String
+
+        init(formattedString string: String) {
+            if string.isConsoleStyle {
+                let result = ConsoleModesExtractor().extract(string)
+                let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
+                self.color = color.map(ColorType.named)
+                self.backgroundColor = backgroundColor.map(BackgroundColorType.named)
+                self.styles = styles
+                self.text = result.text
+            } else {
+                self.text = string
+            }
+        }
+    }
     
     /// Output target for `Rainbow`. `Rainbow` should detect correct target itself, so you rarely need to set it. 
     /// However, if you want the colorized string to be different, or the detection is not correct, you can set it manually.
@@ -45,19 +73,34 @@ public enum Rainbow {
     
     /// Enable `Rainbow` to colorize string or not. Default is `true`, unless the `NO_COLOR` environment variable is set.
     public static var enabled = ProcessInfo.processInfo.environment["NO_COLOR"] == nil
-    
+
+    public static func extractEntry(for string: String) -> Entry {
+        return Entry(formattedString: string)
+    }
+
+    @available(*, deprecated, message: "Use the `Entry` version `extractEntry(for:)` instead.")
     public static func extractModes(for string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
-        if string.isConsoleStyle {
-            let result = ConsoleModesExtractor().extract(string)
-            let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
-            return (color, backgroundColor, styles, result.text)
-        } else {
-            return (nil, nil, nil, string)
+        let entry = Entry(formattedString: string)
+        return (entry.color?.namedColor, entry.backgroundColor?.namedColor, entry.styles, entry.text)
+    }
+
+
+    static func generateString(for entry: Entry) -> String {
+        guard enabled else {
+            return entry.text
+        }
+        switch outputTarget {
+        case .console:
+            return ConsoleStringGenerator()
+                .generate(withStringColor: entry.color?.namedColor, backgroundColor: entry.backgroundColor?.namedColor, styles: entry.styles, text: entry.text)
+        case .unknown:
+            return entry.text
         }
     }
 
+    @available(*, deprecated, message: "Use the `Entry` version `generateString(for:)` instead.")
     static func generateString(forColor color: Color?,
                              backgroundColor: BackgroundColor?,
                                       styles: [Style]?,

@@ -46,7 +46,7 @@ extension String {
      - returns: A string without color.
      */
     public func removingColor() -> String {
-        guard let _ = Rainbow.extractModes(for: self).color else {
+        guard let _ = Rainbow.extractEntry(for: self).color else {
             return self
         }
         return applyingColor(.default)
@@ -72,7 +72,7 @@ extension String {
      - returns: A string without color.
      */
     public func removingBackgroundColor() -> String {
-        guard let _ = Rainbow.extractModes(for: self).backgroundColor else {
+        guard let _ = Rainbow.extractEntry(for: self).backgroundColor else {
             return self
         }
 
@@ -103,19 +103,15 @@ extension String {
             return self
         }
         
-        let current = Rainbow.extractModes(for: self)
+        var current = Rainbow.extractEntry(for: self)
         if var styles = current.styles {
             #if swift(>=4.2)
             styles.removeAll { $0 == style }
             #else
             styles = styles.filter { $0 != style }
             #endif
-            return Rainbow.generateString(
-                forColor: current.color,
-                backgroundColor: current.backgroundColor,
-                styles: styles,
-                text: current.text
-            )
+            current.styles = styles
+            return Rainbow.generateString(for: current)
         } else {
             return self
         }
@@ -135,13 +131,9 @@ extension String {
             return self
         }
         
-        let current = Rainbow.extractModes(for: self)
-        return Rainbow.generateString(
-            forColor: current.color,
-            backgroundColor: current.backgroundColor,
-            styles: nil,
-            text: current.text
-        )
+        var current = Rainbow.extractEntry(for: self)
+        current.styles = nil
+        return Rainbow.generateString(for: current)
     }
     
     /**
@@ -157,11 +149,17 @@ extension String {
             return self
         }
         
-        let current = Rainbow.extractModes(for: self)
+        var current = Rainbow.extractEntry(for: self)
         let input = ConsoleCodesParser().parse(modeCodes: codes.map{ $0.value } )
-        
-        let color = input.color ?? current.color
-        let backgroundColor = input.backgroundColor ?? current.backgroundColor
+
+        if let inputColor = input.color {
+            current.color = .named(inputColor)
+        }
+
+        if let inputBackgroundColor = input.backgroundColor {
+            current.backgroundColor = .named(inputBackgroundColor)
+        }
+
         var styles = [Style]()
         
         if let s = current.styles {
@@ -171,16 +169,12 @@ extension String {
         if let s = input.styles {
             styles += s
         }
+        current.styles = styles.isEmpty ? nil : styles
         
         if codes.isEmpty {
             return self
         } else {
-            return Rainbow.generateString(
-                forColor: color,
-                backgroundColor: backgroundColor,
-                styles: styles.isEmpty ? nil : styles,
-                text: current.text
-            )
+            return Rainbow.generateString(for: current)
         }
     }
 }
@@ -270,6 +264,6 @@ extension String {
 extension String {
     /// Get the raw string of current Rainbow styled string. O(n)
     public var raw: String {
-        return Rainbow.extractModes(for: self).text
+        return Rainbow.extractEntry(for: self).text
     }
 }
