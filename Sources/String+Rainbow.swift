@@ -223,6 +223,22 @@ extension String {
     public var onCyan: String { return applyingBackgroundColor(.cyan) }
     /// String with white background.
     public var onWhite: String { return applyingBackgroundColor(.white) }
+    /// String with light black background. Generally speaking, it means dark grey in some consoles.
+    public var onLightBlack: String { return applyingBackgroundColor(.lightBlack) }
+    /// String with light red background.
+    public var onLightRed: String { return applyingBackgroundColor(.lightRed) }
+    /// String with light green background.
+    public var onLightGreen: String { return applyingBackgroundColor(.lightGreen) }
+    /// String with light yellow background.
+    public var onLightYellow: String { return applyingBackgroundColor(.lightYellow) }
+    /// String with light blue background.
+    public var onLightBlue: String { return applyingBackgroundColor(.lightBlue) }
+    /// String with light magenta background.
+    public var onLightMagenta: String { return applyingBackgroundColor(.lightMagenta) }
+    /// String with light cyan background.
+    public var onLightCyan: String { return applyingBackgroundColor(.lightCyan) }
+    /// String with light white background. Generally speaking, it means light grey in some consoles.
+    public var onLightWhite: String { return applyingBackgroundColor(.lightWhite) }
 
     /// String with an ANSI 256 8-bit background color applied.
     public func onBit8(_ color: UInt8) -> String { return applyingBackgroundColor(.bit8(color)) }

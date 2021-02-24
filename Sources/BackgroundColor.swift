@@ -71,6 +71,14 @@ public enum NamedBackgroundColor: UInt8, ModeCode {
     case cyan
     case white
     case `default` = 49
+    case lightBlack = 100
+    case lightRed
+    case lightGreen
+    case lightYellow
+    case lightBlue
+    case lightMagenta
+    case lightCyan
+    case lightWhite
 
     public var value: [UInt8] {
         return [rawValue]
