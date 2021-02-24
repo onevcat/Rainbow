@@ -82,6 +82,7 @@ class ConsoleStringTests: XCTestCase {
         XCTAssertEqual(string.onMagenta, "\u{001B}[45mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.onCyan, "\u{001B}[46mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.onWhite, "\u{001B}[47mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.onLightRed, "\u{001B}[101mHello Rainbow\u{001B}[0m")
     }
 
     func testString8BitBackgroundColor() {
