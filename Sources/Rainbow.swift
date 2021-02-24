@@ -31,7 +31,7 @@ import Foundation
  It could be a `Color`, a `BackgroundColor` or a `Style`
  */
 public protocol ModeCode {
-    var value: UInt8 { get }
+    var value: [UInt8] { get }
 }
 
 /**
@@ -93,35 +93,11 @@ public enum Rainbow {
         }
         switch outputTarget {
         case .console:
-            return ConsoleStringGenerator()
-                .generate(withStringColor: entry.color?.namedColor, backgroundColor: entry.backgroundColor?.namedColor, styles: entry.styles, text: entry.text)
+            return ConsoleStringGenerator().generate(for: entry)
         case .unknown:
             return entry.text
         }
     }
-
-    @available(*, deprecated, message: "Use the `Entry` version `generateString(for:)` instead.")
-    static func generateString(forColor color: Color?,
-                             backgroundColor: BackgroundColor?,
-                                      styles: [Style]?,
-                                        text: String) -> String
-    {
-        guard enabled else {
-            return text
-        }
-        
-        switch outputTarget {
-        case .console:
-            return ConsoleStringGenerator()
-                .generate(withStringColor: color,
-                          backgroundColor: backgroundColor,
-                          styles: styles,
-                          text: text)
-        case .unknown:
-            return text
-        }
-    }
-    
 }
 
 private extension String {

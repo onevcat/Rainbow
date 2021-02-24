@@ -150,7 +150,7 @@ extension String {
         }
         
         var current = Rainbow.extractEntry(for: self)
-        let input = ConsoleCodesParser().parse(modeCodes: codes.map{ $0.value } )
+        let input = ConsoleCodesParser().parse(modeCodes: codes.flatMap { $0.value } )
 
         if let inputColor = input.color {
             current.color = inputColor

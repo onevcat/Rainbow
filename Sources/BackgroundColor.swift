@@ -24,6 +24,40 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+
+public enum BackgroundColorType: ModeCode {
+    case named(BackgroundColor)
+    case bit8(UInt8)
+    case bit24(RGB)
+
+    #warning("Temp impl. Remove later.")
+    var namedColor: BackgroundColor? {
+        switch self {
+        case .named(let color): return color
+        default: return nil
+        }
+    }
+
+    public var value: [UInt8] {
+        switch self {
+        case .named(let color): return color.value
+        case .bit8(let color): return [ControlCode.setBackgroundColor, ControlCode.set8Bit, color]
+        case .bit24(let rgb): return [ControlCode.setBackgroundColor, ControlCode.set24Bit, rgb.0, rgb.1, rgb.2]
+        }
+    }
+}
+
+extension BackgroundColorType: Equatable {
+    public static func == (lhs: BackgroundColorType, rhs: BackgroundColorType) -> Bool {
+        switch (lhs, rhs) {
+        case (.named(let color1), .named(let color2)): return color1 == color2
+        case (.bit8(let color1), .bit8(let color2)): return color1 == color2
+        case (.bit24(let color1), .bit24(let color2)): return color1 == color2
+        default: return false
+        }
+    }
+}
+
 public typealias BackgroundColor = NamedBackgroundColor
 
 /// Valid background colors to use in `Rainbow`.
@@ -37,9 +71,9 @@ public enum NamedBackgroundColor: UInt8, ModeCode {
     case cyan
     case white
     case `default` = 49
-    
-    public var value: UInt8 {
-        return rawValue
+
+    public var value: [UInt8] {
+        return [rawValue]
     }
 
     #warning("Temp impl. Remove later.")

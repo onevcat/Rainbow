@@ -154,6 +154,28 @@ class RainbowTests: XCTestCase {
         )
         XCTAssertEqual(result3, "\u{001B}[93;45;1;5mHello\u{001B}[0m")
     }
+
+    func testGenerateConsoleStringWithCodes8Bit() {
+        let result1 = Rainbow.generateString(
+            for: .init(color: .bit8(100), backgroundColor: nil, styles: nil, text: "Hello")
+        )
+        XCTAssertEqual(result1, "\u{001B}[38;5;100mHello\u{001B}[0m")
+
+        let result2 = Rainbow.generateString(
+            for: .init(color: nil, backgroundColor: .bit8(200), styles: [], text: "Hello")
+        )
+        XCTAssertEqual(result2, "\u{001B}[48;5;200mHello\u{001B}[0m")
+
+        let result3 = Rainbow.generateString(
+            for: .init(color: .bit8(100), backgroundColor: .bit8(200), styles: [.bold], text: "Hello")
+        )
+        XCTAssertEqual(result3, "\u{001B}[38;5;100;48;5;200;1mHello\u{001B}[0m")
+
+        let result4 = Rainbow.generateString(
+            for: .init(color: .named(.red), backgroundColor: .bit8(200), styles: [.bold], text: "Hello")
+        )
+        XCTAssertEqual(result4, "\u{001B}[31;48;5;200;1mHello\u{001B}[0m")
+    }
     
     func testGenerateUnknownStringWithCodes() {
         Rainbow.outputTarget = .unknown
