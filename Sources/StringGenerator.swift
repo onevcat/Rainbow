@@ -42,9 +42,9 @@ struct ConsoleStringGenerator: StringGenerator {
         }
 
         if codes.isEmpty {
-            return entry.text
+            return entry.contents[0].asText
         } else {
-            return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\(entry.text)\(ControlCode.CSI)0m"
+            return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\(entry.contents[0].asText)\(ControlCode.CSI)0m"
         }
     }
 }

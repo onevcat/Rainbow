@@ -277,6 +277,6 @@ extension String {
 extension String {
     /// Get the raw string of current Rainbow styled string. O(n)
     public var raw: String {
-        return Rainbow.extractEntry(for: self).text
+        return Rainbow.extractEntry(for: self).contents[0].asText
     }
 }

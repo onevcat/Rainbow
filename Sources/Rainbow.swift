@@ -39,19 +39,35 @@ public protocol ModeCode {
  */
 public enum Rainbow {
 
-    public struct Entry {
-        
-        init(color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil, text: String) {
-            self.color = color
-            self.backgroundColor = backgroundColor
-            self.styles = styles
-            self.text = text
+    public enum Content {
+        case text(String)
+        case entry(Entry)
+
+        #warning("Remove later")
+        var asText: String {
+            switch self {
+            case .text(let t): return t
+            case .entry: fatalError()
+            }
         }
+    }
+
+    public struct Entry {
 
         public var color: ColorType?
         public var backgroundColor: BackgroundColorType?
         public var styles: [Style]?
-        public var text: String
+        public var contents: [Content]
+
+        #warning("Remove later")
+        var text: String { return contents[0].asText }
+
+        init(color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil, text: String) {
+            self.color = color
+            self.backgroundColor = backgroundColor
+            self.styles = styles
+            self.contents = [.text(text)]
+        }
 
         init(formattedString string: String) {
             if string.isConsoleStyle {
@@ -60,9 +76,9 @@ public enum Rainbow {
                 self.color = color
                 self.backgroundColor = backgroundColor
                 self.styles = styles
-                self.text = result.text
+                self.contents = [.text(result.text)]
             } else {
-                self.text = string
+                self.contents = [.text(string)]
             }
         }
     }
@@ -83,19 +99,20 @@ public enum Rainbow {
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
         let entry = Entry(formattedString: string)
-        return (entry.color?.namedColor, entry.backgroundColor?.namedColor, entry.styles, entry.text)
+        
+        return (entry.color?.namedColor, entry.backgroundColor?.namedColor, entry.styles, entry.contents[0].asText)
     }
 
 
     static func generateString(for entry: Entry) -> String {
         guard enabled else {
-            return entry.text
+            return entry.contents[0].asText
         }
         switch outputTarget {
         case .console:
             return ConsoleStringGenerator().generate(for: entry)
         case .unknown:
-            return entry.text
+            return entry.contents[0].asText
         }
     }
 }
