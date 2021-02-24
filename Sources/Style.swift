@@ -34,7 +34,7 @@ public enum Style: UInt8, ModeCode {
     case blink = 5
     case swap = 7
     
-    public var value: UInt8 {
-        return rawValue
+    public var value: [UInt8] {
+        return [rawValue]
     }
 }

@@ -25,26 +25,26 @@
 //  THE SOFTWARE.
 
 protocol StringGenerator {
-    func generate(withStringColor stringColor: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String) -> String
+    func generate(for entry: Rainbow.Entry) -> String
 }
 
 struct ConsoleStringGenerator: StringGenerator {
-    func generate(withStringColor stringColor: Color? = nil, backgroundColor: BackgroundColor? = nil, styles: [Style]? = nil, text: String) -> String {
+    func generate(for entry: Rainbow.Entry) -> String {
         var codes: [UInt8] = []
-        if let color = stringColor {
-            codes.append(color.value)
+        if let color = entry.color {
+            codes += color.value
         }
-        if let backgroundColor = backgroundColor {
-            codes.append(backgroundColor.value)
+        if let backgroundColor = entry.backgroundColor {
+            codes += backgroundColor.value
         }
-        if let styles = styles {
-            codes += styles.map{$0.value}
+        if let styles = entry.styles {
+            codes += styles.flatMap{ $0.value }
         }
-        
+
         if codes.isEmpty {
-            return text
+            return entry.text
         } else {
-            return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\(text)\(ControlCode.CSI)0m"
+            return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\(entry.text)\(ControlCode.CSI)0m"
         }
     }
 }

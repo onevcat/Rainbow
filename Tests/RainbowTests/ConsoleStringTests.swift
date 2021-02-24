@@ -62,6 +62,16 @@ class ConsoleStringTests: XCTestCase {
         XCTAssertEqual(string.lightWhite, "\u{001B}[97mHello Rainbow\u{001B}[0m")
     }
 
+    func testString8BitColor() {
+        let string = "Hello Rainbow"
+        XCTAssertEqual(string.bit8(123), "\u{001B}[38;5;123mHello Rainbow\u{001B}[0m")
+    }
+
+    func testString24BitColor() {
+        let string = "Hello Rainbow"
+        XCTAssertEqual(string.bit24((10, 20, 30)), "\u{001B}[38;2;10;20;30mHello Rainbow\u{001B}[0m")
+    }
+
     func testStringBackgroundColor() {
         let string = "Hello Rainbow"
         XCTAssertEqual(string.onBlack, "\u{001B}[40mHello Rainbow\u{001B}[0m")
@@ -72,6 +82,16 @@ class ConsoleStringTests: XCTestCase {
         XCTAssertEqual(string.onMagenta, "\u{001B}[45mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.onCyan, "\u{001B}[46mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.onWhite, "\u{001B}[47mHello Rainbow\u{001B}[0m")
+    }
+
+    func testString8BitBackgroundColor() {
+        let string = "Hello Rainbow"
+        XCTAssertEqual(string.onBit8(123), "\u{001B}[48;5;123mHello Rainbow\u{001B}[0m")
+    }
+
+    func testString24BitBackgroundColor() {
+        let string = "Hello Rainbow"
+        XCTAssertEqual(string.onBit24((10, 20, 30)), "\u{001B}[48;2;10;20;30mHello Rainbow\u{001B}[0m")
     }
     
     func testStringStyle() {
