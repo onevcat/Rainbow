@@ -67,19 +67,19 @@ class RainbowTests: XCTestCase {
         XCTAssertEqual(result1.text, "")
         
         let result2 = Rainbow.extractEntry(for: "\u{001B}[31mHello World\u{001B}[0m")
-        XCTAssertEqual(result2.color?.namedColor, Color.red)
+        XCTAssertEqual(result2.color, .named(.red))
         XCTAssertNil(result2.backgroundColor)
         XCTAssertNil(result2.styles)
         XCTAssertEqual(result2.text, "Hello World")
         
         let result3 = Rainbow.extractEntry(for: "\u{001B}[4;31;42;93;5mHello World\u{001B}[0m")
-        XCTAssertEqual(result3.color?.namedColor, Color.lightYellow)
-        XCTAssertEqual(result3.backgroundColor?.namedColor, BackgroundColor.green)
+        XCTAssertEqual(result3.color, .named(.lightYellow))
+        XCTAssertEqual(result3.backgroundColor, .named(.green))
         XCTAssertEqual(result3.styles!, [.underline, .blink])
         XCTAssertEqual(result3.text, "Hello World")
         
         let result4 = Rainbow.extractEntry(for: "\u{001B}[31m\u{001B}[4;31;93mHello World\u{001B}[0m\u{001B}[0m")
-        XCTAssertEqual(result4.color?.namedColor, Color.red)
+        XCTAssertEqual(result4.color, .named(.red))
         XCTAssertNil(result4.backgroundColor)
         XCTAssertNil(result4.styles)
         XCTAssertEqual(result4.text, "\u{001B}[4;31;93mHello World\u{001B}[0m")

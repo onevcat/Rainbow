@@ -30,7 +30,7 @@ public enum BackgroundColorType: ModeCode {
     case bit8(UInt8)
     case bit24(RGB)
 
-    #warning("Temp impl. Remove later.")
+    @available(*, deprecated, message: "For backward compatibility.")
     var namedColor: BackgroundColor? {
         switch self {
         case .named(let color): return color
@@ -74,10 +74,5 @@ public enum NamedBackgroundColor: UInt8, ModeCode {
 
     public var value: [UInt8] {
         return [rawValue]
-    }
-
-    #warning("Temp impl. Remove later.")
-    var typedColor: BackgroundColorType {
-        return .named(self)
     }
 }
