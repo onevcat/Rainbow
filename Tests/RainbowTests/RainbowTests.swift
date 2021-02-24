@@ -85,10 +85,58 @@ class RainbowTests: XCTestCase {
         XCTAssertEqual(result4.text, "\u{001B}[4;31;93mHello World\u{001B}[0m")
     }
 
-    func testExtract256BitModes() {
+    func testExtract8BitModes() {
+        // normal case
         let result = Rainbow.extractEntry(for: "\u{001B}[38;5;31mHello World\u{001B}[0m")
         XCTAssertEqual(result.color, .bit8(31))
         XCTAssertEqual(result.text, "Hello World")
+
+        // set color, but no 8bit control code (`5`)
+        let result1 = Rainbow.extractEntry(for: "\u{001B}[38;31mHello World\u{001B}[0m")
+        XCTAssertEqual(result1.color, .named(.red))
+        XCTAssertEqual(result1.text, "Hello World")
+
+        // with additional style
+        let result2 = Rainbow.extractEntry(for: "\u{001B}[38;5;155;4mHello World\u{001B}[0m")
+        XCTAssertEqual(result2.color, .bit8(155))
+        XCTAssertEqual(result2.styles, [.underline])
+        XCTAssertEqual(result2.text, "Hello World")
+
+        // set color, but no 8bit control code (`5`)
+        let result3 = Rainbow.extractEntry(for: "\u{001B}[38;4mHello World\u{001B}[0m")
+        XCTAssertEqual(result3.color, nil)
+        XCTAssertEqual(result3.styles, [.underline])
+        XCTAssertEqual(result3.text, "Hello World")
+    }
+
+    func testExtract24bitModes() {
+        // normal case
+        let result = Rainbow.extractEntry(for: "\u{001B}[38;2;100;100;100mHello World\u{001B}[0m")
+        XCTAssertEqual(result.color, .bit24((100, 100, 100)))
+        XCTAssertEqual(result.text, "Hello World")
+
+        // set color, but no 8bit control code (`2`)
+        let result1 = Rainbow.extractEntry(for: "\u{001B}[38;31mHello World\u{001B}[0m")
+        XCTAssertEqual(result1.color, .named(.red))
+        XCTAssertEqual(result1.text, "Hello World")
+
+        // with additional style
+        let result2 = Rainbow.extractEntry(for: "\u{001B}[38;2;100;100;100;4mHello World\u{001B}[0m")
+        XCTAssertEqual(result.color, .bit24((100, 100, 100)))
+        XCTAssertEqual(result2.styles, [.underline])
+        XCTAssertEqual(result2.text, "Hello World")
+
+        // set color, but no 8bit control code (`2`)
+        let result3 = Rainbow.extractEntry(for: "\u{001B}[38;4mHello World\u{001B}[0m")
+        XCTAssertEqual(result3.color, nil)
+        XCTAssertEqual(result3.styles, [.underline])
+        XCTAssertEqual(result3.text, "Hello World")
+
+        // set color, but not enough color component
+        let result4 = Rainbow.extractEntry(for: "\u{001B}[38;2;4;5mHello World\u{001B}[0m")
+        XCTAssertEqual(result4.color, nil)
+        XCTAssertEqual(result4.styles, [.dim, .underline, .blink])
+        XCTAssertEqual(result4.text, "Hello World")
     }
     
     func testGenerateConsoleStringWithCodes() {
