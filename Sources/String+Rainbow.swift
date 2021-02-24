@@ -26,51 +26,51 @@
 
 // MARK: - Worker methods
 extension String {
-    /**
-     Apply a text color to current string.
-     
-     - parameter color: The color to apply.
-     
-     - returns: The colorized string based on current content.
-     */
-    public func applyingColor(_ color: Color) -> String {
+
+    /// Applies a named text color to current string.
+    /// - Parameter color: The color to apply.
+    /// - Returns: The colorized string based on current content.
+    public func applyingColor(_ color: NamedColor) -> String {
+        return applyingColor(.named(color))
+    }
+
+    /// Applies a text color to current string.
+    /// - Parameter color: The color to apply.
+    /// - Returns: The colorized string based on current content.
+    public func applyingColor(_ color: ColorType) -> String {
         return applyingCodes(color)
     }
-    
-    /**
-     Remove a color from current string.
-     
-     - Note: This method will return the string itself if there is no color component in it.
-     Otherwise, a string without color component will be returned and other components will remain untouched..
-     
-     - returns: A string without color.
-     */
+
+    /// Removes a color from current string.
+    /// - Note: This method will return the string itself if there is no color component in it.
+    ///         Otherwise, a string without color component will be returned and other components will remain untouched.
+    /// - Returns: A string without color.
     public func removingColor() -> String {
         guard let _ = Rainbow.extractEntry(for: self).color else {
             return self
         }
         return applyingColor(.default)
     }
-    
-    /**
-     Apply a background color to current string.
-     
-     - parameter color: The background color to apply.
-     
-     - returns: The background colorized string based on current content.
-     */
-    public func applyingBackgroundColor(_ color: BackgroundColor) -> String {
+
+    /// Applies a named background color to current string.
+    /// - Parameter color: The background color to apply.
+    /// - Returns: The background colorized string based on current content.
+    public func applyingBackgroundColor(_ color: NamedBackgroundColor) -> String {
+        return applyingBackgroundColor(.named(color))
+    }
+
+    /// Applies a background color to current string.
+    /// - Parameter color: The background color to apply.
+    /// - Returns: The background colorized string based on current content.
+    public func applyingBackgroundColor(_ color: BackgroundColorType) -> String {
         return applyingCodes(color)
     }
-    
-    /**
-     Remove a background color from current string.
-     
-     - Note: This method will return the string itself if there is no background color component in it.
-     Otherwise, a string without background color component will be returned and other components will remain untouched.
-     
-     - returns: A string without color.
-     */
+
+    /// Removes a background color from current string.
+    /// - Note: This method will return the string itself if there is no background color component in it.
+    ///         Otherwise, a string without background color component will be returned and other components will
+    ///         remain untouched.
+    /// - Returns: A string without background.
     public func removingBackgroundColor() -> String {
         guard let _ = Rainbow.extractEntry(for: self).backgroundColor else {
             return self
@@ -78,25 +78,17 @@ extension String {
 
         return applyingBackgroundColor(.default)
     }
-    
-    /**
-     Apply a style to current string.
-     
-     - parameter style: The style to apply.
-     
-     - returns: A string with specified style applied.
-     */
+
+    /// Applies a style to current string.
+    /// - Parameter style: The style to apply.
+    /// - Returns: A string with specified style applied.
     public func applyingStyle(_ style: Style) -> String {
         return applyingCodes(style)
     }
-    
-    /**
-     Remove a style from current string.
-     
-     - parameter style: The style to remove.
-     
-     - returns: A string with specified style removed.
-     */
+
+    /// Removes a style from current string.
+    /// - Parameter style: The style to remove.
+    /// - Returns: A string with specified style removed.
     public func removingStyle(_ style: Style) -> String {
         
         guard Rainbow.enabled else {
@@ -116,15 +108,11 @@ extension String {
             return self
         }
     }
-    
-    /**
-     Remove all styles from current string.
 
-     - Note: This method will return the string itself if there is no style components in it.
-     Otherwise, a string without stlye components will be returned and other color components will remain untouched.
-     
-     - returns: A string without style components.
-     */
+    /// Removes all styles from current string.
+    /// - Note: This method will return the string itself if there is no style components in it.
+    ///         Otherwise, a string without style components will be returned and other color components will remain untouched.
+    /// - Returns: A string without style components.
     public func removingAllStyles() -> String {
         
         guard Rainbow.enabled else {
@@ -136,13 +124,9 @@ extension String {
         return Rainbow.generateString(for: current)
     }
     
-    /**
-     Apply a series of modes to the string.
-     
-     - parameter codes: Component mode code to apply to the string.
-     
-     - returns: A string with specified modes applied.
-     */
+    /// Applies a series of modes to the string.
+    /// - Parameter codes: Component mode code to apply to the string.
+    /// - Returns: A string with specified modes applied.
     public func applyingCodes(_ codes: ModeCode...) -> String {
         
         guard Rainbow.enabled else {
@@ -213,6 +197,12 @@ extension String {
     public var lightCyan: String { return applyingColor(.lightCyan) }
     /// String with light white text. Generally speaking, it means light grey in some consoles.
     public var lightWhite: String { return applyingColor(.lightWhite) }
+    /// String with an ANSI 256 8-bit color applied.
+    public func bit8(_ color: UInt8) -> String { return applyingColor(.bit8(color)) }
+    /// String with an ANSI 256 24-bit color applied. This is not supported by all terminals.
+    public func bit24(_ color: RGB) -> String { return applyingColor(.bit24(color)) }
+    /// String with an ANSI 256 24-bit color applied, with R, G, B component. This is not supported by all terminals.
+    public func bit24(red: UInt8, green: UInt8, blue: UInt8) -> String { return bit24((red, green, blue)) }
 }
 
 // MARK: - Background Colors Shorthand
@@ -233,6 +223,13 @@ extension String {
     public var onCyan: String { return applyingBackgroundColor(.cyan) }
     /// String with white background.
     public var onWhite: String { return applyingBackgroundColor(.white) }
+
+    /// String with an ANSI 256 8-bit background color applied.
+    public func onBit8(_ color: UInt8) -> String { return applyingBackgroundColor(.bit8(color)) }
+    /// String with an ANSI 256 24-bit background color applied. This is not supported by all terminals.
+    public func onBit24(_ color: RGB) -> String { return applyingBackgroundColor(.bit24(color)) }
+    /// String with an ANSI 256 24-bit background color applied, with R, G, B component. This is not supported by all terminals.
+    public func onBit24(red: UInt8, green: UInt8, blue: UInt8) -> String { return onBit24((red, green, blue)) }
 }
 
 // MARK: - Styles Shorthand
@@ -241,7 +238,7 @@ extension String {
     public var bold: String { return applyingStyle(.bold) }
     /// String with dim style. This is not widely supported in all terminals. Use it carefully.
     public var dim: String { return applyingStyle(.dim) }
-    /// String with italic style. This depends on whether a italic existing for the font family of terminals.
+    /// String with italic style. This depends on whether an italic existing for the font family of terminals.
     public var italic: String { return applyingStyle(.italic) }
     /// String with underline style.
     public var underline: String { return applyingStyle(.underline) }
