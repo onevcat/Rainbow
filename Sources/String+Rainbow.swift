@@ -46,7 +46,7 @@ extension String {
     ///         Otherwise, a string without color component will be returned and other components will remain untouched.
     /// - Returns: A string without color.
     public func removingColor() -> String {
-        guard let _ = Rainbow.extractEntry(for: self).color else {
+        guard let _ = Rainbow.extractEntry(for: self).segments[0].color else {
             return self
         }
         return applyingColor(.default)
@@ -72,7 +72,7 @@ extension String {
     ///         remain untouched.
     /// - Returns: A string without background.
     public func removingBackgroundColor() -> String {
-        guard let _ = Rainbow.extractEntry(for: self).backgroundColor else {
+        guard let _ = Rainbow.extractEntry(for: self).segments[0].backgroundColor else {
             return self
         }
 
@@ -96,13 +96,13 @@ extension String {
         }
         
         var current = Rainbow.extractEntry(for: self)
-        if var styles = current.styles {
+        if var styles = current.segments[0].styles {
             #if swift(>=4.2)
             styles.removeAll { $0 == style }
             #else
             styles = styles.filter { $0 != style }
             #endif
-            current.styles = styles
+            current.segments[0].styles = styles
             return Rainbow.generateString(for: current)
         } else {
             return self
@@ -120,7 +120,7 @@ extension String {
         }
         
         var current = Rainbow.extractEntry(for: self)
-        current.styles = nil
+        current.segments[0].styles = nil
         return Rainbow.generateString(for: current)
     }
     
@@ -137,23 +137,23 @@ extension String {
         let input = ConsoleCodesParser().parse(modeCodes: codes.flatMap { $0.value } )
 
         if let inputColor = input.color {
-            current.color = inputColor
+            current.segments[0].color = inputColor
         }
 
         if let inputBackgroundColor = input.backgroundColor {
-            current.backgroundColor = inputBackgroundColor
+            current.segments[0].backgroundColor = inputBackgroundColor
         }
 
         var styles = [Style]()
         
-        if let s = current.styles {
+        if let s = current.segments[0].styles {
             styles += s
         }
         
         if let s = input.styles {
             styles += s
         }
-        current.styles = styles.isEmpty ? nil : styles
+        current.segments[0].styles = styles.isEmpty ? nil : styles
         
         if codes.isEmpty {
             return self
@@ -277,6 +277,6 @@ extension String {
 extension String {
     /// Get the raw string of current Rainbow styled string. O(n)
     public var raw: String {
-        return Rainbow.extractEntry(for: self).contents[0].asText
+        return Rainbow.extractEntry(for: self).plainText
     }
 }

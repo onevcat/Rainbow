@@ -26,12 +26,7 @@
 
 typealias ParseResult = (color: ColorType?, backgroundColor: BackgroundColorType?, styles: [Style]?)
 
-protocol CodesParser {
-    associatedtype SourceType
-    func parse(modeCodes codes: [SourceType]) -> ParseResult
-}
-
-struct ConsoleCodesParser: CodesParser {
+struct ConsoleCodesParser {
 
     enum CodeResult {
         case color(ColorType)

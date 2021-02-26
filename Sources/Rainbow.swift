@@ -39,47 +39,49 @@ public protocol ModeCode {
  */
 public enum Rainbow {
 
-    public enum Content {
-        case text(String)
-        case entry(Entry)
+    public struct Segment {
+        public var text: String
+        public var color: ColorType?
+        public var backgroundColor: BackgroundColorType?
+        public var styles: [Style]?
 
-        #warning("Remove later")
-        var asText: String {
-            switch self {
-            case .text(let t): return t
-            case .entry: fatalError()
-            }
+        public init(text: String, color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil) {
+            self.text = text
+            self.color = color
+            self.backgroundColor = backgroundColor
+            self.styles = styles
+        }
+
+        var isPlain: Bool {
+            return color == nil && backgroundColor == nil && (styles == nil || styles!.isEmpty)
         }
     }
 
     public struct Entry {
 
-        public var color: ColorType?
-        public var backgroundColor: BackgroundColorType?
-        public var styles: [Style]?
-        public var contents: [Content]
-
-        #warning("Remove later")
-        var text: String { return contents[0].asText }
+        public var segments: [Segment]
 
         init(color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil, text: String) {
-            self.color = color
-            self.backgroundColor = backgroundColor
-            self.styles = styles
-            self.contents = [.text(text)]
+            let s = Segment(text: text, color: color, backgroundColor: backgroundColor, styles: styles)
+            self.segments = [s]
         }
 
         init(formattedString string: String) {
             if string.isConsoleStyle {
                 let result = ConsoleModesExtractor().extract(string)
                 let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
-                self.color = color
-                self.backgroundColor = backgroundColor
-                self.styles = styles
-                self.contents = [.text(result.text)]
+                self.segments = [Segment(text: result.text, color: color, backgroundColor: backgroundColor, styles: styles)]
             } else {
-                self.contents = [.text(string)]
+                self.segments = [Segment(text: string)]
             }
+        }
+
+        var plainText: String {
+            return segments.reduce("") { $0 + $1.text }
+        }
+
+        var isPlain: Bool {
+            return segments.allSatisfy { $0.isPlain }
         }
     }
     
@@ -99,20 +101,22 @@ public enum Rainbow {
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
         let entry = Entry(formattedString: string)
-        
-        return (entry.color?.namedColor, entry.backgroundColor?.namedColor, entry.styles, entry.contents[0].asText)
+        if let segment = entry.segments.first {
+            return (segment.color?.namedColor, segment.backgroundColor?.namedColor, segment.styles, segment.text)
+        } else {
+            return (nil, nil, nil, "")
+        }
     }
-
 
     static func generateString(for entry: Entry) -> String {
         guard enabled else {
-            return entry.contents[0].asText
+            return entry.plainText
         }
         switch outputTarget {
         case .console:
             return ConsoleStringGenerator().generate(for: entry)
         case .unknown:
-            return entry.contents[0].asText
+            return entry.plainText
         }
     }
 }
