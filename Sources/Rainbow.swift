@@ -53,7 +53,7 @@ public enum Rainbow {
         }
 
         var isPlain: Bool {
-            return color == nil && backgroundColor == nil && (styles == nil || styles!.isEmpty)
+            return color == nil && backgroundColor == nil && (styles == nil || styles!.isEmpty || styles == [.default])
         }
     }
 
@@ -68,12 +68,19 @@ public enum Rainbow {
 
         init(formattedString string: String) {
             if string.isConsoleStyle {
-                let result = ConsoleModesExtractor().extract(string)
-                let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
-                self.segments = [Segment(text: result.text, color: color, backgroundColor: backgroundColor, styles: styles)]
+//                let result = ConsoleModesExtractor().extract(string)
+//                let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
+//                self.segments = [Segment(text: result.text, color: color, backgroundColor: backgroundColor, styles: styles)]
+                self = ConsoleEntryParser(text: string).parse()
             } else {
                 self.segments = [Segment(text: string)]
             }
+
+
+        }
+
+        init(segments: [Segment]) {
+            self.segments = segments
         }
 
         var plainText: String {

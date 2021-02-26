@@ -82,7 +82,12 @@ class RainbowTests: XCTestCase {
         XCTAssertEqual(result4.segments[0].color, .named(.red))
         XCTAssertNil(result4.segments[0].backgroundColor)
         XCTAssertNil(result4.segments[0].styles)
-        XCTAssertEqual(result4.segments[0].text, "\u{001B}[4;31;93mHello World\u{001B}[0m")
+        XCTAssertEqual(result4.segments[0].text, "")
+
+        XCTAssertEqual(result4.segments[1].color, .named(.lightYellow))
+        XCTAssertNil(result4.segments[1].backgroundColor)
+        XCTAssertEqual(result4.segments[1].styles, [.underline])
+        XCTAssertEqual(result4.segments[1].text, "Hello World")
     }
 
     func testExtract8BitModes() {

@@ -25,8 +25,9 @@
 //  THE SOFTWARE.
 
 enum ControlCode {
-    static let ESC = "\u{001B}"
-    static let CSI = "\(ESC)["
+    static let ESC: Character = "\u{001B}"
+    static let OPEN_BRACKET: Character = "["
+    static let CSI = "\(ESC)\(OPEN_BRACKET)"
 
     static let setColor: UInt8 = 38
     static let setBackgroundColor: UInt8 = 48
