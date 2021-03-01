@@ -49,14 +49,11 @@ class RainbowTests: XCTestCase {
         let result2 = Rainbow.extractEntry(for: "\u{001B}[0mHello\u{001B}")
         XCTAssertNil(result2.segments[0].color)
         XCTAssertNil(result2.segments[0].backgroundColor)
-        XCTAssertNil(result2.segments[0].styles)
-        XCTAssertEqual(result2.segments[0].text, "\u{001B}[0mHello\u{001B}")
+        XCTAssertEqual(result2.segments[0].styles, [.default])
+        XCTAssertEqual(result2.segments[0].text, "Hello")
         
         let result3 = Rainbow.extractEntry(for: "\u{001B}[fg0,0,0;Hello\u{001B}")
-        XCTAssertNil(result3.segments[0].color)
-        XCTAssertNil(result3.segments[0].backgroundColor)
-        XCTAssertNil(result3.segments[0].styles)
-        XCTAssertEqual(result3.segments[0].text, "\u{001B}[fg0,0,0;Hello\u{001B}")
+        XCTAssertTrue(result3.segments.isEmpty)
     }
     
     func testExtractModes() {
@@ -217,5 +214,12 @@ class RainbowTests: XCTestCase {
         
         let plain = "Hello"
         XCTAssertEqual(plain, "Hello")
+    }
+}
+
+extension Rainbow.Entry {
+    init(color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil, text: String) {
+        let s = Rainbow.Segment(text: text, color: color, backgroundColor: backgroundColor, styles: styles)
+        self.init(segments: [s])
     }
 }

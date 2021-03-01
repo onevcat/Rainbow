@@ -52,8 +52,22 @@ public enum Rainbow {
             self.styles = styles
         }
 
-        var isPlain: Bool {
+        public var isPlain: Bool {
             return color == nil && backgroundColor == nil && (styles == nil || styles!.isEmpty || styles == [.default])
+        }
+
+        mutating func update(with input: ParseResult) {
+            if let color = input.color {
+                self.color = color
+            }
+            if let backgroundColor = input.backgroundColor {
+                self.backgroundColor = backgroundColor
+            }
+            var styles = self.styles ?? []
+            if let s = input.styles {
+                styles += s
+            }
+            self.styles = styles
         }
     }
 
@@ -61,33 +75,15 @@ public enum Rainbow {
 
         public var segments: [Segment]
 
-        init(color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil, text: String) {
-            let s = Segment(text: text, color: color, backgroundColor: backgroundColor, styles: styles)
-            self.segments = [s]
-        }
-
-        init(formattedString string: String) {
-            if string.isConsoleStyle {
-//                let result = ConsoleModesExtractor().extract(string)
-//                let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
-//                self.segments = [Segment(text: result.text, color: color, backgroundColor: backgroundColor, styles: styles)]
-                self = ConsoleEntryParser(text: string).parse()
-            } else {
-                self.segments = [Segment(text: string)]
-            }
-
-
-        }
-
-        init(segments: [Segment]) {
+        public init(segments: [Segment]) {
             self.segments = segments
         }
 
-        var plainText: String {
+        public var plainText: String {
             return segments.reduce("") { $0 + $1.text }
         }
 
-        var isPlain: Bool {
+        public var isPlain: Bool {
             return segments.allSatisfy { $0.isPlain }
         }
     }
@@ -100,14 +96,14 @@ public enum Rainbow {
     public static var enabled = ProcessInfo.processInfo.environment["NO_COLOR"] == nil
 
     public static func extractEntry(for string: String) -> Entry {
-        return Entry(formattedString: string)
+        return ConsoleEntryParser(text: string).parse()
     }
 
     @available(*, deprecated, message: "Use the `Entry` version `extractEntry(for:)` instead.")
     public static func extractModes(for string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
-        let entry = Entry(formattedString: string)
+        let entry = ConsoleEntryParser(text: string).parse()
         if let segment = entry.segments.first {
             return (segment.color?.namedColor, segment.backgroundColor?.namedColor, segment.styles, segment.text)
         } else {
@@ -125,12 +121,5 @@ public enum Rainbow {
         case .unknown:
             return entry.plainText
         }
-    }
-}
-
-private extension String {
-    var isConsoleStyle: Bool {
-        let token = ControlCode.CSI
-        return hasPrefix(token) && hasSuffix("\(token)0m")
     }
 }

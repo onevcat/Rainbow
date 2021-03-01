@@ -117,14 +117,15 @@ class ConsoleStringTests: XCTestCase {
     
     func testStringClearMode() {
         let string = "Hello Rainbow"
-        XCTAssertEqual(string.red.clearColor, "\u{001B}[39mHello Rainbow\u{001B}[0m")
-        XCTAssertEqual(string.onYellow.clearBackgroundColor, "\u{001B}[49mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.red.clearColor, "Hello Rainbow")
+        XCTAssertEqual(string.onYellow.clearBackgroundColor, "Hello Rainbow")
         XCTAssertEqual(string.red.clearBackgroundColor, "\u{001B}[31mHello Rainbow\u{001B}[0m")
 
         XCTAssertEqual(string.bold.clearStyles, "Hello Rainbow")
         XCTAssertEqual(string.bold.clearColor, "\u{001B}[1mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.bold.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.red.bold.clearColor, "\u{001B}[1mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.bold.italic.clearStyles, "Hello Rainbow")
     }
 }

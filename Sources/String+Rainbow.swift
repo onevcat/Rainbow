@@ -46,10 +46,7 @@ extension String {
     ///         Otherwise, a string without color component will be returned and other components will remain untouched.
     /// - Returns: A string without color.
     public func removingColor() -> String {
-        guard let _ = Rainbow.extractEntry(for: self).segments[0].color else {
-            return self
-        }
-        return applyingColor(.default)
+        return removing(\.color)
     }
 
     /// Applies a named background color to current string.
@@ -72,11 +69,7 @@ extension String {
     ///         remain untouched.
     /// - Returns: A string without background.
     public func removingBackgroundColor() -> String {
-        guard let _ = Rainbow.extractEntry(for: self).segments[0].backgroundColor else {
-            return self
-        }
-
-        return applyingBackgroundColor(.default)
+        return removing(\.backgroundColor)
     }
 
     /// Applies a style to current string.
@@ -90,23 +83,7 @@ extension String {
     /// - Parameter style: The style to remove.
     /// - Returns: A string with specified style removed.
     public func removingStyle(_ style: Style) -> String {
-        
-        guard Rainbow.enabled else {
-            return self
-        }
-        
-        var current = Rainbow.extractEntry(for: self)
-        if var styles = current.segments[0].styles {
-            #if swift(>=4.2)
-            styles.removeAll { $0 == style }
-            #else
-            styles = styles.filter { $0 != style }
-            #endif
-            current.segments[0].styles = styles
-            return Rainbow.generateString(for: current)
-        } else {
-            return self
-        }
+        return removing(\.styles, value: style)
     }
 
     /// Removes all styles from current string.
@@ -114,14 +91,7 @@ extension String {
     ///         Otherwise, a string without style components will be returned and other color components will remain untouched.
     /// - Returns: A string without style components.
     public func removingAllStyles() -> String {
-        
-        guard Rainbow.enabled else {
-            return self
-        }
-        
-        var current = Rainbow.extractEntry(for: self)
-        current.segments[0].styles = nil
-        return Rainbow.generateString(for: current)
+        return removing(\.styles)
     }
     
     /// Applies a series of modes to the string.
@@ -132,34 +102,63 @@ extension String {
         guard Rainbow.enabled else {
             return self
         }
-        
-        var current = Rainbow.extractEntry(for: self)
+
+        var entry = ConsoleEntryParser(text: self).parse()
         let input = ConsoleCodesParser().parse(modeCodes: codes.flatMap { $0.value } )
-
-        if let inputColor = input.color {
-            current.segments[0].color = inputColor
+        if entry.segments.count == 1 { // If there is only 1 segment, overwrite the current setting
+            entry.segments[0].update(with: input)
+        } else {
+            entry.segments = entry.segments.map {
+                var s = $0
+                if $0.isPlain {
+                    s.update(with: input)
+                    return s
+                } else {
+                    return $0
+                }
+            }
         }
-
-        if let inputBackgroundColor = input.backgroundColor {
-            current.segments[0].backgroundColor = inputBackgroundColor
-        }
-
-        var styles = [Style]()
-        
-        if let s = current.segments[0].styles {
-            styles += s
-        }
-        
-        if let s = input.styles {
-            styles += s
-        }
-        current.segments[0].styles = styles.isEmpty ? nil : styles
         
         if codes.isEmpty {
             return self
         } else {
-            return Rainbow.generateString(for: current)
+            return Rainbow.generateString(for: entry)
         }
+    }
+
+    public func removing<T>(_ keyPath: WritableKeyPath<Rainbow.Segment, T?>) -> String {
+        guard Rainbow.enabled else {
+            return self
+        }
+
+        var entry = ConsoleEntryParser(text: self).parse()
+        entry.segments = entry.segments.map {
+            var s = $0
+            s[keyPath: keyPath] = nil
+            return s
+        }
+
+        return Rainbow.generateString(for: entry)
+    }
+
+    public func removing<E>(
+        _ keyPath: WritableKeyPath<Rainbow.Segment, Array<E>?>, value: E
+    ) -> String where E: Equatable {
+        guard Rainbow.enabled else {
+            return self
+        }
+
+        var entry = ConsoleEntryParser(text: self).parse()
+        entry.segments = entry.segments.map {
+            var s = $0
+            if let v = s[keyPath: keyPath] {
+                s[keyPath: keyPath] = v.filter { value != $0 }
+            }
+
+            return s
+        }
+
+        return Rainbow.generateString(for: entry)
     }
 }
 
