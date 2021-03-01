@@ -1,4 +1,4 @@
-name: linux
+name: ci
 
 on:
   push:
@@ -7,14 +7,20 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  linux:
     runs-on: ubuntu-latest
     container: swift:latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Build
       run: swift build -v
     - name: Run tests
       run: swift test --enable-test-discovery
+  macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v
