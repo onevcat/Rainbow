@@ -33,7 +33,8 @@ public enum Style: UInt8, ModeCode {
     case underline = 4
     case blink = 5
     case swap = 7
-    
+    case strikethrough = 9
+
     public var value: [UInt8] {
         return [rawValue]
     }
