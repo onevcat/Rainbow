@@ -5,7 +5,7 @@ default_platform :mac
 platform :mac do
   desc "Runs all the tests"
   lane :test do
-    scan
+    spm(command: "test")
   end
     
   desc "Release new version"
