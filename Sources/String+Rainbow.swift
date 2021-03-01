@@ -104,18 +104,15 @@ extension String {
         }
 
         var entry = ConsoleEntryParser(text: self).parse()
+
         let input = ConsoleCodesParser().parse(modeCodes: codes.flatMap { $0.value } )
         if entry.segments.count == 1 { // If there is only 1 segment, overwrite the current setting
-            entry.segments[0].update(with: input)
+            entry.segments[0].update(with: input, overwriteColor: true)
         } else {
             entry.segments = entry.segments.map {
                 var s = $0
-                if $0.isPlain {
-                    s.update(with: input)
-                    return s
-                } else {
-                    return $0
-                }
+                s.update(with: input, overwriteColor: false)
+                return s
             }
         }
         

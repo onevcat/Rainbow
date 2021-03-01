@@ -56,13 +56,18 @@ public enum Rainbow {
             return color == nil && backgroundColor == nil && (styles == nil || styles!.isEmpty || styles == [.default])
         }
 
-        mutating func update(with input: ParseResult) {
-            if let color = input.color {
+        mutating func update(with input: ParseResult, overwriteColor: Bool) {
+            if isPlain { // Remove the `.default` style for plain segment
+                styles = nil
+            }
+
+            if let color = input.color, (self.color == nil || overwriteColor) {
                 self.color = color
             }
-            if let backgroundColor = input.backgroundColor {
+            if let backgroundColor = input.backgroundColor, (self.backgroundColor == nil || overwriteColor) {
                 self.backgroundColor = backgroundColor
             }
+
             var styles = self.styles ?? []
             if let s = input.styles {
                 styles += s

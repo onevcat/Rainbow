@@ -43,7 +43,7 @@ struct ConsoleStringGenerator: StringGenerator {
                 codes += styles.flatMap{ $0.value }
             }
 
-            if codes.isEmpty {
+            if codes.isEmpty || $0.text.isEmpty {
                 return $0.text
             } else {
                 return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\($0.text)"
