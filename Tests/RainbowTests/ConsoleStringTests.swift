@@ -117,14 +117,32 @@ class ConsoleStringTests: XCTestCase {
     
     func testStringClearMode() {
         let string = "Hello Rainbow"
-        XCTAssertEqual(string.red.clearColor, "\u{001B}[39mHello Rainbow\u{001B}[0m")
-        XCTAssertEqual(string.onYellow.clearBackgroundColor, "\u{001B}[49mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.red.clearColor, "Hello Rainbow")
+        XCTAssertEqual(string.onYellow.clearBackgroundColor, "Hello Rainbow")
         XCTAssertEqual(string.red.clearBackgroundColor, "\u{001B}[31mHello Rainbow\u{001B}[0m")
 
         XCTAssertEqual(string.bold.clearStyles, "Hello Rainbow")
         XCTAssertEqual(string.bold.clearColor, "\u{001B}[1mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.bold.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.red.bold.clearColor, "\u{001B}[1mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.bold.italic.clearStyles, "Hello Rainbow")
+    }
+
+    func testMultipartString() {
+        let text1 = "Hello "
+        let text2 = "Rainbow"
+
+        XCTAssertEqual(text1.red + text2.yellow, "\u{001B}[31mHello \u{001B}[0m\u{001B}[33mRainbow\u{001B}[0m")
+        XCTAssertEqual((text1.red + text2).yellow, "\u{001B}[31mHello \u{001B}[33mRainbow\u{001B}[0m")
+        XCTAssertEqual("\(text1.red)\(text2)".yellow, "\u{001B}[31mHello \u{001B}[33mRainbow\u{001B}[0m")
+        XCTAssertEqual("\(text1.red)\(text2.blue)".yellow, "\u{001B}[31mHello \u{001B}[34mRainbow\u{001B}[0m")
+        XCTAssertEqual("\(text1.red)inserted \(text2.blue)".yellow, "\u{001B}[31mHello \u{001B}[33minserted \u{001B}[34mRainbow\u{001B}[0m")
+        XCTAssertEqual("\(text1.red)inserted \(text2.blue.underline)".yellow.bold, "\u{001B}[31;1mHello \u{001B}[33;1minserted \u{001B}[34;4;1mRainbow\u{001B}[0m")
+        XCTAssertEqual("\(text1.red)\(text2.blue)".clearColor.yellow, "\u{001B}[33mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual("\(text1.red)\(text2.blue)".clearStyles.yellow, "\u{001B}[31mHello \u{001B}[34mRainbow\u{001B}[0m")
+
+        XCTAssertEqual("\(text1.red.underline)\(text2.blue.dim)".bold, "\u{001B}[31;4;1mHello \u{001B}[34;2;1mRainbow\u{001B}[0m")
+        XCTAssertEqual("\(text1.red.underline)\(text2.blue.dim)".clearStyles.bold, "\u{001B}[31;1mHello \u{001B}[34;1mRainbow\u{001B}[0m")
     }
 }

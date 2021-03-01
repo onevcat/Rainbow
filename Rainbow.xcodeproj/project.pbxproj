@@ -49,6 +49,7 @@
 		4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8219F1C29276C00F68E70 /* RainbowTests.swift */; };
 		4BC821AB1C2928CF00F68E70 /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D16B37C41C2A2F76001A5D35 /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
+		D17B42F025E891D5002914A0 /* ConsoleTextParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B42EF25E891D5002914A0 /* ConsoleTextParserTests.swift */; };
 		D1A98FAF1C299D64000DDF20 /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
 		D1A98FB11C299DF0000DDF20 /* ConsoleStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */; };
 		D1C5D8DC1C2ACA1D001CB619 /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
@@ -82,6 +83,7 @@
 		4BC8219F1C29276C00F68E70 /* RainbowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RainbowTests.swift; path = Tests/RainbowTests/RainbowTests.swift; sourceTree = SOURCE_ROOT; };
 		4BC821AA1C2928CF00F68E70 /* Rainbow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rainbow.h; sourceTree = "<group>"; };
 		D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputTarget.swift; sourceTree = "<group>"; };
+		D17B42EF25E891D5002914A0 /* ConsoleTextParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConsoleTextParserTests.swift; path = RainbowTests/ConsoleTextParserTests.swift; sourceTree = "<group>"; };
 		D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Rainbow.swift"; sourceTree = "<group>"; };
 		D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleStringTests.swift; path = Tests/RainbowTests/ConsoleStringTests.swift; sourceTree = SOURCE_ROOT; };
 		D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesParser.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			children = (
 				4BC8219E1C29276C00F68E70 /* Info.plist */,
 				4BC8219F1C29276C00F68E70 /* RainbowTests.swift */,
+				D17B42EF25E891D5002914A0 /* ConsoleTextParserTests.swift */,
 				D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */,
 			);
 			path = Tests;
@@ -480,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D17B42F025E891D5002914A0 /* ConsoleTextParserTests.swift in Sources */,
 				D1A98FB11C299DF0000DDF20 /* ConsoleStringTests.swift in Sources */,
 				4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */,
 			);

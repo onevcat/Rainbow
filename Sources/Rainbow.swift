@@ -39,31 +39,57 @@ public protocol ModeCode {
  */
 public enum Rainbow {
 
-    public struct Entry {
-        
-        init(color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil, text: String) {
-            self.color = color
-            self.backgroundColor = backgroundColor
-            self.styles = styles
-            self.text = text
-        }
-
+    public struct Segment {
+        public var text: String
         public var color: ColorType?
         public var backgroundColor: BackgroundColorType?
         public var styles: [Style]?
-        public var text: String
 
-        init(formattedString string: String) {
-            if string.isConsoleStyle {
-                let result = ConsoleModesExtractor().extract(string)
-                let (color, backgroundColor, styles) = ConsoleCodesParser().parse(modeCodes: result.codes)
-                self.color = color
-                self.backgroundColor = backgroundColor
-                self.styles = styles
-                self.text = result.text
-            } else {
-                self.text = string
+        public init(text: String, color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style]? = nil) {
+            self.text = text
+            self.color = color
+            self.backgroundColor = backgroundColor
+            self.styles = styles
+        }
+
+        public var isPlain: Bool {
+            return color == nil && backgroundColor == nil && (styles == nil || styles!.isEmpty || styles == [.default])
+        }
+
+        mutating func update(with input: ParseResult, overwriteColor: Bool) {
+            if isPlain { // Remove the `.default` style for plain segment
+                styles = nil
             }
+
+            if let color = input.color, (self.color == nil || overwriteColor) {
+                self.color = color
+            }
+            if let backgroundColor = input.backgroundColor, (self.backgroundColor == nil || overwriteColor) {
+                self.backgroundColor = backgroundColor
+            }
+
+            var styles = self.styles ?? []
+            if let s = input.styles {
+                styles += s
+            }
+            self.styles = styles
+        }
+    }
+
+    public struct Entry {
+
+        public var segments: [Segment]
+
+        public init(segments: [Segment]) {
+            self.segments = segments
+        }
+
+        public var plainText: String {
+            return segments.reduce("") { $0 + $1.text }
+        }
+
+        public var isPlain: Bool {
+            return segments.allSatisfy { $0.isPlain }
         }
     }
     
@@ -75,34 +101,30 @@ public enum Rainbow {
     public static var enabled = ProcessInfo.processInfo.environment["NO_COLOR"] == nil
 
     public static func extractEntry(for string: String) -> Entry {
-        return Entry(formattedString: string)
+        return ConsoleEntryParser(text: string).parse()
     }
 
     @available(*, deprecated, message: "Use the `Entry` version `extractEntry(for:)` instead.")
     public static func extractModes(for string: String)
         -> (color: Color?, backgroundColor: BackgroundColor?, styles: [Style]?, text: String)
     {
-        let entry = Entry(formattedString: string)
-        return (entry.color?.namedColor, entry.backgroundColor?.namedColor, entry.styles, entry.text)
+        let entry = ConsoleEntryParser(text: string).parse()
+        if let segment = entry.segments.first {
+            return (segment.color?.namedColor, segment.backgroundColor?.namedColor, segment.styles, segment.text)
+        } else {
+            return (nil, nil, nil, "")
+        }
     }
-
 
     static func generateString(for entry: Entry) -> String {
         guard enabled else {
-            return entry.text
+            return entry.plainText
         }
         switch outputTarget {
         case .console:
             return ConsoleStringGenerator().generate(for: entry)
         case .unknown:
-            return entry.text
+            return entry.plainText
         }
-    }
-}
-
-private extension String {
-    var isConsoleStyle: Bool {
-        let token = ControlCode.CSI
-        return hasPrefix(token) && hasSuffix("\(token)0m")
     }
 }
