@@ -46,6 +46,14 @@ public enum ColorType: ModeCode {
         case .bit24(let rgb): return [ControlCode.setColor, ControlCode.set24Bit, rgb.0, rgb.1, rgb.2]
         }
     }
+
+    public var toBackgroundColor: BackgroundColorType {
+        switch self {
+        case .named(let color): return .named(color.toBackgroundColor)
+        case .bit8(let color): return .bit8(color)
+        case .bit24(let rgb): return .bit24(rgb)
+        }
+    }
 }
 
 extension ColorType: Equatable {
@@ -62,7 +70,7 @@ extension ColorType: Equatable {
 public typealias Color = NamedColor
 
 /// Valid named text colors to use in `Rainbow`.
-public enum NamedColor: UInt8, ModeCode {
+public enum NamedColor: UInt8, ModeCode, CaseIterable {
     case black = 30
     case red
     case green
@@ -83,5 +91,9 @@ public enum NamedColor: UInt8, ModeCode {
 
     public var value: [UInt8] {
         return [rawValue]
+    }
+
+    public var toBackgroundColor: NamedBackgroundColor {
+        return NamedBackgroundColor(rawValue: rawValue + 10)!
     }
 }
