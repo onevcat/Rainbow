@@ -199,6 +199,37 @@ extension String {
     public func bit24(_ color: RGB) -> String { return applyingColor(.bit24(color)) }
     /// String with an ANSI 256 24-bit color applied, with R, G, B component. This is not supported by all terminals.
     public func bit24(red: UInt8, green: UInt8, blue: UInt8) -> String { return bit24((red, green, blue)) }
+
+    /// String with a Hex color applied to the text. The exact color which will be used is determined by the `target`.
+    ///
+    /// - Parameters:
+    ///   - color: The Hex formatted color string. Hex-3 and Hex-6 are supported, with or without a leading sharp
+    ///            character. For example, "#333", "#FF00FF", "a3a3a3" are valid, while "0xffffff", "#abcd", "kk00aa"
+    ///            are not.
+    ///   - target: The conversion target of this color. If `target` is `.bit8Approximated`, an approximated 8-bit
+    ///             color to the Hex color will be used; If `.bit24`, a 24-bit color is used without approximation.
+    ///             However, keep in mind that the support of 24-bit depends on the terminal and it is not widely used.
+    ///             Default is `.bit8Approximated`.
+    /// - Returns: The formatted string if the `color` represents a valid color. Otherwise, `self`.
+    public func hex(_ color: String, to target: HexColorTarget = .bit8Approximated) -> String {
+        guard let converter = ColorApproximation(color: color) else { return self }
+        return applyingColor(converter.convert(to: target))
+    }
+
+    /// String with a Hex color applied to the text. The exact color which will be used is determined by the `target`.
+    ///
+    /// - Parameters:
+    ///   - color: The color value in Hex format. Usually it is a hex number like `0xFF0000`. Alpha channel is not
+    ///            supported, so any value out the range `0x000000 ... 0xFFFFFF` is invalid.
+    ///   - target: The conversion target of this color. If `target` is `.bit8Approximated`, an approximated 8-bit
+    ///             color to the Hex color will be used; If `.bit24`, a 24-bit color is used without approximation.
+    ///             However, keep in mind that the support of 24-bit depends on the terminal and it is not widely used.
+    ///             Default is `.bit8Approximated`.
+    /// - Returns: The formatted string if the `color` represents a valid color. Otherwise, `self`.
+    public func hex(_ color: UInt32, to target: HexColorTarget = .bit8Approximated) -> String {
+        guard let converter = ColorApproximation(color: color) else { return self }
+        return applyingColor(converter.convert(to: target))
+    }
 }
 
 // MARK: - Background Colors Shorthand
@@ -242,6 +273,37 @@ extension String {
     public func onBit24(_ color: RGB) -> String { return applyingBackgroundColor(.bit24(color)) }
     /// String with an ANSI 256 24-bit background color applied, with R, G, B component. This is not supported by all terminals.
     public func onBit24(red: UInt8, green: UInt8, blue: UInt8) -> String { return onBit24((red, green, blue)) }
+
+    /// String with a Hex color applied to the background. The exact color which will be used is determined by the `target`.
+    ///
+    /// - Parameters:
+    ///   - color: The Hex formatted color string. Hex-3 and Hex-6 are supported, with or without a leading sharp
+    ///            character. For example, "#333", "#FF00FF", "a3a3a3" are valid, while "0xffffff", "#abcd", "kk00aa"
+    ///            are not.
+    ///   - target: The conversion target of this color. If `target` is `.bit8Approximated`, an approximated 8-bit
+    ///             color to the Hex color will be used; If `.bit24`, a 24-bit color is used without approximation.
+    ///             However, keep in mind that the support of 24-bit depends on the terminal and it is not widely used.
+    ///             Default is `.bit8Approximated`.
+    /// - Returns: The formatted string if the `color` represents a valid color. Otherwise, `self`.
+    public func onHex(_ color: String, to target: HexColorTarget = .bit8Approximated) -> String {
+        guard let converter = ColorApproximation(color: color) else { return self }
+        return applyingBackgroundColor(converter.convert(to: target))
+    }
+
+    /// String with a Hex color applied to the background. The exact color which will be used is determined by the `target`.
+    ///
+    /// - Parameters:
+    ///   - color: The color value in Hex format. Usually it is a hex number like `0xFF0000`. Alpha channel is not
+    ///            supported, so any value out the range `0x000000 ... 0xFFFFFF` is invalid.
+    ///   - target: The conversion target of this color. If `target` is `.bit8Approximated`, an approximated 8-bit
+    ///             color to the Hex color will be used; If `.bit24`, a 24-bit color is used without approximation.
+    ///             However, keep in mind that the support of 24-bit depends on the terminal and it is not widely used.
+    ///             Default is `.bit8Approximated`.
+    /// - Returns: The formatted string if the `color` represents a valid color. Otherwise, `self`.
+    public func onHex(_ color: UInt32, to target: HexColorTarget = .bit8Approximated) -> String {
+        guard let converter = ColorApproximation(color: color) else { return self }
+        return applyingBackgroundColor(converter.convert(to: target))
+    }
 }
 
 // MARK: - Styles Shorthand
