@@ -145,4 +145,19 @@ class ConsoleStringTests: XCTestCase {
         XCTAssertEqual("\(text1.red.underline)\(text2.blue.dim)".bold, "\u{001B}[31;4;1mHello \u{001B}[34;2;1mRainbow\u{001B}[0m")
         XCTAssertEqual("\(text1.red.underline)\(text2.blue.dim)".clearStyles.bold, "\u{001B}[31;1mHello \u{001B}[34;1mRainbow\u{001B}[0m")
     }
+
+    func testHexColorString() {
+        let text = "Hello Rainbow"
+
+        XCTAssertEqual(text.hex("#afafd7"), "\u{001B}[38;5;189mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(text.hex("#afafd7", to: .bit24), "\u{001B}[38;2;175;175;215mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(text.hex(0xafafd7), "\u{001B}[38;5;189mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(text.hex("fff"), "\u{001B}[38;5;231mHello Rainbow\u{001B}[0m")
+
+        XCTAssertEqual(text.onHex("#afafd7"), "\u{001B}[48;5;189mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(text.onHex("#afafd7", to: .bit24), "\u{001B}[48;2;175;175;215mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(text.onHex(0xafafd7), "\u{001B}[48;5;189mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(text.onHex("fff"), "\u{001B}[48;5;231mHello Rainbow\u{001B}[0m")
+
+    }
 }
