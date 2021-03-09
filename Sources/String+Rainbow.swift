@@ -198,7 +198,7 @@ extension String {
     /// String with an ANSI 256 24-bit color applied. This is not supported by all terminals.
     public func bit24(_ color: RGB) -> String { return applyingColor(.bit24(color)) }
     /// String with an ANSI 256 24-bit color applied, with R, G, B component. This is not supported by all terminals.
-    public func bit24(red: UInt8, green: UInt8, blue: UInt8) -> String { return bit24((red, green, blue)) }
+    public func bit24(_ red: UInt8, _ green: UInt8, _ blue: UInt8) -> String { return bit24((red, green, blue)) }
 
     /// String with a Hex color applied to the text. The exact color which will be used is determined by the `target`.
     ///
@@ -272,7 +272,7 @@ extension String {
     /// String with an ANSI 256 24-bit background color applied. This is not supported by all terminals.
     public func onBit24(_ color: RGB) -> String { return applyingBackgroundColor(.bit24(color)) }
     /// String with an ANSI 256 24-bit background color applied, with R, G, B component. This is not supported by all terminals.
-    public func onBit24(red: UInt8, green: UInt8, blue: UInt8) -> String { return onBit24((red, green, blue)) }
+    public func onBit24(_ red: UInt8, _ green: UInt8, _ blue: UInt8) -> String { return onBit24((red, green, blue)) }
 
     /// String with a Hex color applied to the background. The exact color which will be used is determined by the `target`.
     ///

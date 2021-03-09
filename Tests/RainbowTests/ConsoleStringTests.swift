@@ -70,6 +70,7 @@ class ConsoleStringTests: XCTestCase {
     func testString24BitColor() {
         let string = "Hello Rainbow"
         XCTAssertEqual(string.bit24((10, 20, 30)), "\u{001B}[38;2;10;20;30mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.bit24(10, 20, 30), "\u{001B}[38;2;10;20;30mHello Rainbow\u{001B}[0m")
     }
 
     func testStringBackgroundColor() {
@@ -93,6 +94,7 @@ class ConsoleStringTests: XCTestCase {
     func testString24BitBackgroundColor() {
         let string = "Hello Rainbow"
         XCTAssertEqual(string.onBit24((10, 20, 30)), "\u{001B}[48;2;10;20;30mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.onBit24(10, 20, 30), "\u{001B}[48;2;10;20;30mHello Rainbow\u{001B}[0m")
     }
     
     func testStringStyle() {
