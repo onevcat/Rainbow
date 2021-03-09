@@ -78,7 +78,7 @@ print("\("两只黄鹂".yellow)鸣翠柳，一行白鹭\("上青天".lightBlue)�
 
 ![](https://user-images.githubusercontent.com/1019875/110489426-bcc05000-8132-11eb-8b13-caab01faa416.png)
 
-### 256-Color Mode
+### ANSI 256-Color Mode
 
 [8-bit color](https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit) is fully supported, for both text color and background color:
 
@@ -100,7 +100,7 @@ print("日出江花\("红胜火".hex(0xd11a2d))，春来江水\("绿如蓝".hex(
 
 ![](https://user-images.githubusercontent.com/1019875/110492277-60aafb00-8135-11eb-9aba-e25658f5bc06.png)
 
-> Valid format: `"FFF"`, `"#FFF"`, `"FFFFFF"`, `"FFFFFF"`, `0xFFFFFF`
+> Valid format: `"FFF"`, `"#FFF"`, `"FFFFFF"`, `"#FFFFFF"`, `0xFFFFFF`
 
 ### True color
 
