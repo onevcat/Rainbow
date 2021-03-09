@@ -135,7 +135,7 @@ You can manually change this behavior by either:
 
 - Set the `Rainbow.outputTarget` yourself.
 - Pass a `"NO_COLOR"` environment value when executing your app.
-- Or set the `Rainbow.enabled` to disable it.
+- Or set the `Rainbow.enabled` to `false`.
 
 
 ### Verbose Way
