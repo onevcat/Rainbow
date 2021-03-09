@@ -116,7 +116,7 @@ public enum Rainbow {
         }
     }
 
-    static func generateString(for entry: Entry) -> String {
+    public static func generateString(for entry: Entry) -> String {
         guard enabled else {
             return entry.plainText
         }
