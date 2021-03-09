@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4B1929151C2BBBE1005B79AB /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B1929191C2BBC98005B79AB /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
 		4B19291A1C2BBC98005B79AB /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
 		4B19291B1C2BBC98005B79AB /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
@@ -28,8 +27,6 @@
 		4B1929381C2BBE06005B79AB /* ControlCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EA1C292B25009FD2FD /* ControlCode.swift */; };
 		4B1929391C2BBE06005B79AB /* String+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */; };
 		4B19293A1C2BBE06005B79AB /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
-		4B1929581C2BBEED005B79AB /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4B1929591C2BBEF5005B79AB /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B19295A1C2BBEFE005B79AB /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
 		4B19295B1C2BBEFE005B79AB /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
 		4B19295C1C2BBEFE005B79AB /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
@@ -47,7 +44,6 @@
 		4BC026EF1C292F70009FD2FD /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC026EE1C292F70009FD2FD /* Style.swift */; };
 		4BC821811C29254C00F68E70 /* Rainbow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC821761C29254C00F68E70 /* Rainbow.framework */; };
 		4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8219F1C29276C00F68E70 /* RainbowTests.swift */; };
-		4BC821AB1C2928CF00F68E70 /* Rainbow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC821AA1C2928CF00F68E70 /* Rainbow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D118F24F25EF13B700C7B074 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118F24E25EF13B700C7B074 /* ColorTests.swift */; };
 		D16B37C41C2A2F76001A5D35 /* OutputTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */; };
 		D17B42F025E891D5002914A0 /* ConsoleTextParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17B42EF25E891D5002914A0 /* ConsoleTextParserTests.swift */; };
@@ -87,7 +83,6 @@
 		4BC8219C1C29276100F68E70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Support/Info.plist; sourceTree = SOURCE_ROOT; };
 		4BC8219E1C29276C00F68E70 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
 		4BC8219F1C29276C00F68E70 /* RainbowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RainbowTests.swift; path = Tests/RainbowTests/RainbowTests.swift; sourceTree = SOURCE_ROOT; };
-		4BC821AA1C2928CF00F68E70 /* Rainbow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rainbow.h; sourceTree = "<group>"; };
 		D118F24E25EF13B700C7B074 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorTests.swift; path = RainbowTests/ColorTests.swift; sourceTree = "<group>"; };
 		D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputTarget.swift; sourceTree = "<group>"; };
 		D17B42EF25E891D5002914A0 /* ConsoleTextParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConsoleTextParserTests.swift; path = RainbowTests/ConsoleTextParserTests.swift; sourceTree = "<group>"; };
@@ -194,7 +189,6 @@
 				4BC026EC1C292F5C009FD2FD /* BackgroundColor.swift */,
 				4BC026EE1C292F70009FD2FD /* Style.swift */,
 				4BC026EA1C292B25009FD2FD /* ControlCode.swift */,
-				4BC821AA1C2928CF00F68E70 /* Rainbow.h */,
 				D1A98FAE1C299D63000DDF20 /* String+Rainbow.swift */,
 				D1B428BE25F1BE56009F1DD1 /* ColorApproximation.swift */,
 				D16B37C31C2A2F76001A5D35 /* OutputTarget.swift */,
@@ -204,41 +198,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		4B1928FB1C2BBB02005B79AB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B1929151C2BBBE1005B79AB /* Rainbow.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B1929261C2BBD8D005B79AB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B1929581C2BBEED005B79AB /* Rainbow.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B19293E1C2BBEC7005B79AB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B1929591C2BBEF5005B79AB /* Rainbow.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4BC821731C29254C00F68E70 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4BC821AB1C2928CF00F68E70 /* Rainbow.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		4B1928FD1C2BBB02005B79AB /* Rainbow(iOS) */ = {
 			isa = PBXNativeTarget;
@@ -246,7 +205,6 @@
 			buildPhases = (
 				4B1928F91C2BBB02005B79AB /* Sources */,
 				4B1928FA1C2BBB02005B79AB /* Frameworks */,
-				4B1928FB1C2BBB02005B79AB /* Headers */,
 				4B1928FC1C2BBB02005B79AB /* Resources */,
 			);
 			buildRules = (
@@ -264,7 +222,6 @@
 			buildPhases = (
 				4B1929241C2BBD8D005B79AB /* Sources */,
 				4B1929251C2BBD8D005B79AB /* Frameworks */,
-				4B1929261C2BBD8D005B79AB /* Headers */,
 				4B1929271C2BBD8D005B79AB /* Resources */,
 			);
 			buildRules = (
@@ -282,7 +239,6 @@
 			buildPhases = (
 				4B19293C1C2BBEC7005B79AB /* Sources */,
 				4B19293D1C2BBEC7005B79AB /* Frameworks */,
-				4B19293E1C2BBEC7005B79AB /* Headers */,
 				4B19293F1C2BBEC7005B79AB /* Resources */,
 			);
 			buildRules = (
@@ -300,7 +256,6 @@
 			buildPhases = (
 				4BC821711C29254C00F68E70 /* Sources */,
 				4BC821721C29254C00F68E70 /* Frameworks */,
-				4BC821731C29254C00F68E70 /* Headers */,
 				4BC821741C29254C00F68E70 /* Resources */,
 			);
 			buildRules = (
