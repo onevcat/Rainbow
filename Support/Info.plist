@@ -15,11 +15,11 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.0.0</string>
+	<string>4.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>179</string>
+	<string>190</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2015年 OneV's Den. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
