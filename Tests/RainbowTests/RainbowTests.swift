@@ -32,6 +32,9 @@ class RainbowTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        Rainbow.outputTarget = .console
+        Rainbow.enabled = true
+        
     }
     
     override func tearDown() {
@@ -139,6 +142,15 @@ class RainbowTests: XCTestCase {
         XCTAssertEqual(result4.segments[0].color, nil)
         XCTAssertEqual(result4.segments[0].styles, [.dim, .underline, .blink])
         XCTAssertEqual(result4.segments[0].text, "Hello World")
+    }
+    
+    func testGenerateStringWithSegments() {
+        let entry = Rainbow.Entry(segments: [
+            .init(text: "Hello", color: .bit8(214), backgroundColor: .named(.black), styles: [.underline]),
+            .init(text: "World", color: .named(.magenta))
+        ])
+        let result = Rainbow.generateString(for: entry)
+        XCTAssertEqual(result, "\u{001B}[38;5;214;40;4mHello\u{001B}[0m\u{001B}[35mWorld\u{001B}[0m")
     }
     
     func testGenerateConsoleStringWithCodes() {

@@ -46,10 +46,10 @@ struct ConsoleStringGenerator: StringGenerator {
             if codes.isEmpty || $0.text.isEmpty {
                 return $0.text
             } else {
-                return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\($0.text)"
+                return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\($0.text)\(ControlCode.CSI)0m"
             }
         }
 
-        return strings.joined() + (entry.isPlain ? "" : "\(ControlCode.CSI)0m")
+        return strings.joined()
     }
 }

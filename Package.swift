@@ -10,6 +10,11 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(name: "Rainbow", dependencies: [], path: "Sources"),
+        .target(
+            name: "RainbowPlayground",
+            dependencies: ["Rainbow"],
+            path:"Playground"
+        ),
         .testTarget(name: "RainbowTests", dependencies: ["Rainbow"], path: "Tests"),
     ]
 )
