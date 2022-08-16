@@ -164,7 +164,7 @@ extension String {
     /// String with black text.
     public var black: String { return applyingColor(.black) }
     /// String with red text.
-    public var red: String { return applyingColor(.red)   }
+    public var red: String { return applyingColor(.red) }
     /// String with green text.
     public var green: String { return applyingColor(.green) }
     /// String with yellow text.
