@@ -160,8 +160,7 @@ GEM
     produce (0.2.1)
       fastlane_core (>= 0.5.0)
     public_suffix (4.0.6)
-    rexml (3.3.6)
-      strscan
+    rexml (3.3.9)
     rouge (2.0.7)
     ruby-macho (2.5.1)
     rubyzip (1.1.7)
@@ -194,7 +193,6 @@ GEM
       faraday_middleware (~> 0.9)
       multi_xml (~> 0.5)
       plist (~> 3.1)
-    strscan (3.1.0)
     terminal-table (1.4.5)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
