@@ -25,7 +25,7 @@
 //  THE SOFTWARE.
 
 
-public enum BackgroundColorType: ModeCode {
+public enum BackgroundColorType: ModeCode, Sendable {
     case named(BackgroundColor)
     case bit8(UInt8)
     case bit24(RGB)
@@ -69,7 +69,7 @@ extension BackgroundColorType: Equatable {
 public typealias BackgroundColor = NamedBackgroundColor
 
 /// Valid background colors to use in `Rainbow`.
-public enum NamedBackgroundColor: UInt8, ModeCode, CaseIterable {
+public enum NamedBackgroundColor: UInt8, ModeCode, CaseIterable, Sendable {
     case black = 40
     case red
     case green

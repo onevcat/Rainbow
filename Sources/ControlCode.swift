@@ -24,7 +24,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-enum ControlCode {
+enum ControlCode: Sendable {
     static let ESC: Character = "\u{001B}"
     static let OPEN_BRACKET: Character = "["
     static let CSI = "\(ESC)\(OPEN_BRACKET)"

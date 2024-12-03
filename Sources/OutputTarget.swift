@@ -38,12 +38,12 @@ Output target of Rainbow.
 - Unknown: Unknown target.
 - Console: A valid console is detected connected.
 */
-public enum OutputTarget {
+public enum OutputTarget: Sendable {
     case unknown
     case console
     
     /// Detected output target by current environment.
-    static var current: OutputTarget = {
+    static let current: OutputTarget = {
         // Check if we are in any term env and the output is a tty.
         let termType = getEnvValue("TERM")
         if let t = termType, t.lowercased() != "dumb" && isatty(fileno(stdout)) != 0 {

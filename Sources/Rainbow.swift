@@ -25,6 +25,7 @@
 //  THE SOFTWARE.
 
 import Foundation
+internal import Synchronization
 
 /**
  A Mode code represnet a component for colorizing the string.
@@ -95,10 +96,34 @@ public enum Rainbow {
     
     /// Output target for `Rainbow`. `Rainbow` should detect correct target itself, so you rarely need to set it. 
     /// However, if you want the colorized string to be different, or the detection is not correct, you can set it manually.
-    public static var outputTarget = OutputTarget.current
+    private static let _outputTarget = Mutex<OutputTarget?>(nil)
+    public static var outputTarget: OutputTarget {
+        get {
+            let locked = _outputTarget.withLock { $0 }
+            if let locked = locked {
+                return locked
+            }
+            return OutputTarget.current
+        }
+        set {
+            _outputTarget.withLock { $0 = newValue }
+        }
+    }
     
     /// Enable `Rainbow` to colorize string or not. Default is `true`, unless the `NO_COLOR` environment variable is set.
-    public static var enabled = ProcessInfo.processInfo.environment["NO_COLOR"] == nil
+    private static let _enabled = Mutex<Bool?>(nil)
+    public static var enabled: Bool {
+        get {
+            let locked = _enabled.withLock { $0 }
+            if let locked = locked {
+                return locked
+            }
+            return ProcessInfo.processInfo.environment["NO_COLOR"] == nil
+        }
+        set {
+            _enabled.withLock { $0 = newValue }
+        }
+    }
 
     public static func extractEntry(for string: String) -> Entry {
         return ConsoleEntryParser(text: string).parse()

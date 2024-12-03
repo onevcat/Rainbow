@@ -1,9 +1,15 @@
-// swift-tools-version:4.0
+// swift-tools-version: 6.0
 
 import PackageDescription
 
 let package = Package(
     name: "Rainbow",
+    platforms: [
+        .macOS(.v15),
+        .iOS(.v17),
+        .tvOS(.v17),
+        .watchOS(.v10),
+    ],
     products: [
         .library(name: "Rainbow", targets: ["Rainbow"]),
     ],

@@ -26,7 +26,7 @@
 
 public typealias RGB = (UInt8, UInt8, UInt8)
 
-public enum ColorType: ModeCode {
+public enum ColorType: ModeCode, Sendable {
     case named(Color)
     case bit8(UInt8)
     case bit24(RGB)
@@ -70,7 +70,7 @@ extension ColorType: Equatable {
 public typealias Color = NamedColor
 
 /// Valid named text colors to use in `Rainbow`.
-public enum NamedColor: UInt8, ModeCode, CaseIterable {
+public enum NamedColor: UInt8, ModeCode, CaseIterable, Sendable {
     case black = 30
     case red
     case green

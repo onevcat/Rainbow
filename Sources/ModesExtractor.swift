@@ -25,7 +25,7 @@
 //  THE SOFTWARE.
 
 // Parse a console string to `Entry`
-class ConsoleEntryParser {
+@_nonSendable class ConsoleEntryParser {
 
     let text: String
     var iter: String.Iterator?
