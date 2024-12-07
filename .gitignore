@@ -1,5 +1,7 @@
 
 # Created by https://www.gitignore.io/api/xcode,swift,objectivec,osx
+.gitconfig
+.vscode
 
 ### Xcode ###
 # Xcode
