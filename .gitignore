@@ -64,6 +64,7 @@ xcuserdata
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 .build/
+.index-build/
 
 # CocoaPods
 #
@@ -109,7 +110,8 @@ fastlane/test_output
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*

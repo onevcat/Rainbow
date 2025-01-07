@@ -24,6 +24,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+#if canImport(Darwin)
+    internal import Darwin
+#else
+    // See https://github.com/swiftlang/swift/issues/77866
+    @preconcurrency internal import Glibc
+#endif
+
 import Foundation
 
 private func getEnvValue(_ key: String) -> String? {
