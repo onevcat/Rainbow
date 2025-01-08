@@ -227,10 +227,28 @@ class RainbowTests: XCTestCase {
         Rainbow.environment = ["NO_COLOR": "1"]
         XCTAssertFalse(Rainbow.environmentAvailable)
         
+        Rainbow.environment = ["NO_COLOR": "0"]
+        XCTAssertTrue(Rainbow.environmentAvailable)
+        
+        Rainbow.environment = ["NO_COLOR": ""]
+        XCTAssertTrue(Rainbow.environmentAvailable)
+        
         Rainbow.environment = ["FORCE_COLOR": "1"]
         XCTAssertTrue(Rainbow.environmentAvailable)
         
+        Rainbow.environment = ["FORCE_COLOR": "0"]
+        XCTAssertTrue(Rainbow.environmentAvailable)
+        
         Rainbow.environment = ["NO_COLOR": "1", "FORCE_COLOR": "1"]
+        XCTAssertTrue(Rainbow.environmentAvailable)
+        
+        Rainbow.environment = ["NO_COLOR": "1", "FORCE_COLOR": "0"]
+        XCTAssertFalse(Rainbow.environmentAvailable)
+        
+        Rainbow.environment = ["NO_COLOR": "1", "FORCE_COLOR": ""]
+        XCTAssertFalse(Rainbow.environmentAvailable)
+        
+        Rainbow.environment = ["NO_COLOR": "", "FORCE_COLOR": ""]
         XCTAssertTrue(Rainbow.environmentAvailable)
     }
     

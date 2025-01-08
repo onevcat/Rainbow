@@ -98,9 +98,21 @@ public enum Rainbow {
     public static var outputTarget = OutputTarget.current
     
     static var environment = ProcessInfo.processInfo.environment
+    static func hasValidValueInEnvironment(_ key: String) -> Bool {
+        guard !key.isEmpty, let value = environment[key] else {
+            return false
+        }
+        return value != "" && value != "0"
+    }
     
     static var environmentAvailable: Bool {
-        return environment["NO_COLOR"] == nil || environment["FORCE_COLOR"] != nil
+        if hasValidValueInEnvironment("FORCE_COLOR") {
+            return true
+        }
+        if hasValidValueInEnvironment("NO_COLOR") {
+            return false
+        }
+        return true
     }
     
     /// Enable `Rainbow` to colorize string or not. Default is `true`, unless the `NO_COLOR` environment variable is
