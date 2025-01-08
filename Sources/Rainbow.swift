@@ -97,8 +97,15 @@ public enum Rainbow {
     /// However, if you want the colorized string to be different, or the detection is not correct, you can set it manually.
     public static var outputTarget = OutputTarget.current
     
-    /// Enable `Rainbow` to colorize string or not. Default is `true`, unless the `NO_COLOR` environment variable is set.
-    public static var enabled = ProcessInfo.processInfo.environment["NO_COLOR"] == nil
+    static var environment = ProcessInfo.processInfo.environment
+    
+    static var environmentAvailable: Bool {
+        return environment["NO_COLOR"] == nil || environment["FORCE_COLOR"] != nil
+    }
+    
+    /// Enable `Rainbow` to colorize string or not. Default is `true`, unless the `NO_COLOR` environment variable is
+    /// set and `FORCE_COLOR` not set. (`FORCE_COLOR` has higher priority than `NO_COLOR` if set)
+    public static var enabled = environmentAvailable
 
     public static func extractEntry(for string: String) -> Entry {
         return ConsoleEntryParser(text: string).parse()
