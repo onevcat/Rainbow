@@ -116,7 +116,8 @@ public enum Rainbow {
     }
     
     /// Enable `Rainbow` to colorize string or not. Default is `true`, unless the `NO_COLOR` environment variable is
-    /// set and `FORCE_COLOR` not set. (`FORCE_COLOR` has higher priority than `NO_COLOR` if set)
+    /// set and `FORCE_COLOR` not set to a valid value ("0" or empty value is treated as "unset". `FORCE_COLOR` has
+    /// higher priority than `NO_COLOR` if set).
     public static var enabled = environmentAvailable
 
     public static func extractEntry(for string: String) -> Entry {

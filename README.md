@@ -131,12 +131,12 @@ Hello Rainbow
 
 This is useful for sharing the same code for logging to console and to a log file.
 
-You can manually change this behavior by either:
+You can manually change this behavior. Rainbow follows these rules in priority:
 
+- Set the `Rainbow.enabled` in your code explicitly.
+- Pass `FORCE_COLOR=1` to enable color even if the output is not a tty. ([`FORCE_COLOR`](https://force-color.org/) has a higher priority than `NO_COLOR`)
+- Pass `NO_COLOR=1` as environment value when executing your app to disable color.
 - Set the `Rainbow.outputTarget` yourself.
-- Pass a `"NO_COLOR"` environment value when executing your app.
-- Or set the `Rainbow.enabled` to `false`.
-
 
 ### Verbose Way
 
