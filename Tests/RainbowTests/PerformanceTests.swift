@@ -28,7 +28,13 @@ import XCTest
 import Foundation
 @testable import Rainbow
 
+#if canImport(CoreFoundation) && !os(Linux)
+import CoreFoundation
+#endif
+
 // MARK: - Performance Testing Framework
+// Performance tests are disabled on Linux due to CFAbsoluteTime API unavailability
+#if canImport(CoreFoundation) && !os(Linux)
 class PerformanceTests: XCTestCase {
     
     struct PerformanceResult {
@@ -211,7 +217,7 @@ class PerformanceTests: XCTestCase {
     func testMemoryUsageForChainedCalls() {
         let testString = "Memory test string"
         
-        let (result, memoryUsed) = measureMemoryUsage {
+        let (_, memoryUsed) = measureMemoryUsage {
             var results: [String] = []
             for _ in 0..<1000 {
                 results.append(testString.red.bold.underline.onBlue)
@@ -363,3 +369,4 @@ class PerformanceTests: XCTestCase {
         return results
     }
 }
+#endif
