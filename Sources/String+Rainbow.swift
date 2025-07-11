@@ -337,4 +337,51 @@ extension String {
     public var raw: String {
         return Rainbow.extractEntry(for: self).plainText
     }
+    
+    /// Apply multiple styles efficiently in a single operation (available in v4.2.0+)
+    /// This is more efficient than chaining individual style calls
+    public func applyingStyles(_ styles: [Style]) -> String {
+        guard !styles.isEmpty else { return self }
+        return applyingCodesArray(styles)
+    }
+    
+    /// Apply color, background color, and styles in a single operation (available in v4.2.0+)
+    /// This is more efficient than chaining individual calls
+    public func applyingAll(color: ColorType? = nil, backgroundColor: BackgroundColorType? = nil, styles: [Style] = []) -> String {
+        var codes: [ModeCode] = []
+        if let color = color {
+            codes.append(color)
+        }
+        if let backgroundColor = backgroundColor {
+            codes.append(backgroundColor)
+        }
+        codes.append(contentsOf: styles)
+        return applyingCodesArray(codes)
+    }
+    
+    /// Internal helper method to apply an array of codes
+    private func applyingCodesArray(_ codes: [ModeCode]) -> String {
+        guard Rainbow.enabled else {
+            return self
+        }
+
+        var entry = ConsoleEntryParser(text: self).parse()
+
+        let input = ConsoleCodesParser().parse(modeCodes: codes.flatMap { $0.value } )
+        if entry.segments.count == 1 { // If there is only 1 segment, overwrite the current setting
+            entry.segments[0].update(with: input, overwriteColor: true)
+        } else {
+            entry.segments = entry.segments.map {
+                var s = $0
+                s.update(with: input, overwriteColor: false)
+                return s
+            }
+        }
+        
+        if codes.isEmpty {
+            return self
+        } else {
+            return Rainbow.generateString(for: entry)
+        }
+    }
 }
