@@ -65,6 +65,44 @@ Then run `swift build` whenever you get prepared.
 
 You could know more information on how to use Swift Package Manager in Apple's [official page](https://swift.org/package-manager/).
 
+## Performance Optimization
+
+Rainbow v4.2.0+ includes significant performance optimizations for high-frequency styling operations.
+
+### Builder Pattern (578% faster for complex chaining)
+
+For complex styling with multiple chained calls, use the builder pattern:
+
+```swift
+// Traditional chaining - creates multiple intermediate strings
+let traditional = "Hello".red.bold.underline.onBlue
+
+// Optimized builder pattern - lazy evaluation, single string generation  
+let optimized = "Hello".styled.red.bold.underline.onBlue.build()
+```
+
+### Batch Operations (264% faster for multiple styles)
+
+Apply multiple styles in a single operation:
+
+```swift
+// Traditional - multiple parsing cycles
+let traditional = "Warning".red.bold.underline.italic
+
+// Optimized - single parsing cycle
+let optimized = "Warning".applyingAll(
+    color: .named(.red), 
+    styles: [.bold, .underline, .italic]
+)
+```
+
+### Performance Guidelines
+
+- Use **builder pattern** (`.styled...build()`) for complex styling
+- Use **batch operations** (`.applyingAll()`) for multiple styles  
+- Avoid repeated styling of the same strings in loops
+- See [PERFORMANCE_GUIDE.md](PERFORMANCE_GUIDE.md) for detailed optimization strategies
+
 ## Other Usage
 
 ### String Interpolation & Nested
