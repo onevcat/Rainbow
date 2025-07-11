@@ -44,7 +44,7 @@ swift package generate-xcodeproj
 
 3. **Parser System**
    - `ConsoleEntryParser` - Parses existing colored strings into segments
-   - `ModesExtractor` - Extracts ANSI codes from strings (WARNING: potential infinite loop in parseText method)
+   - `ModesExtractor` - Extracts ANSI codes from strings (safe with natural iteration termination)
    - Used for the `raw` property that strips existing colors
 
 4. **Color System**
