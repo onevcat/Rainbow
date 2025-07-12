@@ -30,26 +30,53 @@ protocol StringGenerator {
 
 struct ConsoleStringGenerator: StringGenerator {
     func generate(for entry: Rainbow.Entry) -> String {
-
-        let strings: [String] = entry.segments.map {
+        // Pre-calculate total capacity to minimize string reallocations
+        let totalTextLength = entry.segments.reduce(0) { $0 + $1.text.count }
+        let estimatedTotalLength = totalTextLength + (entry.segments.count * 20) // ANSI codes overhead
+        
+        var result = ""
+        result.reserveCapacity(estimatedTotalLength)
+        
+        for segment in entry.segments {
+            // Fast path for plain text segments
+            if segment.isPlain {
+                result.append(segment.text)
+                continue
+            }
+            
+            // Collect all codes
             var codes: [UInt8] = []
-            if let color = $0.color {
+            if let color = segment.color {
                 codes += color.value
             }
-            if let backgroundColor = $0.backgroundColor {
+            if let backgroundColor = segment.backgroundColor {
                 codes += backgroundColor.value
             }
-            if let styles = $0.styles {
+            if let styles = segment.styles {
                 codes += styles.flatMap{ $0.value }
             }
-
-            if codes.isEmpty || $0.text.isEmpty {
-                return $0.text
+            
+            if codes.isEmpty || segment.text.isEmpty {
+                result.append(segment.text)
             } else {
-                return "\(ControlCode.CSI)\(codes.map{String($0)}.joined(separator: ";"))m\($0.text)\(ControlCode.CSI)0m"
+                // Optimize ANSI sequence building
+                result.append(ControlCode.CSI)
+                
+                // Build codes string more efficiently
+                for (index, code) in codes.enumerated() {
+                    if index > 0 {
+                        result.append(";")
+                    }
+                    result.append(String(code))
+                }
+                
+                result.append("m")
+                result.append(segment.text)
+                result.append(ControlCode.CSI)
+                result.append("0m")
             }
         }
-
-        return strings.joined()
+        
+        return result
     }
 }
