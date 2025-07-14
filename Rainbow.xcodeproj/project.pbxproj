@@ -63,6 +63,7 @@
 		D1C5D8DC1C2ACA1D001CB619 /* CodesParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */; };
 		D1C5D8DE1C2ACA7A001CB619 /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
 		D1C5D8E01C2AD38A001CB619 /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
+		D1C5F61A2E25614A00004F50 /* EdgeCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5F6192E25614A00004F50 /* EdgeCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodesParser.swift; sourceTree = "<group>"; };
 		D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModesExtractor.swift; sourceTree = "<group>"; };
 		D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringGenerator.swift; sourceTree = "<group>"; };
+		D1C5F6192E25614A00004F50 /* EdgeCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EdgeCaseTests.swift; path = RainbowTests/EdgeCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				D1B428C825F1CBA0009F1DD1 /* ColorApproximatedTests.swift */,
 				D13C24C02E20F85B000690E1 /* PerformanceTests.swift */,
 				D13C24C92E20FC16000690E1 /* StyledStringBuilderTests.swift */,
+				D1C5F6192E25614A00004F50 /* EdgeCaseTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 			files = (
 				D1B428C925F1CBA0009F1DD1 /* ColorApproximatedTests.swift in Sources */,
 				D17B42F025E891D5002914A0 /* ConsoleTextParserTests.swift in Sources */,
+				D1C5F61A2E25614A00004F50 /* EdgeCaseTests.swift in Sources */,
 				D13C24C12E20F85B000690E1 /* PerformanceTests.swift in Sources */,
 				D118F24F25EF13B700C7B074 /* ColorTests.swift in Sources */,
 				D13C24CA2E20FC16000690E1 /* StyledStringBuilderTests.swift in Sources */,
