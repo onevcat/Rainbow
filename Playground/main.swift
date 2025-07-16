@@ -20,6 +20,11 @@ print("\("春色满园".hex("#ea517f", to: .bit24))关不住，\("一枝红杏".
 
 print("")
 
+print("\("天街".hsl(0, 0, 70))小雨润如酥，\("草色".hsl(120, 20, 80))遥看近却无")
+print("\("最是".hsl(90, 60, 70))一年春好处，绝胜\("烟柳".hsl(120, 30, 75))满皇都")
+
+print("")
+
 let output = "The quick brown fox jumps over the lazy dog"
                 .applyingCodes(Color.red, BackgroundColor.yellow, Style.bold)
 print(output)
