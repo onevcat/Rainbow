@@ -67,9 +67,9 @@ You could know more information on how to use Swift Package Manager in Apple's [
 
 ## Performance Optimization
 
-Rainbow v4.2.0+ includes significant performance optimizations for high-frequency styling operations.
+Rainbow v4.2.0+ includes performance optimizations for high-frequency styling operations.
 
-### Builder Pattern (578% faster for complex chaining)
+### Builder Pattern
 
 For complex styling with multiple chained calls, use the builder pattern:
 
@@ -81,7 +81,7 @@ let traditional = "Hello".red.bold.underline.onBlue
 let optimized = "Hello".styled.red.bold.underline.onBlue.build()
 ```
 
-### Batch Operations (264% faster for multiple styles)
+### Batch Operations
 
 Apply multiple styles in a single operation:
 
@@ -151,6 +151,17 @@ print("\("春色满园".hex("#ea517f", to: .bit24))关不住，\("一枝红杏".
 ```
 
 ![](https://user-images.githubusercontent.com/1019875/110496210-9d2c2600-8138-11eb-803d-15a745ef1dfb.png)
+
+### HSL Colors
+
+HSL (Hue, Saturation, Lightness) colors are also supported:
+
+```swift
+print("天街小雨润如酥，草色遥看近却无".hsl(120, 20, 80))
+print("最是一年春好处，绝胜烟柳满皇都".hsl(90, 60, 70))
+```
+
+> Format: `hue` (0-360°), `saturation` (0-100%), `lightness` (0-100%)
 
 ### Output Target
 
