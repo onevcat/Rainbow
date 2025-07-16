@@ -64,6 +64,11 @@
 		D1C5D8DE1C2ACA7A001CB619 /* ModesExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */; };
 		D1C5D8E01C2AD38A001CB619 /* StringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */; };
 		D1C5F61A2E25614A00004F50 /* EdgeCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C5F6192E25614A00004F50 /* EdgeCaseTests.swift */; };
+		D1F077292E27C68100EF60B9 /* HSLColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F077282E27C68100EF60B9 /* HSLColorConverter.swift */; };
+		D1F0772A2E27C68100EF60B9 /* HSLColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F077282E27C68100EF60B9 /* HSLColorConverter.swift */; };
+		D1F0772B2E27C68100EF60B9 /* HSLColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F077282E27C68100EF60B9 /* HSLColorConverter.swift */; };
+		D1F0772C2E27C68100EF60B9 /* HSLColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F077282E27C68100EF60B9 /* HSLColorConverter.swift */; };
+		D1F077302E27C6DF00EF60B9 /* HSLColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0772F2E27C6DF00EF60B9 /* HSLColorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +109,8 @@
 		D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModesExtractor.swift; sourceTree = "<group>"; };
 		D1C5D8DF1C2AD38A001CB619 /* StringGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringGenerator.swift; sourceTree = "<group>"; };
 		D1C5F6192E25614A00004F50 /* EdgeCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EdgeCaseTests.swift; path = RainbowTests/EdgeCaseTests.swift; sourceTree = "<group>"; };
+		D1F077282E27C68100EF60B9 /* HSLColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSLColorConverter.swift; sourceTree = "<group>"; };
+		D1F0772F2E27C6DF00EF60B9 /* HSLColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HSLColorTests.swift; path = RainbowTests/HSLColorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +184,7 @@
 				D17B42EF25E891D5002914A0 /* ConsoleTextParserTests.swift */,
 				D1A98FB01C299DF0000DDF20 /* ConsoleStringTests.swift */,
 				D1B428C825F1CBA0009F1DD1 /* ColorApproximatedTests.swift */,
+				D1F0772F2E27C6DF00EF60B9 /* HSLColorTests.swift */,
 				D13C24C02E20F85B000690E1 /* PerformanceTests.swift */,
 				D13C24C92E20FC16000690E1 /* StyledStringBuilderTests.swift */,
 				D1C5F6192E25614A00004F50 /* EdgeCaseTests.swift */,
@@ -195,6 +203,7 @@
 		4BC821A91C2928CF00F68E70 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D1F077282E27C68100EF60B9 /* HSLColorConverter.swift */,
 				D13C24C22E20F8A7000690E1 /* StyledStringBuilder.swift */,
 				D1C5D8DB1C2ACA1D001CB619 /* CodesParser.swift */,
 				D1C5D8DD1C2ACA7A001CB619 /* ModesExtractor.swift */,
@@ -410,6 +419,7 @@
 				4B1929201C2BBC98005B79AB /* ControlCode.swift in Sources */,
 				4B1929211C2BBC98005B79AB /* String+Rainbow.swift in Sources */,
 				4B1929221C2BBC98005B79AB /* OutputTarget.swift in Sources */,
+				D1F0772B2E27C68100EF60B9 /* HSLColorConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +439,7 @@
 				4B1929381C2BBE06005B79AB /* ControlCode.swift in Sources */,
 				4B1929391C2BBE06005B79AB /* String+Rainbow.swift in Sources */,
 				4B19293A1C2BBE06005B79AB /* OutputTarget.swift in Sources */,
+				D1F0772A2E27C68100EF60B9 /* HSLColorConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +459,7 @@
 				4B1929611C2BBEFE005B79AB /* ControlCode.swift in Sources */,
 				4B1929621C2BBEFE005B79AB /* String+Rainbow.swift in Sources */,
 				4B1929631C2BBEFE005B79AB /* OutputTarget.swift in Sources */,
+				D1F077292E27C68100EF60B9 /* HSLColorConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +479,7 @@
 				D1C5D8DE1C2ACA7A001CB619 /* ModesExtractor.swift in Sources */,
 				4BA75FAA1C2939EC00B1037A /* Rainbow.swift in Sources */,
 				4BC026EF1C292F70009FD2FD /* Style.swift in Sources */,
+				D1F0772C2E27C68100EF60B9 /* HSLColorConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +492,7 @@
 				D1C5F61A2E25614A00004F50 /* EdgeCaseTests.swift in Sources */,
 				D13C24C12E20F85B000690E1 /* PerformanceTests.swift in Sources */,
 				D118F24F25EF13B700C7B074 /* ColorTests.swift in Sources */,
+				D1F077302E27C6DF00EF60B9 /* HSLColorTests.swift in Sources */,
 				D13C24CA2E20FC16000690E1 /* StyledStringBuilderTests.swift in Sources */,
 				D1A98FB11C299DF0000DDF20 /* ConsoleStringTests.swift in Sources */,
 				4BC821A11C29276C00F68E70 /* RainbowTests.swift in Sources */,
