@@ -230,6 +230,43 @@ extension String {
         guard let converter = ColorApproximation(color: color) else { return self }
         return applyingColor(converter.convert(to: target))
     }
+    
+    /// String with an HSL color applied to the text. The exact color which will be used is determined by the `target`.
+    ///
+    /// - Parameters:
+    ///   - hue: The hue component in degrees (0-360). Values outside this range will be wrapped around.
+    ///   - saturation: The saturation component as a percentage (0-100). Values outside will be clamped.
+    ///   - lightness: The lightness component as a percentage (0-100). Values outside will be clamped.
+    ///   - target: The conversion target of this color. If `target` is `.bit8Approximated`, an approximated 8-bit
+    ///             color will be used; If `.bit24`, a 24-bit color is used.
+    ///             Default is `.bit8Approximated`.
+    /// - Returns: The formatted string with the HSL color applied.
+    public func hsl(_ hue: Double, _ saturation: Double, _ lightness: Double, to target: HexColorTarget = .bit8Approximated) -> String {
+        let converter = HSLColorConverter(hue: hue, saturation: saturation, lightness: lightness)
+        let rgb = converter.toRGB()
+        
+        switch target {
+        case .bit8Approximated:
+            // Convert RGB to hex and use ColorApproximation for 8-bit conversion
+            let hexValue = (UInt32(rgb.0) << 16) | (UInt32(rgb.1) << 8) | UInt32(rgb.2)
+            guard let approximator = ColorApproximation(color: hexValue) else { return self }
+            return applyingColor(approximator.convert(to: .bit8Approximated))
+        case .bit24:
+            return applyingColor(.bit24(rgb))
+        }
+    }
+    
+    /// String with an HSL color applied to the text. The exact color which will be used is determined by the `target`.
+    ///
+    /// - Parameters:
+    ///   - hsl: The HSL color as a tuple (hue: 0-360, saturation: 0-100, lightness: 0-100).
+    ///   - target: The conversion target of this color. If `target` is `.bit8Approximated`, an approximated 8-bit
+    ///             color will be used; If `.bit24`, a 24-bit color is used.
+    ///             Default is `.bit8Approximated`.
+    /// - Returns: The formatted string with the HSL color applied.
+    public func hsl(_ hsl: HSL, to target: HexColorTarget = .bit8Approximated) -> String {
+        return self.hsl(hsl.hue, hsl.saturation, hsl.lightness, to: target)
+    }
 }
 
 // MARK: - Background Colors Shorthand
@@ -303,6 +340,43 @@ extension String {
     public func onHex(_ color: UInt32, to target: HexColorTarget = .bit8Approximated) -> String {
         guard let converter = ColorApproximation(color: color) else { return self }
         return applyingBackgroundColor(converter.convert(to: target))
+    }
+    
+    /// String with an HSL color applied to the background. The exact color which will be used is determined by the `target`.
+    ///
+    /// - Parameters:
+    ///   - hue: The hue component in degrees (0-360). Values outside this range will be wrapped around.
+    ///   - saturation: The saturation component as a percentage (0-100). Values outside will be clamped.
+    ///   - lightness: The lightness component as a percentage (0-100). Values outside will be clamped.
+    ///   - target: The conversion target of this color. If `target` is `.bit8Approximated`, an approximated 8-bit
+    ///             color will be used; If `.bit24`, a 24-bit color is used.
+    ///             Default is `.bit8Approximated`.
+    /// - Returns: The formatted string with the HSL color applied to the background.
+    public func onHsl(_ hue: Double, _ saturation: Double, _ lightness: Double, to target: HexColorTarget = .bit8Approximated) -> String {
+        let converter = HSLColorConverter(hue: hue, saturation: saturation, lightness: lightness)
+        let rgb = converter.toRGB()
+        
+        switch target {
+        case .bit8Approximated:
+            // Convert RGB to hex and use ColorApproximation for 8-bit conversion
+            let hexValue = (UInt32(rgb.0) << 16) | (UInt32(rgb.1) << 8) | UInt32(rgb.2)
+            guard let approximator = ColorApproximation(color: hexValue) else { return self }
+            return applyingBackgroundColor(approximator.convert(to: target))
+        case .bit24:
+            return applyingBackgroundColor(.bit24(rgb))
+        }
+    }
+    
+    /// String with an HSL color applied to the background. The exact color which will be used is determined by the `target`.
+    ///
+    /// - Parameters:
+    ///   - hsl: The HSL color as a tuple (hue: 0-360, saturation: 0-100, lightness: 0-100).
+    ///   - target: The conversion target of this color. If `target` is `.bit8Approximated`, an approximated 8-bit
+    ///             color will be used; If `.bit24`, a 24-bit color is used.
+    ///             Default is `.bit8Approximated`.
+    /// - Returns: The formatted string with the HSL color applied to the background.
+    public func onHsl(_ hsl: HSL, to target: HexColorTarget = .bit8Approximated) -> String {
+        return self.onHsl(hsl.hue, hsl.saturation, hsl.lightness, to: target)
     }
 }
 
