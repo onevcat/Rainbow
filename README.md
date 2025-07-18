@@ -163,6 +163,60 @@ print("最是一年春好处，绝胜烟柳满皇都".hsl(90, 60, 70))
 
 > Format: `hue` (0-360°), `saturation` (0-100%), `lightness` (0-100%)
 
+### Conditional Styling
+
+Rainbow supports conditional styling that allows you to apply colors and styles based on runtime conditions, making your code more readable and reducing the need for ternary operators:
+
+```swift
+// Basic conditional styling
+let isError = true
+let isWarning = false
+
+print("Error occurred".colorIf(isError, .red).styleIf(isError, .bold))
+print("Warning message".colorIf(isWarning, .yellow))
+
+// Log level styling
+enum LogLevel { case error, warning, info }
+let level = LogLevel.error
+let message = "Something happened"
+
+print(message
+    .colorIf(level == .error, .red)
+    .colorIf(level == .warning, .yellow)
+    .colorIf(level == .info, .cyan)
+    .styleIf(level == .error, .bold))
+```
+
+#### Advanced Conditional Builder
+
+For more complex conditional styling scenarios, use the fluent builder interface:
+
+```swift
+let isActive = true
+let isWarning = false
+let isError = false
+
+let styledText = "Server Status: Running"
+    .conditionalStyled
+    .when(isActive).green.bold
+    .when(isWarning).yellow
+    .when(isError).red.underline
+    .build()
+
+print(styledText)
+
+// With closure-based conditions
+let progress = 75
+let statusMessage = "Processing..."
+    .conditionalStyled
+    .when { progress < 33 }.red.italic
+    .when { progress >= 33 && progress < 67 }.yellow
+    .when { progress >= 67 }.green.bold
+    .build()
+
+print(statusMessage)
+```
+
 ### Output Target
 
 By default, Rainbow should be smart enough to detect the output target, to determine if it is a tty. For example, it
