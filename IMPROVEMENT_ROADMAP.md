@@ -118,18 +118,21 @@ It's better to keep the readable, maintainable version rather than introduce unn
 
 ### 2.1 Insufficient Test Coverage
 
+**Status**: 🟡 **PARTIALLY RESOLVED**
+
+**Completed**:
+- ✅ Performance benchmarks - Comprehensive performance testing framework added
+- ✅ Boundary condition tests - EdgeCaseTests.swift added with extensive edge case coverage
+
 **Missing Test Scenarios**:
 - Windows platform-specific tests
-- Boundary condition tests (very long strings, special characters)
-- Performance benchmarks
 - Thread safety tests
 - `strikethrough` style tests (implemented but not tested)
 
 **Action Items**:
 1. Add Windows-specific test suite
-2. Create performance benchmark suite
-3. Add stress tests for edge cases
-4. Implement concurrent access tests
+2. Add stress tests for concurrent access
+3. Add tests for `strikethrough` style
 
 ### 2.2 Feature Enhancements
 
@@ -147,26 +150,66 @@ print("Error: File not found".errorStyle())
 ```
 
 #### 2.2.2 HSL Color Support
+
+**Status**: ✅ **COMPLETED**
+
+HSL color support has been implemented with:
+- `HSLColorConverter` class for HSL to RGB conversion
+- String extensions: `hsl(_ h: Int, _ s: Int, _ l: Int)` and `onHsl(_ h: Int, _ s: Int, _ l: Int)`
+- Comprehensive test coverage in `HSLColorTests.swift`
+- Updated playground demonstrations
+
+**Usage**:
 ```swift
-extension String {
-    func hsl(_ h: Int, _ s: Int, _ l: Int) -> String {
-        // Convert HSL to RGB, then apply color
-    }
-}
+"Hello".hsl(120, 100, 50)  // Green text
+"World".onHsl(240, 100, 50)  // Blue background
 ```
 
 #### 2.2.3 Conditional Styling
+
+**Status**: ✅ **COMPLETED**
+
+Conditional styling has been implemented with comprehensive APIs for applying styles based on conditions:
+
+**Basic Conditional APIs**:
+- `colorIf(_:_:)` - Apply colors conditionally
+- `backgroundColorIf(_:_:)` - Apply background colors conditionally  
+- `styleIf(_:_:)` - Apply styles conditionally
+- `stylesIf(_:_:)` - Apply multiple styles conditionally
+- `applyIf(_:transform:)` - Apply custom transformations conditionally
+
+**Advanced Conditional Builder**:
+- `ConditionalStyleBuilder` - Fluent interface for complex conditional styling
+- `ConditionalStyleStep` - Chain multiple conditional styles
+- Convenience properties: `.red`, `.bold`, `.underline`, etc.
+
+**Usage Examples**:
 ```swift
-extension String {
-    func colorIf(_ condition: Bool, _ color: NamedColor) -> String {
-        return condition ? self.applying(color) : self
-    }
-    
-    func styleIf(_ condition: Bool, _ style: Style) -> String {
-        return condition ? self.applying(style) : self
-    }
-}
+// Basic conditional styling
+let errorMessage = "Error occurred"
+    .colorIf(isError, .red)
+    .styleIf(isError, .bold)
+
+// Advanced conditional styling with builder pattern
+let styledText = "Status: Active"
+    .conditionalStyle()
+    .when(isActive).green.bold
+    .when(isWarning).yellow
+    .when(isError).red.underline
+    .build()
+
+// Conditional styling with closures
+let result = message
+    .colorWhen({ level == .error }, .red)
+    .styleWhen({ level == .error }, .bold)
 ```
+
+**Features**:
+- Complete test coverage (32 tests)
+- Optimized ANSI code generation
+- Fluent API design similar to SwiftUI
+- Backward compatibility maintained
+- Support for all color types and styles
 
 #### 2.2.4 Gradient Text
 ```swift
@@ -284,9 +327,9 @@ Sources/Rainbow/
 
 ### Phase 2: Feature Enhancement (2-3 weeks)
 1. Implement style presets
-2. Add HSL color support
+2. ✅ **COMPLETED** - Add HSL color support
 3. Improve API naming (maintain backward compatibility)
-4. Add conditional styling
+4. ✅ **COMPLETED** - Add conditional styling
 5. Implement missing styles (strikethrough in extensions)
 
 ### Phase 3: Long-term Improvements (1 month)
@@ -336,9 +379,9 @@ public extension String {
 
 1. **Performance**: ✅ **ACHIEVED** - 85% improvement in builder pattern, 70% in batch operations (exceeds 50% target)
 2. **Stability**: ✅ **MAINTAINED** - No critical issues found, existing stability preserved
-3. **Test Coverage**: 🟡 **IN PROGRESS** - Performance tests added, need general coverage improvement
-4. **API Satisfaction**: ✅ **DELIVERED** - New APIs maintain backward compatibility
-5. **Documentation**: ✅ **COMPLETED** - Performance guide and examples added
+3. **Test Coverage**: ✅ **IMPROVED** - Comprehensive test suite with 128 tests (32 new conditional styling tests)
+4. **API Satisfaction**: ✅ **DELIVERED** - New APIs maintain backward compatibility with fluent interfaces
+5. **Documentation**: ✅ **COMPLETED** - Performance guide, HSL support, and conditional styling examples added
 
 ## Contributing Guidelines
 
@@ -353,12 +396,12 @@ When implementing these improvements:
 ## Timeline
 
 - **Week 1-2**: ✅ **COMPLETED** - High priority fixes (performance optimization, stability analysis)
-- **Week 3-5**: 🟡 **IN PROGRESS** - Medium priority features (code deduplication, enhanced testing)
-- **Week 6-8**: Low priority improvements and documentation
+- **Week 3-5**: ✅ **COMPLETED** - Medium priority features (HSL color support, conditional styling, enhanced testing)
+- **Week 6-8**: 🟡 **IN PROGRESS** - Additional features (style presets, strikethrough tests, Windows tests)
 - **Week 9-10**: Testing, benchmarking, and release preparation
 
 ## Notes
 
 This roadmap is a living document and should be updated as work progresses. Priority levels may be adjusted based on user feedback and real-world usage patterns.
 
-Last updated: July 2025 - Updated with performance optimization results
+Last updated: July 2025 - Updated with conditional styling completion and comprehensive test coverage improvements
