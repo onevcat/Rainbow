@@ -394,6 +394,8 @@ extension String {
     public var blink: String { return applyingStyle(.blink) }
     /// String with text color and background color swapped.
     public var swap: String { return applyingStyle(.swap) }
+    /// String with strikethrough style.
+    public var strikethrough: String { return applyingStyle(.strikethrough) }
 }
 
 // MARK: - Clear Modes Shorthand
