@@ -127,16 +127,20 @@ It's better to keep the readable, maintainable version rather than introduce unn
 **Missing Test Scenarios**:
 - Windows platform-specific tests
 - Thread safety tests
-- `strikethrough` style tests (implemented but not tested)
+- ~~`strikethrough` style tests (implemented but not tested)~~ ✅ **COMPLETED**
 
 **Action Items**:
 1. Add Windows-specific test suite
 2. Add stress tests for concurrent access
-3. Add tests for `strikethrough` style
+3. ~~Add tests for `strikethrough` style~~ ✅ **COMPLETED**
 
 ### 2.2 Feature Enhancements
 
 #### 2.2.1 Style Presets
+
+**Status**: ❌ **REJECTED** - After careful consideration, determined not to implement
+
+**Original Proposal**:
 ```swift
 extension String {
     static let errorStyle = { $0.red.bold }
@@ -148,6 +152,22 @@ extension String {
 // Usage
 print("Error: File not found".errorStyle())
 ```
+
+**Why This Was Rejected**:
+1. **API Inconsistency**: The closure syntax `errorStyle()` doesn't match Rainbow's property-based API (`.red`, `.bold`)
+2. **User Flexibility**: Style preferences vary greatly between projects and teams
+3. **Easy to Implement**: Users can trivially create their own presets:
+   ```swift
+   // User-defined extension
+   extension String {
+       var error: String { self.red.bold }
+       var success: String { self.green }
+   }
+   ```
+4. **Maintain Simplicity**: Rainbow should provide core functionality, not opinionated defaults
+5. **No Universal Standards**: What constitutes "error" or "success" colors varies by terminal theme and user preference
+
+**Recommendation**: Document best practices and examples in README for users to create their own style presets.
 
 #### 2.2.2 HSL Color Support
 
@@ -326,11 +346,11 @@ Sources/Rainbow/
 4. ~~Fix code duplication issues~~ ❌ **REJECTED - Acceptable duplication, keep current implementation**
 
 ### Phase 2: Feature Enhancement (2-3 weeks)
-1. Implement style presets
+1. ~~Implement style presets~~ ❌ **REJECTED - See section 2.2.1**
 2. ✅ **COMPLETED** - Add HSL color support
 3. Improve API naming (maintain backward compatibility)
 4. ✅ **COMPLETED** - Add conditional styling
-5. Implement missing styles (strikethrough in extensions)
+5. ~~Implement missing styles (strikethrough in extensions)~~ ✅ **COMPLETED**
 
 ### Phase 3: Long-term Improvements (1 month)
 1. Restructure code organization
@@ -397,11 +417,11 @@ When implementing these improvements:
 
 - **Week 1-2**: ✅ **COMPLETED** - High priority fixes (performance optimization, stability analysis)
 - **Week 3-5**: ✅ **COMPLETED** - Medium priority features (HSL color support, conditional styling, enhanced testing)
-- **Week 6-8**: 🟡 **IN PROGRESS** - Additional features (style presets, strikethrough tests, Windows tests)
+- **Week 6-8**: 🟡 **IN PROGRESS** - Additional features (~~style presets~~, ~~strikethrough tests~~, Windows tests)
 - **Week 9-10**: Testing, benchmarking, and release preparation
 
 ## Notes
 
 This roadmap is a living document and should be updated as work progresses. Priority levels may be adjusted based on user feedback and real-world usage patterns.
 
-Last updated: July 2025 - Updated with conditional styling completion and comprehensive test coverage improvements
+Last updated: July 2025 - Updated with strikethrough implementation, style presets rejection decision, and comprehensive test coverage improvements
