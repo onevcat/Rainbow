@@ -41,3 +41,27 @@ let entry = Rainbow.Entry(
     ]
 )
 print(Rainbow.generateString(for: entry))
+
+print("")
+
+// Strikethrough examples
+print("=== Strikethrough Style Examples ===".bold)
+print("This is \("deleted text".strikethrough)")
+print("Error: \("Deprecated method".red.strikethrough) - use new API instead")
+print("\("Old price: $99.99".strikethrough) \("New price: $79.99".green.bold)")
+print("")
+print("Combining with other styles:")
+print("  • \("Strikethrough + Bold".strikethrough.bold)")
+print("  • \("Strikethrough + Italic".strikethrough.italic)")
+print("  • \("Strikethrough + Underline".strikethrough.underline)")
+print("  • \("Strikethrough + Red + Bold".red.strikethrough.bold)")
+print("")
+print("Complex example:")
+let todoList = """
+TODO List:
+  ✓ \("Setup project".strikethrough.dim)
+  ✓ \("Write tests".strikethrough.dim)
+  - Implement feature
+  - Code review
+"""
+print(todoList)

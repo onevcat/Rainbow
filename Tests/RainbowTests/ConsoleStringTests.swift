@@ -105,6 +105,7 @@ class ConsoleStringTests: XCTestCase {
         XCTAssertEqual(string.underline, "\u{001B}[4mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.blink, "\u{001B}[5mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.swap, "\u{001B}[7mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.strikethrough, "\u{001B}[9mHello Rainbow\u{001B}[0m")
     }
     
     func testStringMultipleModes() {
@@ -115,6 +116,9 @@ class ConsoleStringTests: XCTestCase {
         XCTAssertEqual(string.onWhite.dim.blink, "\u{001B}[47;2;5mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.blue.onWhite, "\u{001B}[34;47mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.blue.green.blue.blue, "\u{001B}[34mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.red.strikethrough, "\u{001B}[31;9mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.strikethrough.underline, "\u{001B}[9;4mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.red.onYellow.strikethrough, "\u{001B}[31;43;9mHello Rainbow\u{001B}[0m")
     }
     
     func testStringClearMode() {
@@ -128,6 +132,8 @@ class ConsoleStringTests: XCTestCase {
         XCTAssertEqual(string.red.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.bold.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.red.bold.clearColor, "\u{001B}[1mHello Rainbow\u{001B}[0m")
+        XCTAssertEqual(string.strikethrough.clearStyles, "Hello Rainbow")
+        XCTAssertEqual(string.red.strikethrough.clearStyles, "\u{001B}[31mHello Rainbow\u{001B}[0m")
         XCTAssertEqual(string.bold.italic.clearStyles, "Hello Rainbow")
     }
 
