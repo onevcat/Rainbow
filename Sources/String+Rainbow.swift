@@ -394,7 +394,7 @@ extension String {
     public var blink: String { return applyingStyle(.blink) }
     /// String with text color and background color swapped.
     public var swap: String { return applyingStyle(.swap) }
-    /// String with strikethrough style.
+    /// String with strikethrough style. This may not be supported in all terminals, particularly macOS Terminal.app.
     public var strikethrough: String { return applyingStyle(.strikethrough) }
 }
 
