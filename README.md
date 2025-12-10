@@ -80,6 +80,8 @@ swift run RainbowPlayground
 
 The demo covers basic colors, background colors, text styles, 8-bit/24-bit colors, hex colors, HSL colors, builder pattern, and practical examples.
 
+<img width="1062" height="1244" alt="rainbow-demo" src="https://github.com/user-attachments/assets/e0f274c0-3a58-40c1-949b-12b0c84eb551" />
+
 ## Performance Optimization
 
 Rainbow v4.2.0+ includes performance optimizations for high-frequency styling operations.
