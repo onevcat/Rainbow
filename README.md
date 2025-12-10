@@ -65,6 +65,21 @@ Then run `swift build` whenever you get prepared.
 
 You could know more information on how to use Swift Package Manager in Apple's [official page](https://swift.org/package-manager/).
 
+### Running the Demo
+
+Rainbow includes a comprehensive demo that showcases all features. To see it in action:
+
+```bash
+# Clone the repository
+git clone https://github.com/onevcat/Rainbow.git
+cd Rainbow
+
+# Run the demo
+swift run RainbowPlayground
+```
+
+The demo covers basic colors, background colors, text styles, 8-bit/24-bit colors, hex colors, HSL colors, builder pattern, and practical examples.
+
 ## Performance Optimization
 
 Rainbow v4.2.0+ includes performance optimizations for high-frequency styling operations.
