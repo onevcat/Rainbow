@@ -21,12 +21,125 @@ func subsection(_ title: String) {
     print(title.bold.underline)
 }
 
-// MARK: - Header
+// MARK: - Hero Banner
 
-print()
-print(("=" * 60).lightCyan)
-print("Rainbow Demo".bold.lightCyan + " - Terminal Color Library for Swift".lightCyan)
-print(("=" * 60).lightCyan)
+func printHero() {
+    print()
+
+    // ASCII Art "rainbow" - each letter in different color
+    let r = [
+        "  ██████╗ ",
+        "  ██╔══██╗",
+        "  ██████╔╝",
+        "  ██╔══██╗",
+        "  ██║  ██║",
+        "  ╚═╝  ╚═╝"
+    ]
+    let a = [
+        "  █████╗ ",
+        " ██╔══██╗",
+        " ███████║",
+        " ██╔══██║",
+        " ██║  ██║",
+        " ╚═╝  ╚═╝"
+    ]
+    let i = [
+        " ██╗",
+        " ██║",
+        " ██║",
+        " ██║",
+        " ██║",
+        " ╚═╝"
+    ]
+    let n = [
+        " ███╗   ██╗",
+        " ████╗  ██║",
+        " ██╔██╗ ██║",
+        " ██║╚██╗██║",
+        " ██║ ╚████║",
+        " ╚═╝  ╚═══╝"
+    ]
+    let b = [
+        " ██████╗ ",
+        " ██╔══██╗",
+        " ██████╔╝",
+        " ██╔══██╗",
+        " ██████╔╝",
+        " ╚═════╝ "
+    ]
+    let o = [
+        "  ██████╗ ",
+        " ██╔═══██╗",
+        " ██║   ██║",
+        " ██║   ██║",
+        " ╚██████╔╝",
+        "  ╚═════╝ "
+    ]
+    let w = [
+        " ██╗    ██╗",
+        " ██║    ██║",
+        " ██║ █╗ ██║",
+        " ██║███╗██║",
+        " ╚███╔███╔╝",
+        "  ╚══╝╚══╝ "
+    ]
+
+    // Rainbow colors for each letter
+    let colors: [(UInt8, UInt8, UInt8)] = [
+        (0, 180, 0),      // r - green
+        (220, 200, 0),    // a - yellow
+        (255, 165, 0),    // i - orange
+        (255, 50, 50),    // n - red
+        (255, 0, 150),    // b - magenta/pink
+        (138, 43, 226),   // o - purple
+        (0, 191, 255)     // w - cyan/blue
+    ]
+
+    let letters = [r, a, i, n, b, o, w]
+
+    // Print the ASCII art
+    for row in 0..<6 {
+        var line = ""
+        for (letterIdx, letter) in letters.enumerated() {
+            let color = colors[letterIdx]
+            line += letter[row].bit24(color.0, color.1, color.2)
+        }
+        print(line)
+    }
+
+    // Tagline with smooth gradient: green -> yellow -> orange -> red -> purple -> blue
+    print()
+    let tagline = "Delightful console output for Swift developers"
+
+    // Create smooth gradient across the entire tagline
+    let gradientColors: [(UInt8, UInt8, UInt8)] = [
+        (0, 180, 0),      // green
+        (180, 200, 0),    // yellow-green
+        (220, 200, 0),    // yellow
+        (255, 165, 0),    // orange
+        (255, 100, 50),   // red-orange
+        (255, 50, 50),    // red
+        (255, 0, 100),    // red-purple
+        (200, 0, 180),    // purple
+        (138, 43, 226),   // violet
+        (80, 80, 255),    // blue-violet
+        (0, 150, 255),    // blue
+    ]
+
+    var coloredTagline = ""
+    let taglineLength = tagline.count
+    for (idx, char) in tagline.enumerated() {
+        // Map character position to gradient color
+        let progress = Double(idx) / Double(taglineLength - 1)
+        let colorIdx = Int(progress * Double(gradientColors.count - 1))
+        let color = gradientColors[min(colorIdx, gradientColors.count - 1)]
+        coloredTagline += String(char).bit24(color.0, color.1, color.2)
+    }
+    print("          " + coloredTagline)
+    print()
+}
+
+printHero()
 
 // MARK: - Basic Foreground Colors
 
