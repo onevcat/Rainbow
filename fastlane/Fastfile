@@ -3,6 +3,16 @@ fastlane_version "2.230.0"
 default_platform :mac
 
 platform :mac do
+  def update_unreleased_compare_link(tag:)
+    changelog_path = "CHANGELOG.md"
+    content = File.read(changelog_path)
+    unless content.match?(/^\[Unreleased\]: .+$/)
+      UI.user_error!("Missing [Unreleased] link reference in #{changelog_path}")
+    end
+    updated = content.gsub(/^\[Unreleased\]: .*$/, "[Unreleased]: https://github.com/onevcat/Rainbow/compare/#{tag}...HEAD")
+    File.write(changelog_path, updated)
+  end
+
   desc "Runs all the tests"
   lane :test do
     spm(command: "test")
@@ -24,6 +34,7 @@ platform :mac do
       version_bump_podspec(path: "RainbowSwift.podspec", version_number: target_version)
 
       stamp_changelog(section_identifier: target_version, git_tag: target_version, stamp_datetime_format: "%F")
+      update_unreleased_compare_link(tag: target_version)
 
       git_commit_all(message: "Bump version to #{target_version}")
       add_git_tag tag: target_version

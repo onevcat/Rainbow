@@ -85,15 +85,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Support for Swift 2.2. ([#2](https://github.com/onevcat/Rainbow/pull/2))
 
-[Unreleased]: https://github.com/onevcat/Rainbow/compare/4.2.0...HEAD
-[4.2.0]: https://github.com/onevcat/Rainbow/releases/tag/4.2.0
-[4.1.0]: https://github.com/onevcat/Rainbow/releases/tag/4.1.0
-[4.0.1]: https://github.com/onevcat/Rainbow/releases/tag/4.0.1
-[4.0.0]: https://github.com/onevcat/Rainbow/releases/tag/4.0.0
-[3.2.0]: https://github.com/onevcat/Rainbow/releases/tag/3.2.0
-[3.0.0]: https://github.com/onevcat/Rainbow/releases/tag/3.0.0
-[2.1.0]: https://github.com/onevcat/Rainbow/releases/tag/2.1.0
-[2.0.1]: https://github.com/onevcat/Rainbow/releases/tag/2.0.1
-[2.0.0]: https://github.com/onevcat/Rainbow/releases/tag/2.0.0
+[Unreleased]: https://github.com/onevcat/Rainbow/compare/4.2.1...HEAD
 [1.1.0]: https://github.com/onevcat/Rainbow/releases/tag/1.1.0
-[4.2.1]: https://github.com/onevcat/Rainbow/releases/tag/1.1.0
+[2.0.0]: https://github.com/onevcat/Rainbow/compare/1.1.0...2.0.0
+[2.0.1]: https://github.com/onevcat/Rainbow/compare/2.0.0...2.0.1
+[2.1.0]: https://github.com/onevcat/Rainbow/compare/2.0.1...2.1.0
+[3.0.0]: https://github.com/onevcat/Rainbow/compare/2.1.0...3.0.0
+[3.2.0]: https://github.com/onevcat/Rainbow/compare/3.0.0...3.2.0
+[4.0.0]: https://github.com/onevcat/Rainbow/compare/3.2.0...4.0.0
+[4.0.1]: https://github.com/onevcat/Rainbow/compare/4.0.0...4.0.1
+[4.1.0]: https://github.com/onevcat/Rainbow/compare/4.0.1...4.1.0
+[4.2.0]: https://github.com/onevcat/Rainbow/compare/4.1.0...4.2.0
+[4.2.1]: https://github.com/onevcat/Rainbow/compare/4.2.0...4.2.1
