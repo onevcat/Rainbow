@@ -1,8 +1,38 @@
 fastlane_version "2.230.0"
 
+require "tempfile"
+
 default_platform :mac
 
 platform :mac do
+  def read_changelog_section(version:)
+    content = File.read("CHANGELOG.md")
+    pattern = /^## \\[#{Regexp.escape(version)}\\].*?\\n(.*?)(?=^## \\[|\\z)/m
+    match = content.match(pattern)
+    UI.user_error!("Missing CHANGELOG.md section for #{version}") unless match
+    match[1].strip
+  end
+
+  def github_release_exists?(version:)
+    begin
+      sh("gh release view #{version} --repo onevcat/Rainbow", log: false)
+      true
+    rescue
+      false
+    end
+  end
+
+  def create_github_release(version:)
+    return if github_release_exists?(version: version)
+
+    notes = read_changelog_section(version: version)
+    Tempfile.create(["release_notes_", ".md"]) do |file|
+      file.write(notes + "\n")
+      file.flush
+      sh("gh release create #{version} --repo onevcat/Rainbow --title \"#{version}\" --notes-file #{file.path}")
+    end
+  end
+
   def update_unreleased_compare_link(tag:)
     changelog_path = "CHANGELOG.md"
     content = File.read(changelog_path)
@@ -40,6 +70,7 @@ platform :mac do
       add_git_tag tag: target_version
       
       push_to_git_remote
+      create_github_release(version: target_version)
       pod_push
   end
 

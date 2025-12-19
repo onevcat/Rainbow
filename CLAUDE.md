@@ -38,7 +38,7 @@ swift package generate-xcodeproj
 bundle exec fastlane release version:4.2.1
 ```
 
-The `release` lane runs tests, bumps build/version, updates the podspec, stamps the changelog, commits, tags, pushes, and runs `pod push`.
+The `release` lane runs tests, bumps build/version, updates the podspec, stamps the changelog, commits, tags, pushes, creates a GitHub release via `gh`, and runs `pod push`.
 
 Note: `CHANGELOG.md` uses compare links and keeps link references ordered from oldest to newest (latest at the bottom) so `stamp_changelog` can append the next compare link. The lane also refreshes the `[Unreleased]` compare link.
 
