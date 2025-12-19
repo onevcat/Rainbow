@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.2.1] - 2025-12-19
+
 ### Fixed
 - Optimized `Entry.plainText` concatenation for better performance. ([#86](https://github.com/onevcat/Rainbow/pull/86))
 
@@ -94,3 +96,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [2.0.1]: https://github.com/onevcat/Rainbow/releases/tag/2.0.1
 [2.0.0]: https://github.com/onevcat/Rainbow/releases/tag/2.0.0
 [1.1.0]: https://github.com/onevcat/Rainbow/releases/tag/1.1.0
+[4.2.1]: https://github.com/onevcat/Rainbow/releases/tag/1.1.0
