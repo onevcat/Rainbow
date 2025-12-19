@@ -28,6 +28,18 @@ swift build -c release
 swift package generate-xcodeproj
 ```
 
+## Release Process
+
+1. Update `CHANGELOG.md` under the `[Unreleased]` section with the release notes.
+2. Ensure a clean git status on `master` (no uncommitted changes).
+3. Run the release lane with the target version:
+
+```bash
+bundle exec fastlane release version:4.2.1
+```
+
+The `release` lane runs tests, bumps build/version, updates the podspec, stamps the changelog, commits, tags, pushes, and runs `pod push`.
+
 ## Architecture Overview
 
 ### Core Components

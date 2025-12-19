@@ -130,3 +130,4 @@ Temporary Items
 Resource
 /fastlane/README.md
 .claude/settings.local.json
+.vscode/launch.json

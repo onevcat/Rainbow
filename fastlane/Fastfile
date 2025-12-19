@@ -1,4 +1,4 @@
-fastlane_version "1.48.0"
+fastlane_version "2.230.0"
 
 default_platform :mac
 
@@ -22,7 +22,9 @@ platform :mac do
       
       increment_version_number(version_number: target_version)
       version_bump_podspec(path: "RainbowSwift.podspec", version_number: target_version)
-      
+
+      stamp_changelog(section_identifier: target_version, git_tag: target_version, stamp_datetime_format: "%F")
+
       git_commit_all(message: "Bump version to #{target_version}")
       add_git_tag tag: target_version
       
