@@ -85,7 +85,12 @@ public enum Rainbow {
         }
 
         public var plainText: String {
-            return segments.reduce("") { $0 + $1.text }
+            var result = String()
+            result.reserveCapacity(segments.reduce(0) { $0 + $1.text.utf8.count })
+            for segment in segments {
+                result.append(segment.text)
+            }
+            return result
         }
 
         public var isPlain: Bool {
