@@ -44,6 +44,10 @@ public enum OutputTarget {
     
     /// Detected output target by current environment.
     static var current: OutputTarget = {
+        #if os(Windows)
+        // Windows terminals generally support ANSI escape codes in modern versions
+        return .console
+        #else
         // Check if we are in any term env and the output is a tty.
         let termType = getEnvValue("TERM")
         if let t = termType, t.lowercased() != "dumb" && isatty(fileno(stdout)) != 0 {
@@ -51,5 +55,6 @@ public enum OutputTarget {
         }
         
         return .unknown
+        #endif
     }()
 }
