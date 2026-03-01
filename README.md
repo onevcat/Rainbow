@@ -317,3 +317,4 @@ Become a sponsor through [GitHub Sponsors](https://github.com/sponsors/onevcat).
 ## License
 
 Rainbow is released under the MIT license. See LICENSE for details.
+Happy coding...!
