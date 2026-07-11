@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     container: swift:latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
     - name: Build
       run: swift build -v
     - name: Run tests
@@ -19,8 +19,20 @@ jobs:
   macos:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
     - name: Build
       run: swift build -v
     - name: Run tests
       run: swift test -v
+  windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Setup Swift
+      uses: SwiftyLab/setup-swift@38f54a76b70d989321de9dc7c840618c08cf56e9 # v1.14.0
+      with:
+        swift-version: latest
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v --enable-test-discovery
