@@ -41,6 +41,16 @@ struct ConsoleCodesParser {
 
         var iter = codes.makeIterator()
         while let code = iter.next() {
+            if code == Style.default.rawValue {
+                color = nil
+                backgroundColor = nil
+                styles = [.default]
+                continue
+            }
+            // A reset must precede, rather than override, later attributes.
+            if styles == [.default] {
+                styles = nil
+            }
             if code == ControlCode.setColor {
                 if canParseToSetBit8(iter) {
                     _ = iter.next() // set 8bit control
