@@ -6,8 +6,8 @@ default_platform :mac
 
 platform :mac do
   def read_changelog_section(version:)
-    content = File.read("CHANGELOG.md")
-    pattern = /^## \\[#{Regexp.escape(version)}\\].*?\\n(.*?)(?=^## \\[|\\z)/m
+    content = File.read("../CHANGELOG.md")
+    pattern = /^## \[#{Regexp.escape(version)}\][^\n]*\n(.*?)(?=^## \[|\z)/m
     match = content.match(pattern)
     UI.user_error!("Missing CHANGELOG.md section for #{version}") unless match
     match[1].strip
@@ -34,7 +34,7 @@ platform :mac do
   end
 
   def update_unreleased_compare_link(tag:)
-    changelog_path = "CHANGELOG.md"
+    changelog_path = "../CHANGELOG.md"
     content = File.read(changelog_path)
     unless content.match?(/^\[Unreleased\]: .+$/)
       UI.user_error!("Missing [Unreleased] link reference in #{changelog_path}")
@@ -55,6 +55,7 @@ platform :mac do
       
       ensure_git_branch
       ensure_git_status_clean
+      spm(command: "test")
       scan
       
       build_number = number_of_commits

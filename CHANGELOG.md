@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fixed Windows terminal detection to enable colors without the `TERM` environment variable. ([#88](https://github.com/onevcat/Rainbow/pull/88))
+- Fixed reset ordering in compound ANSI SGR sequences and when applying modes to styled text. ([#101](https://github.com/onevcat/Rainbow/pull/101))
+
 ## [4.2.1] - 2025-12-19
 
 ### Fixed
