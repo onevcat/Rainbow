@@ -24,7 +24,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-typealias ParseResult = (color: ColorType?, backgroundColor: BackgroundColorType?, styles: [Style]?)
+typealias ParseResult = (color: ColorType?, backgroundColor: BackgroundColorType?, styles: [Style]?, resetsAttributes: Bool)
 
 struct ConsoleCodesParser {
 
@@ -38,9 +38,21 @@ struct ConsoleCodesParser {
         var color: ColorType? = nil
         var backgroundColor: BackgroundColorType? = nil
         var styles: [Style]? = nil
+        var resetsAttributes = false
 
         var iter = codes.makeIterator()
         while let code = iter.next() {
+            if code == Style.default.rawValue {
+                resetsAttributes = true
+                color = nil
+                backgroundColor = nil
+                styles = [.default]
+                continue
+            }
+            // A reset must precede, rather than override, later attributes.
+            if styles == [.default] {
+                styles = nil
+            }
             if code == ControlCode.setColor {
                 if canParseToSetBit8(iter) {
                     _ = iter.next() // set 8bit control
@@ -78,7 +90,7 @@ struct ConsoleCodesParser {
                 }
             }
         }
-        return (color, backgroundColor, styles)
+        return (color, backgroundColor, styles, resetsAttributes)
     }
 
     func parseOne(_ code: UInt8) -> CodeResult? {

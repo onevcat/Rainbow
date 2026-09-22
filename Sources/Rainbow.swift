@@ -57,6 +57,13 @@ public enum Rainbow {
         }
 
         mutating func update(with input: ParseResult, overwriteColor: Bool) {
+            // A reset in the incoming codes also clears the segment being styled.
+            // Keep this separate from styles so generation cannot reorder it after colors.
+            if input.resetsAttributes {
+                color = nil
+                backgroundColor = nil
+                styles = nil
+            }
             if isPlain { // Remove the `.default` style for plain segment
                 styles = nil
             }
