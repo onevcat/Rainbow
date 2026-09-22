@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.2.2] - 2026-09-22
+
 ### Fixed
 - Fixed Windows terminal detection to enable colors without the `TERM` environment variable. ([#88](https://github.com/onevcat/Rainbow/pull/88))
 - Fixed reset ordering in compound ANSI SGR sequences and when applying modes to styled text. ([#101](https://github.com/onevcat/Rainbow/pull/101))
@@ -89,7 +91,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Support for Swift 2.2. ([#2](https://github.com/onevcat/Rainbow/pull/2))
 
-[Unreleased]: https://github.com/onevcat/Rainbow/compare/4.2.1...HEAD
+[Unreleased]: https://github.com/onevcat/Rainbow/compare/4.2.2...HEAD
 [1.1.0]: https://github.com/onevcat/Rainbow/releases/tag/1.1.0
 [2.0.0]: https://github.com/onevcat/Rainbow/compare/1.1.0...2.0.0
 [2.0.1]: https://github.com/onevcat/Rainbow/compare/2.0.0...2.0.1
@@ -101,3 +103,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [4.1.0]: https://github.com/onevcat/Rainbow/compare/4.0.1...4.1.0
 [4.2.0]: https://github.com/onevcat/Rainbow/compare/4.1.0...4.2.0
 [4.2.1]: https://github.com/onevcat/Rainbow/compare/4.2.0...4.2.1
+[4.2.2]: https://github.com/onevcat/Rainbow/compare/4.2.1...4.2.2
